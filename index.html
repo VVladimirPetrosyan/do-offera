@@ -10,7 +10,6 @@
 <meta property="og:title" content="до оффера. — конструктор резюме с «взглядом рекрутёра»">
 <meta property="og:description" content="Соберите сильное резюме за 15 минут: живой предпросмотр, подсказки рекрутёра, PDF. Бесплатно, данные не покидают ваш браузер.">
 <meta property="og:type" content="website">
-<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%23FFE873"/><text x="32" y="44" font-size="36" font-family="Georgia" font-weight="bold" text-anchor="middle" fill="%2316324F">О</text></svg>'>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;800&family=Piazzolla:ital,opsz,wght@0,8..30,500;0,8..30,600;0,8..30,700;1,8..30,700&display=swap" rel="stylesheet">
@@ -947,9 +946,6 @@ $("#photoInput").addEventListener("change", e=>{
   img.onload = ()=>{
     const size = 300;
     const c = document.createElement("canvas");
-    const ratio = Math.max(size/img.width, size/img.height);
-    c.width = Math.min(img.width*ratio, img.width) || size;
-    c.height = Math.min(img.height*ratio, img.height) || size;
     const s = Math.min(img.width, img.height);
     c.width = size; c.height = size;
     const ctx = c.getContext("2d");
