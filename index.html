@@ -349,6 +349,26 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
 }
 .print-hint{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:14px}
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110415141", "ym");
+
+   ym(110415141, "init", {
+        ssr:true,
+        webvisor:true,
+        clickmap:true,
+        ecommerce:"dataLayer",
+        accurateTrackBounce:true,
+        trackLinks:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110415141" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -1193,9 +1213,13 @@ document.querySelectorAll("[data-toggle]").forEach(btn=>{
 });
 
 /* ================= Верхние кнопки ================= */
-$("#downloadPdf").addEventListener("click", ()=> window.print());
+$("#downloadPdf").addEventListener("click", ()=>{
+  if(window.ym) ym(110415141,'reachGoal','pdf_download');
+  window.print();
+});
 
 $("#fillExample").addEventListener("click", ()=>{
+  if(window.ym) ym(110415141,'reachGoal','fill_example');
   const hasData = state.personal.name || state.about || state.experience.length;
   if(hasData && !confirm("Заменить текущие данные примером? Ваш черновик будет перезаписан.")) return;
   state = exampleState();
