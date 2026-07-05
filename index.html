@@ -558,7 +558,7 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
         <h3>Хотите наверняка? Покажите резюме эксперту</h3>
         <p>Разбор с письменными рекомендациями в течение 24 часов: что мешает приглашениям, какие формулировки усилить и как поднять зарплатную планку. Стоимость — 1990 ₽.</p>
       </div>
-      <a class="btn btn-primary" id="expertBtn" href="#" rel="noopener">Заказать разбор</a>
+      <a class="btn btn-primary" id="expertBtn" href="#" target="_blank" rel="noopener noreferrer">Заказать разбор</a>
     </aside>
   </section>
 </div>
@@ -571,9 +571,10 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
 <script>
 "use strict";
 
-/* Куда ведёт кнопка «Заказать разбор». Замените на ваш Telegram
-   (https://t.me/ваш_ник) или платёжную ссылку. */
-const EXPERT_LINK = "mailto:4epenaxaa@gmail.com?subject=%D0%A0%D0%B0%D0%B7%D0%B1%D0%BE%D1%80%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5";
+/* Куда ведёт кнопка «Заказать разбор» — сообщество ВКонтакте.
+   Когда в сообществе включим сообщения, можно заменить на прямой диалог
+   (https://vk.me/dooffera) — так конверсия в заявку обычно выше. */
+const EXPERT_LINK = "https://vk.com/dooffera";
 
 /* ================= Состояние ================= */
 const STORAGE_KEY = "offer_resume_v1";
@@ -915,6 +916,9 @@ $("#importDraft").addEventListener("change", e=>{
 
 /* ================= Кнопка эксперта ================= */
 $("#expertBtn").href = EXPERT_LINK;
+$("#expertBtn").addEventListener("click", ()=>{
+  if(window.ym) ym(110415141,'reachGoal','order_review');
+});
 
 /* ================= Формы: статичные поля ================= */
 document.querySelectorAll("[data-bind]").forEach(el=>{
