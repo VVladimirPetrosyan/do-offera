@@ -163,8 +163,18 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
   display:flex;gap:18px;align-items:center;flex-wrap:wrap;
 }
 .expert-cta .expert-txt{flex:1;min-width:260px}
-.expert-cta h3{font-size:16px;font-weight:600;margin-bottom:4px}
+.expert-cta h3{font-size:17px;font-weight:700;margin-bottom:4px}
 .expert-cta p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+.expert-cta .offer-list{list-style:none;margin:12px 0 0;display:grid;gap:7px}
+.expert-cta .offer-list li{font-size:13.5px;color:var(--ink);line-height:1.45}
+.expert-cta .offer-guarantee{
+  font-size:13px;color:var(--ink);line-height:1.5;margin-top:14px;
+  padding:9px 13px;border-radius:8px;
+  background:#EAF4EE;border:1px solid #CBE4D5;
+}
+.expert-cta .offer-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
+.expert-cta .offer-price{font-size:13px;color:var(--ink-soft);flex:1;min-width:180px;line-height:1.4}
+.expert-cta .offer-price b{font-size:19px;color:var(--ink);font-weight:700}
 
 /* ---------- Черновик и приватность ---------- */
 .draft-row{display:flex;gap:8px;flex-wrap:wrap}
@@ -561,10 +571,21 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
 
     <aside class="expert-cta">
       <div class="expert-txt">
-        <h3>Хотите наверняка? Покажите резюме эксперту</h3>
-        <p>Разбор с письменными рекомендациями в течение 24 часов: что мешает приглашениям, какие формулировки усилить и как поднять зарплатную планку. Стоимость — 1990 ₽.</p>
+        <h3>Резюме, на которое зовут — за один разбор</h3>
+        <p>Не «поправлю ошибки», а покажу, почему рекрутёр проходит мимо, и переупакую опыт так, чтобы звали на собеседования.</p>
+        <ul class="offer-list">
+          <li>🔍 Разбор «глазами рекрутёра»: где теряете отклик в первые 6 секунд</li>
+          <li>✍️ 2–3 ключевых блока перепишем вместе: клише → результат в цифрах</li>
+          <li>🎯 Проверка под конкретную вакансию: каких слов не хватает под фильтры (ATS)</li>
+          <li>📄 Письменные рекомендации за 24 часа — асинхронно, без созвонов</li>
+          <li>♻️ Одна бесплатная доработка после ваших правок</li>
+        </ul>
+        <p class="offer-guarantee">✅ <b>Гарантия:</b> не увидите пользы после разбора — верну 1990 ₽, без вопросов.</p>
+        <div class="offer-foot">
+          <div class="offer-price"><b>1990 ₽</b> — цена основателя, пока набираю отзывы</div>
+          <a class="btn btn-primary" id="expertBtn" href="#" target="_blank" rel="noopener noreferrer">Заказать разбор</a>
+        </div>
       </div>
-      <a class="btn btn-primary" id="expertBtn" href="#" target="_blank" rel="noopener noreferrer">Заказать разбор</a>
     </aside>
   </section>
 </div>
