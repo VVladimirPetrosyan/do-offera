@@ -6,9 +6,9 @@
 <title>до оффера. — конструктор резюме: заполните форму и скачайте PDF бесплатно</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#E9E6DF">
-<meta name="description" content="Бесплатный конструктор резюме на русском: заполните форму, посмотрите живой предпросмотр на листе A4 и скачайте готовый PDF. Данные сохраняются в вашем браузере.">
+<meta name="description" content="Бесплатный конструктор резюме на русском: заполните форму, посмотрите живой предпросмотр на листе A4 и скачайте готовый PDF. Проверка «глазами рекрутёра» и совпадение с вакансией — прямо в браузере, данные никуда не отправляются.">
 <meta property="og:title" content="до оффера. — конструктор резюме с «взглядом рекрутёра»">
-<meta property="og:description" content="Соберите сильное резюме за 15 минут: живой предпросмотр, подсказки рекрутёра, PDF. Бесплатно, данные не покидают ваш браузер.">
+<meta property="og:description" content="Соберите сильное резюме за 15 минут: живой предпросмотр, подсказки рекрутёра, проверка под вакансию, PDF. Бесплатно, данные не покидают ваш браузер.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vvladimirpetrosyan.github.io/do-offera/">
 <meta property="og:image" content="https://vvladimirpetrosyan.github.io/do-offera/og-image.png">
@@ -220,12 +220,13 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
 .card-body{display:none;padding:2px 16px 18px}
 .card.open .card-body{display:block}
 
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.field{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;min-width:0}
 .field label{font-size:12.5px;font-weight:500;color:var(--ink-soft)}
 .field input,.field textarea,.field select{
   border:1px solid var(--line);border-radius:8px;
   padding:9px 11px;background:#FCFBF9;
+  width:100%;min-width:0;
   transition:border-color .15s;
 }
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pen);outline:none;background:#fff}
