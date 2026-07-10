@@ -151,6 +151,19 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
 #lintList li.l-info i{background:#8892A0}
 #lintList b{color:var(--ink);font-weight:600}
 
+/* ---------- Соответствие вакансии ---------- */
+.lint-badge.bad{background:#F4E0DB;color:var(--danger)}
+.vac-result{margin-top:12px;display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--ink-soft);line-height:1.5}
+.vac-result b{color:var(--ink);font-weight:600}
+.vac-chips{display:flex;flex-wrap:wrap;gap:6px}
+.vac-chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:var(--desk);color:var(--ink-soft)}
+.vac-chip.hit{background:#DDEEE4;color:var(--ok)}
+.vac-chip.miss{background:#F6ECCB;color:#8A6D14}
+.vac-note{font-size:12.5px;line-height:1.5;color:var(--ink-soft);background:#FCFBF9;border:1px solid var(--line);border-radius:8px;padding:8px 11px}
+.vac-cta{font-size:13px;color:var(--ink)}
+.vac-cta a{color:var(--pen);font-weight:600;text-decoration:none}
+.vac-cta a:hover{text-decoration:underline}
+
 /* ---------- Блок услуги ---------- */
 .expert-cta{
   margin:18px auto 0;
@@ -423,6 +436,18 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
       <ul id="lintList"></ul>
     </section>
 
+    <section class="card lint-card" id="vacCard">
+      <div class="lint-head">
+        <h2>Соответствие вакансии</h2>
+        <span class="lint-badge" id="vacBadge">—</span>
+      </div>
+      <div class="field" style="margin-bottom:0">
+        <textarea id="vacText" data-bind="vacancy" rows="5" placeholder="Вставьте сюда текст вакансии (например, с hh) — покажу, каких слов из неё не хватает в вашем резюме."></textarea>
+        <span class="hint">Сравнение происходит в браузере: текст вакансии никуда не отправляется.</span>
+      </div>
+      <div id="vacResult" class="vac-result" hidden></div>
+    </section>
+
     <!-- 1. Личные данные -->
     <section class="card open" data-card>
       <button class="card-head" type="button" data-toggle aria-expanded="true">
@@ -572,13 +597,14 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
     <aside class="expert-cta">
       <div class="expert-txt">
         <h3>Резюме, на которое зовут — за один разбор</h3>
-        <p>Не «поправлю ошибки», а покажу, почему рекрутёр проходит мимо, и переупакую опыт так, чтобы звали на собеседования.</p>
+        <p>Не «поправлю ошибки», а покажу, где резюме теряет отклик, и переупакую опыт так, чтобы пройти первичный фильтр и дойти до живого человека.</p>
         <ul class="offer-list">
           <li>🔍 Разбор «глазами рекрутёра»: где теряете отклик в первые 6 секунд</li>
+          <li>🎯 Проверка под вакансию: слова, поля hh, заголовок — что мешает пройти фильтр</li>
           <li>✍️ 2–3 ключевых блока перепишем вместе: клише → результат в цифрах</li>
-          <li>🎯 Проверка под конкретную вакансию: каких слов не хватает под фильтры (ATS)</li>
-          <li>📄 Письменные рекомендации за 24 часа — асинхронно, без созвонов</li>
-          <li>♻️ Одна бесплатная доработка после ваших правок</li>
+          <li>✉️ Черновик сопроводительного письма под вашу вакансию</li>
+          <li>🗣️ 3 заготовки ответов для звонка рекрутёра и собеседования</li>
+          <li>📄 Письменно за 24 часа, без созвонов + одна бесплатная доработка</li>
         </ul>
         <p class="offer-guarantee">✅ <b>Гарантия:</b> не увидите пользы после разбора — верну 1990 ₽, без вопросов.</p>
         <div class="offer-foot">
@@ -614,6 +640,7 @@ const blankState = () => ({
   skills:[],
   languages:[],
   courses:[],
+  vacancy:"",
   theme:{accent:"#16324F",font:"serif"}
 });
 
@@ -646,6 +673,7 @@ const exampleState = () => ({
   courses:[
     {name:"Профессия «Менеджер проектов»",org:"Яндекс Практикум",year:"2021"}
   ],
+  vacancy:"",
   theme:{accent:"#16324F",font:"serif"}
 });
 
@@ -911,6 +939,107 @@ function renderLint(){
   if(items[0].level==="info"){ badge.textContent = "ждёт текста"; badge.className = "lint-badge"; }
   else if(warns){ badge.textContent = warns + (warns===1 ? " замечание" : warns<5 ? " замечания" : " замечаний"); badge.className = "lint-badge warn"; }
   else { badge.textContent = "чисто"; badge.className = "lint-badge ok"; }
+}
+
+/* ================= Соответствие вакансии ================= */
+/* Первичная проверка по ключевым словам: так отклик ищут фильтры и глаза
+   рекрутёра. Всё считается в браузере, текст вакансии никуда не уходит. */
+
+const VAC_STOP = new Set(("и в во не на что с со как а то все но да ты к у же за бы по только ее мне было вот от меня еще нет о из ему теперь когда ли если уже или ни быть был до вас вам ведь там потом себя ей может они тут где есть надо для тебя их чем была сам без будто чего тоже себе под будет тогда кто этот того этого какой здесь этом один мой тем чтобы нее были куда всех можно при два об другой хоть после над больше тот через эти нас про всего них какая эту моя перед иногда лучше том нельзя такой им более всегда конечно всю между это мы вы наш ваш наши ваши свой свои также итд др пр" +
+" обязанности требования условия компания компании компанию работа работы работу работе опыт лет год года годах желательно преимуществом плюсом плюс знание знания умение умения наличие высшее образование график гибкий оформление зарплата оклад премия премии дмс офис офисе удаленно удаленка гибрид команда команде команду коллектив развитие возможность возможности карьерный карьерного рост роста соцпакет тк рф собеседование кандидат кандидата кандидатов ищем ждем предлагаем ожидаем нужно нужен нужна будете вакансия вакансии должность должности обязателен обязательна обязательно готовность желание ответственность стрессоустойчивость коммуникабельность обучаемость исполнительность пунктуальность конкурентная конкурентн несколько нескольк").split(/\s+/));
+
+const VAC_SUF = ["иями","ями","ами","ого","его","ому","ему","ыми","ими","ение","ения","ению","ством","ство","ства","ости","ость","ует","уют","ает","ают","яет","яют","ить","ыть","ать","ять","еть","ой","ей","ом","ем","ам","ям","ах","ях","ов","ев","ых","их","ый","ий","ая","яя","ое","ее","ие","ые","ую","юю","а","я","о","е","ы","и","у","ю","ь","й"].sort((x,y)=>y.length-x.length);
+
+function vacStem(w){
+  let s = w, guard = 0;
+  while(guard++ < 3){
+    let cut = false;
+    for(const suf of VAC_SUF){
+      if(s.length - suf.length >= 4 && s.endsWith(suf)){ s = s.slice(0, -suf.length); cut = true; break; }
+    }
+    if(!cut) break;
+  }
+  return s;
+}
+
+function vacTokens(text){
+  return (String(text||"").toLowerCase().replace(/ё/g,"е").match(/[a-zа-я0-9][a-zа-я0-9+#./-]*/g) || [])
+    .map(t => t.replace(/[./-]+$/,"")).filter(Boolean);
+}
+
+function analyzeVacancy(){
+  const vt = (state.vacancy||"").trim();
+  if(vt.length < 40) return null;
+  const resumeText = [
+    state.personal.title, state.about,
+    ...state.experience.map(e=>[e.role,e.company,e.desc].filter(Boolean).join(" ")),
+    ...state.education.map(e=>e.degree||""),
+    state.skills.join(" "),
+    ...state.courses.map(c=>c.name||""),
+    ...state.languages.map(l=>l.name||"")
+  ].join(" ");
+  const rstems = new Set(vacTokens(resumeText).map(vacStem));
+  if(rstems.size < 3) return {empty:true};
+
+  const freq = new Map();
+  for(const tok of vacTokens(vt)){
+    if(VAC_STOP.has(tok)) continue;
+    if(/^\d+([.,]\d+)?$/.test(tok)) continue;
+    const lat = /[a-z0-9]/.test(tok);
+    if(lat ? tok.length < 2 : tok.length < 4) continue;
+    const st = vacStem(tok);
+    if(VAC_STOP.has(st)) continue;
+    const e = freq.get(st) || {word:tok, n:0};
+    e.n++; freq.set(st, e);
+  }
+  let items = [...freq.entries()].map(([st,e])=>({stem:st, word:e.word, n:e.n}));
+  items.sort((a,b)=> b.n-a.n || b.stem.length-a.stem.length);
+  items = items.slice(0, 24); // ядро вакансии: самые частые значимые слова
+  const isHit = it => {
+    if(rstems.has(it.stem)) return true;
+    if(it.stem.length >= 5){
+      for(const r of rstems){
+        if(r.length >= 5 && (r.startsWith(it.stem) || it.stem.startsWith(r))) return true;
+      }
+    }
+    return false;
+  };
+  const hits = [], miss = [];
+  items.forEach(it => (isHit(it) ? hits : miss).push(it));
+  const pct = items.length ? Math.round(hits.length / items.length * 100) : 0;
+  return {pct, hits, miss, total: items.length};
+}
+
+let vacGoalDone = false;
+function renderVacancy(){
+  const box = $("#vacResult"), badge = $("#vacBadge");
+  const r = analyzeVacancy();
+  if(!r){
+    box.hidden = true;
+    badge.textContent = "—"; badge.className = "lint-badge";
+    return;
+  }
+  if(r.empty){
+    box.hidden = false;
+    box.innerHTML = "<div>Сначала заполните резюме слева — пока сравнивать не с чем.</div>";
+    badge.textContent = "ждёт резюме"; badge.className = "lint-badge";
+    return;
+  }
+  badge.textContent = r.pct + " %";
+  badge.className = "lint-badge " + (r.pct >= 70 ? "ok" : r.pct >= 40 ? "warn" : "bad");
+  const chips = (arr, cls, cap) => arr.slice(0, cap).map(x=>`<span class="vac-chip ${cls}">${esc(x.word)}</span>`).join("");
+  box.hidden = false;
+  box.innerHTML = `
+    <div>Совпадение с ключевыми словами вакансии: <b>${r.pct}%</b> (${r.hits.length} из ${r.total}).</div>
+    ${r.miss.length
+      ? `<div><b>Не хватает в резюме</b> — если такой опыт есть, назовите его словами вакансии:</div><div class="vac-chips">${chips(r.miss,"miss",12)}</div>`
+      : `<div>Все ключевые слова вакансии есть в резюме — сильная заявка.</div>`}
+    ${r.hits.length ? `<div>Совпало:</div><div class="vac-chips">${chips(r.hits,"hit",8)}</div>` : ""}
+    <div class="vac-note">Это первичная проверка по словам — именно так резюме ищут фильтры и глаза рекрутёра. Автофильтр hh смотрит ещё и на поля: город, желаемую зарплату, опыт в годах. Проверьте их в hh-резюме отдельно.</div>
+    <div class="vac-cta">Хотите, чтобы под эту вакансию резюме заточил человек? <a href="${EXPERT_LINK}" target="_blank" rel="noopener noreferrer" id="vacReviewLink">Заказать разбор →</a></div>`;
+  const link = document.getElementById("vacReviewLink");
+  if(link) link.addEventListener("click", ()=>{ if(window.ym) ym(110415141,'reachGoal','order_review'); });
+  if(!vacGoalDone && window.ym){ vacGoalDone = true; ym(110415141,'reachGoal','vacancy_check'); }
 }
 
 /* ================= Черновик: экспорт и импорт ================= */
@@ -1291,6 +1420,7 @@ function update(){
   renderPreview();
   renderReadiness();
   renderLint();
+  renderVacancy();
   save();
 }
 
@@ -1298,6 +1428,7 @@ renderAllLists();
 renderPreview();
 renderReadiness();
 renderLint();
+renderVacancy();
 window.addEventListener("load", fitSheet);
 </script>
 </body>
