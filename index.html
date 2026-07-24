@@ -379,6 +379,25 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
   .r-sec,.r-item{break-inside:avoid}
 }
 .print-hint{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:14px}
+
+/* ---------- Cookie-уведомление ---------- */
+.cookie-bar{
+  position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
+  z-index:70;width:min(680px,calc(100% - 24px));
+  background:var(--navy);color:#fff;border-radius:12px;
+  box-shadow:0 10px 40px rgba(22,50,79,.35);
+  padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+}
+.cookie-bar p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);flex:1;min-width:220px}
+.cookie-bar a{color:var(--marker);font-weight:600;text-decoration:none}
+.cookie-bar a:hover{text-decoration:underline}
+.cookie-bar button{
+  border:none;background:var(--marker);color:var(--navy);font-weight:700;
+  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
+}
+.cookie-bar[hidden]{display:none}
+@media (max-width:1023px){ .cookie-bar{bottom:76px} }
+@media print{ .cookie-bar{display:none!important} }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -626,6 +645,11 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
   <button type="button" class="active" id="tabEdit">Редактор</button>
   <button type="button" id="tabPreview">Предпросмотр</button>
 </nav>
+
+<div class="cookie-bar" id="cookieBar" hidden>
+  <p>Мы используем cookie и обезличенную Яндекс.Метрику для статистики посещений. Содержимое резюме при этом не собирается. <a href="privacy.html">Политика конфиденциальности</a>.</p>
+  <button type="button" id="cookieOk">Понятно</button>
+</div>
 
 <script>
 "use strict";
@@ -1437,6 +1461,19 @@ renderReadiness();
 renderLint();
 renderVacancy();
 window.addEventListener("load", fitSheet);
+
+/* ================= Cookie-уведомление ================= */
+(function(){
+  const KEY = "cookie_ack_v1";
+  const bar = $("#cookieBar");
+  if(!bar) return;
+  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  bar.hidden = false;
+  $("#cookieOk").addEventListener("click", ()=>{
+    bar.hidden = true;
+    try{ localStorage.setItem(KEY, "1"); }catch(e){}
+  });
+})();
 </script>
 </body>
 </html>
