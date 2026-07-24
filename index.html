@@ -6,9 +6,9 @@
 <title>до оффера. — конструктор резюме: заполните форму и скачайте PDF бесплатно</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#E9E6DF">
-<meta name="description" content="Бесплатный конструктор резюме на русском: заполните форму, посмотрите живой предпросмотр на листе A4 и скачайте готовый PDF. Проверка «глазами рекрутёра» и совпадение с вакансией — прямо в браузере, данные никуда не отправляются.">
+<meta name="description" content="Бесплатный конструктор резюме на русском: заполните форму, посмотрите живой предпросмотр на листе A4 и скачайте готовый PDF. Проверка «глазами рекрутёра» и совпадение с вакансией — прямо в браузере, содержимое резюме остаётся на вашем устройстве.">
 <meta property="og:title" content="до оффера. — конструктор резюме с «взглядом рекрутёра»">
-<meta property="og:description" content="Соберите сильное резюме за 15 минут: живой предпросмотр, подсказки рекрутёра, проверка под вакансию, PDF. Бесплатно, данные не покидают ваш браузер.">
+<meta property="og:description" content="Соберите сильное резюме за 15 минут: живой предпросмотр, подсказки рекрутёра, проверка под вакансию, PDF. Бесплатно, содержимое резюме не покидает ваш браузер.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vvladimirpetrosyan.github.io/do-offera/">
 <meta property="og:image" content="https://vvladimirpetrosyan.github.io/do-offera/og-image.png">
@@ -391,11 +391,14 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
    })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110415141", "ym");
 
+   /* webvisor ОТКЛЮЧЁН намеренно: он записывает весь DOM, включая предпросмотр
+      резюме с реальными ФИО/телефоном/почтой, — это нарушало бы обещание
+      «содержимое резюме не покидает браузер». Оставляем обезличенный счётчик
+      посещений и цели воронки (order_review, pdf_download и т.д.). */
    ym(110415141, "init", {
         ssr:true,
-        webvisor:true,
+        webvisor:false,
         clickmap:true,
-        ecommerce:"dataLayer",
         accurateTrackBounce:true,
         trackLinks:true
    });
@@ -573,7 +576,7 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
           <input type="file" id="importDraft" accept="application/json,.json" hidden>
         </label>
       </div>
-      <p class="privacy" style="margin-top:10px">Резюме никуда не отправляется: всё хранится только в вашем браузере. Файл черновика — резервная копия, её можно открыть на другом устройстве.</p>
+      <p class="privacy" style="margin-top:10px">Содержимое резюме хранится только в вашем браузере и не отправляется на наши серверы. Файл черновика — резервная копия, её можно открыть на другом устройстве. Для обезличенной статистики посещений используется Яндекс.Метрика — содержимого резюме она не получает. <a href="privacy.html" style="color:var(--pen);font-weight:600;text-decoration:none">Политика конфиденциальности</a></p>
     </div>
 
   </main>
