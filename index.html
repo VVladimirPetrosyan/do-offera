@@ -147,6 +147,7 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
 #lintList li.l-warn i{background:#C9A227}
 #lintList li.l-ok i{background:var(--ok)}
 #lintList li.l-info i{background:#8892A0}
+#lintList li.l-empty i{background:#8892A0}
 #lintList b{color:var(--ink);font-weight:600}
 
 /* ---------- Соответствие вакансии ---------- */
@@ -704,7 +705,7 @@ const exampleState = () => ({
   courses:[
     {name:"Профессия «Менеджер проектов»",org:"Яндекс Практикум",year:"2021"}
   ],
-  vacancy:"",
+  vacancy:"Ищем менеджера проектов в продуктовую IT-команду.\n\nОбязанности:\n— Ведение нескольких проектов параллельно: сайты, мобильные приложения, интеграции\n— Работа с бэклогом и roadmap продукта, приоритизация задач\n— Взаимодействие со стейкхолдерами и заказчиками, презентация результатов\n— Контроль бюджета проекта и рисков, отчётность перед руководством\n— Работа в Jira и Confluence, ведение документации по методологии Scrum\n— Постановка технических заданий разработчикам и дизайнерам\n\nТребования:\n— Опыт управления проектами от 3 лет, желательно в digital или IT\n— Уверенное знание Scrum и Kanban\n— Опыт работы с бюджетом и KPI команды\n— Английский язык не ниже B2\n— Опыт найма и адаптации сотрудников будет плюсом",
   theme:{accent:"#16324F",font:"serif"}
 });
 
@@ -930,7 +931,7 @@ function lint(){
   const hasContent = p.name || state.about || state.experience.length;
 
   if(!hasContent){
-    out.push({level:"info", html:"Начните заполнять резюме — здесь появятся замечания: клише, слабые глаголы, места без цифр. Всё то, за что рекрутёр откладывает резюме в сторону."});
+    out.push({level:"empty", html:"Начните заполнять резюме — здесь появятся замечания: клише, слабые глаголы, места без цифр. Всё то, за что рекрутёр откладывает резюме в сторону."});
     return out;
   }
 
@@ -996,7 +997,7 @@ function renderLint(){
   $("#lintList").innerHTML = items.map(i=>`<li class="l-${i.level}"><i></i><span>${i.html}</span></li>`).join("");
   const warns = items.filter(i=>i.level==="warn").length;
   const badge = $("#lintBadge");
-  if(items[0].level==="info"){ badge.textContent = "ждёт текста"; badge.className = "lint-badge"; }
+  if(items[0].level==="empty"){ badge.textContent = "ждёт текста"; badge.className = "lint-badge"; }
   else if(warns){ badge.textContent = warns + (warns===1 ? " замечание" : warns<5 ? " замечания" : " замечаний"); badge.className = "lint-badge warn"; }
   else { badge.textContent = "чисто"; badge.className = "lint-badge ok"; }
 }
