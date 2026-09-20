@@ -177,7 +177,10 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
 .expert-cta .expert-txt{flex:1;min-width:260px}
 .expert-cta h3{font-size:17px;font-weight:700;margin-bottom:4px}
 .expert-cta p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
-.expert-cta .offer-list{list-style:none;margin:12px 0 0;display:grid;gap:7px}
+.expert-cta .offer-h{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 6px}
+.expert-cta .offer-steps{margin:0;padding-left:20px;display:grid;gap:6px}
+.expert-cta .offer-steps li{font-size:13.5px;color:var(--ink);line-height:1.45}
+.expert-cta .offer-list{list-style:none;margin:0;display:grid;gap:7px}
 .expert-cta .offer-list li{font-size:13.5px;color:var(--ink);line-height:1.45}
 .expert-cta .offer-list .hl{
   font-weight:700;padding:0 3px;
@@ -624,18 +627,24 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
       <div class="expert-txt">
         <h3>Резюме, на которое зовут — за один разбор</h3>
         <p>Не «поправлю ошибки», а покажу, где резюме теряет отклик, и переупакую опыт так, чтобы пройти первичный фильтр и дойти до живого человека.</p>
+        <h4 class="offer-h">Как проходит</h4>
+        <ol class="offer-steps">
+          <li><b>Присылаете</b> резюме — ссылкой на hh или текстом — и 1–2 вакансии, на которые целитесь.</li>
+          <li><b>Бесплатно и одним абзацем</b> говорю, на каком из шести мест резюме режется: поля, название, первый экран, слова вакансии, достижения, красные флаги. Если резюме в порядке и дело не в нём — скажу прямо.</li>
+          <li><b>Полный разбор</b> — письменно, в течение суток, без созвонов. Плюс одна бесплатная доработка после ваших правок.</li>
+        </ol>
+        <h4 class="offer-h">Что внутри полного разбора</h4>
         <ul class="offer-list">
-          <li>🔍 Разбор «глазами рекрутёра»: где теряете отклик в первые 6 секунд</li>
-          <li>🎯 <span class="hl">Заточка под вашу вакансию</span>: слова, поля hh, заголовок — что мешает пройти фильтр</li>
-          <li>✍️ 2–3 ключевых блока перепишем вместе: клише → результат в цифрах</li>
-          <li>✉️ Черновик сопроводительного письма под вашу вакансию</li>
-          <li>🗣️ 3 заготовки ответов для звонка рекрутёра и собеседования</li>
-          <li>📄 Письменно за 24 часа, без созвонов + одна бесплатная доработка</li>
+          <li>🔍 <span class="hl">Проходимость</span>: какие слова и поля hh не дают пройти фильтр и дойти до живого человека</li>
+          <li>🧩 Честные пробелы под вакансию — и чем их закрыть</li>
+          <li>✍️ Топ-5 правок «было → стало» — готовые формулировки</li>
+          <li>✉️ Черновик сопроводительного под вашу вакансию</li>
+          <li>🗣️ Шпаргалка к звонку рекрутёра + 3 заготовки ответов для собеседования</li>
         </ul>
         <p class="offer-guarantee">✅ <b>Гарантия:</b> не увидите пользы после разбора — верну 1990 ₽, без вопросов.</p>
         <div class="offer-foot">
-          <div class="offer-price"><b>1990 ₽</b> — цена основателя, пока набираю отзывы</div>
-          <a class="btn btn-primary" id="expertBtn" href="#" target="_blank" rel="noopener noreferrer">Заказать разбор</a>
+          <div class="offer-price"><b>1990 ₽</b> — полный разбор, цена основателя, пока набираю отзывы. Мини-диагноз — бесплатно.</div>
+          <a class="btn btn-primary" id="expertBtn" href="#" target="_blank" rel="noopener noreferrer">Прислать резюме</a>
         </div>
       </div>
     </aside>
