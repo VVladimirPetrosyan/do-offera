@@ -192,6 +192,13 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
   padding:9px 13px;border-radius:8px;
   background:#EAF4EE;border:1px solid #CBE4D5;
 }
+.expert-cta .offer-sample{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.expert-cta .offer-sample a{display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.expert-cta .offer-sample img{display:block;width:100%;height:auto}
+.expert-cta .offer-sample-cap{font-size:12.5px;margin-top:6px}
+.expert-cta .offer-prices{list-style:none;margin:0;display:grid;gap:7px}
+.expert-cta .offer-prices li{font-size:13.5px;color:var(--ink);line-height:1.45}
+.expert-cta .offer-prices b{font-weight:600}
 .expert-cta .offer-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
 .expert-cta .offer-price{font-size:13px;color:var(--ink-soft);flex:1;min-width:180px;line-height:1.4}
 .expert-cta .offer-price b{font-size:19px;color:var(--ink);font-weight:700}
@@ -642,7 +649,21 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
           <li>✉️ Черновик сопроводительного под вашу вакансию</li>
           <li>🗣️ Шпаргалка к звонку рекрутёра + 3 заготовки ответов для собеседования</li>
         </ul>
-        <p class="offer-guarantee">✅ <b>Гарантия:</b> не увидите пользы после разбора — верну 1990 ₽, без вопросов.</p>
+        <h4 class="offer-h">Как выглядит разбор</h4>
+        <div class="offer-sample">
+          <a href="img/obrazec-1.jpg" target="_blank" rel="noopener"><img src="img/obrazec-1.jpg" width="1000" height="1415" loading="lazy" alt="Образец разбора, страница 1: главное за минуту и готовые строки «было → стало»"></a>
+          <a href="img/obrazec-2.jpg" target="_blank" rel="noopener"><img src="img/obrazec-2.jpg" width="1000" height="1415" loading="lazy" alt="Образец разбора, страница 2: что просят вакансии, куда откликаться и план на две недели"></a>
+        </div>
+        <p class="offer-sample-cap">Образец разбора под смену профессии: резюме, имя и вакансии вымышленные. Нажмите, чтобы открыть целиком.</p>
+        <h4 class="offer-h">Другие форматы</h4>
+        <ul class="offer-prices">
+          <li><b>Смена профессии — 2 990 ₽.</b> Что из вашего опыта уже подходит новой сфере, готовые строки резюме, открытые вакансии со ссылками и два письма. 2 дня.</li>
+          <li><b>Составлю резюме — 3 000 ₽.</b> Резюме целиком под ваши вакансии: текст по полям hh и PDF для рассылки. 2 дня.</li>
+          <li><b>Сопровождение поиска — 7 000 ₽.</b> Разбор, подборка вакансий в первый день и через неделю, первый абзац письма под каждую вакансию, разбор ответов работодателей. 2 недели.</li>
+          <li><b>Письмо под вакансию — 1 500 ₽.</b> Сопроводительное под одну конкретную вакансию. Сутки.</li>
+        </ul>
+        <p class="offer-sample-cap">Какой формат нужен, подскажу после мини-диагноза.</p>
+        <p class="offer-guarantee">✅ <b>Гарантия:</b> не увидите пользы — верну деньги, без вопросов.</p>
         <div class="offer-foot">
           <div class="offer-price"><b>1990 ₽</b> — полный разбор, цена основателя, пока набираю отзывы. Мини-диагноз — бесплатно.</div>
           <a class="btn btn-primary" id="expertBtn" href="#" target="_blank" rel="noopener noreferrer">Прислать резюме</a>
