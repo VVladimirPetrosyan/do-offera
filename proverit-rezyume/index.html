@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Проверить резюме бесплатно: оценка от 0 до 100 — до оффера.</title>
+<meta name="description" content="Бесплатная проверка резюме онлайн: вставьте текст и получите оценку от 0 до 100 по шести местам, где резюме теряет отклик, и что поправить первым. Без регистрации, текст не уходит на сервер.">
+<link rel="canonical" href="https://do-offera.ru/proverit-rezyume/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#E9E6DF">
+<meta property="og:title" content="Проверить резюме бесплатно: оценка от 0 до 100">
+<meta property="og:description" content="Вставьте текст резюме — балл по шести местам, где резюме теряет отклик, и что поправить первым. Без регистрации, прямо в браузере.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://do-offera.ru/proverit-rezyume/">
+<meta property="og:image" content="https://do-offera.ru/og-image.png">
+<meta property="og:image:width" content="1590">
+<meta property="og:image:height" content="400">
+<meta property="og:image:alt" content="до оффера. — конструктор резюме">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{
+  --desk:#E9E6DF;
+  --desk-deep:#DDD9CF;
+  --paper:#FFFFFF;
+  --ink:#20262E;
+  --ink-soft:#5A6470;
+  --navy:#16324F;
+  --marker:#FFE873;
+  --pen:#2743C7;
+  --pen-deep:#1E33A0;
+  --line:#D8D4CA;
+  --radius:10px;
+  --shadow-card:0 1px 2px rgba(32,38,46,.06),0 4px 14px rgba(32,38,46,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1100px 480px at 80% -8%,rgba(255,255,255,.55),transparent 60%),
+    var(--desk);
+  color:var(--ink);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--pen)}
+:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
+.mark{
+  font-style:italic;
+  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
+  padding:0 3px;
+}
+
+/* ---------- Шапка ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(233,230,223,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:22px}
+.wordmark{
+  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
+  font-size:24px;color:var(--navy);letter-spacing:-.01em;white-space:nowrap;text-decoration:none;
+  margin-right:auto;
+}
+.wordmark em{
+  font-style:italic;
+  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
+  padding:0 2px;
+}
+.topnav{display:flex;gap:20px}
+.topnav a{font-size:14px;font-weight:500;color:var(--ink-soft);text-decoration:none}
+.topnav a:hover{color:var(--ink)}
+.topnav a[aria-current="page"]{color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:var(--radius);padding:9px 16px;font-size:14px;font-weight:500;
+  text-decoration:none;white-space:nowrap;
+  transition:border-color .15s,background .15s,transform .1s;
+}
+.btn:hover{border-color:var(--ink-soft)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--pen);border-color:var(--pen);color:#fff;font-weight:600}
+.btn-primary:hover{background:var(--pen-deep);border-color:var(--pen-deep)}
+.btn-lg{font-size:16px;padding:13px 26px}
+@media (max-width:720px){
+  .topnav{display:none}
+  .topbar-in{padding:8px 16px;gap:12px}
+  .wordmark{font-size:21px}
+  .topbar .btn-primary{padding:7px 12px;font-size:13px}
+}
+
+/* ---------- Общее ---------- */
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.block{margin-top:84px}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.h2{
+  font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--navy);
+  font-size:clamp(26px,3.6vw,34px);line-height:1.15;letter-spacing:-.01em;
+}
+.intro{margin-top:12px;max-width:640px;color:#333a42}
+
+/* ---------- Первый экран ---------- */
+.hero{
+  display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:48px;align-items:start;padding-top:56px;
+}
+.hero h1{
+  font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--navy);
+  font-size:clamp(38px,6vw,58px);line-height:1.04;letter-spacing:-.015em;margin-top:12px;
+}
+.lede{margin-top:20px;font-size:18px;line-height:1.55;color:#333a42;max-width:540px}
+.hero-alt{color:var(--ink-soft)}
+
+/* ---------- Поле проверки ---------- */
+.checker{
+  background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 1px 2px rgba(32,38,46,.06),0 14px 40px rgba(32,38,46,.10);
+  padding:20px 20px 18px;scroll-margin-top:72px;
+}
+.ck-label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.checker textarea{
+  display:block;width:100%;border:1px solid var(--line);border-radius:8px;background:#FCFBF9;
+  padding:10px 12px;font:inherit;font-size:14px;line-height:1.5;color:var(--ink);resize:vertical;
+}
+.checker textarea:focus{border-color:var(--pen);outline:none;background:#fff}
+#resumeText{min-height:230px}
+.ck-vac{margin-top:12px}
+.ck-vac summary{cursor:pointer;font-size:14px;font-weight:500;color:var(--pen);list-style:none}
+.ck-vac summary::-webkit-details-marker{display:none}
+.ck-vac summary::before{content:"+ "}
+.ck-vac[open] summary::before{content:"− "}
+.ck-vac textarea{margin-top:8px;min-height:120px}
+.ck-row{margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ck-note{margin-top:10px;font-size:12.5px;color:var(--ink-soft);line-height:1.45}
+.ck-err{margin-top:10px;font-size:13.5px;color:#B4452F}
+.ck-info{margin-top:10px;font-size:13.5px;color:var(--ink);background:#FCFBF6;border-left:3px solid var(--marker);padding:7px 10px;border-radius:6px}
+.checker .hero-alt{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13.5px}
+
+/* ---------- Результат ---------- */
+.result{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start;scroll-margin-top:72px}
+.result[hidden]{display:none}
+.res-card{background:var(--navy);color:#fff;border-radius:14px;padding:24px;box-shadow:0 14px 40px rgba(22,50,79,.28)}
+.res-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.res-top h2{font-size:14px;font-weight:600;letter-spacing:.02em}
+.res-total{font-family:"Piazzolla",Georgia,serif;font-weight:700;font-size:44px;line-height:1;white-space:nowrap}
+.res-total small{font-family:"Golos Text",system-ui,sans-serif;font-size:14px;font-weight:400;color:rgba(255,255,255,.7);margin-left:4px}
+.res-human{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.res-human span{flex:1;min-width:180px;font-size:14px;color:rgba(255,255,255,.92);line-height:1.45}
+.res-human .btn{background:var(--marker);border-color:var(--marker);color:var(--navy);font-weight:700}
+.res-human .btn:hover{background:#FFF0A0;border-color:#FFF0A0}
+.res-ruler{display:flex;gap:3px;height:14px;margin:18px 0 18px}
+.res-ruler span{position:relative;background:rgba(255,255,255,.14);overflow:hidden;min-width:0}
+.res-ruler span:first-child{border-radius:5px 0 0 5px}
+.res-ruler span:last-child{border-radius:0 5px 5px 0}
+.res-ruler i{position:absolute;top:0;bottom:0;left:0;background:var(--marker)}
+.res-ruler .off{background:repeating-linear-gradient(135deg,rgba(255,232,115,.30) 0 5px,transparent 5px 10px)}
+.res-places{list-style:none;display:grid;gap:11px}
+.res-places li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;font-size:14.5px}
+.res-places .nm{font-weight:600}
+.res-places .pt{color:var(--marker);font-weight:600;white-space:nowrap}
+.res-places .nt{grid-column:1/-1;color:rgba(255,255,255,.75);font-size:13px;line-height:1.45}
+.res-places .off .pt{color:rgba(255,255,255,.6);font-weight:400}
+.res-empty{margin-top:14px;font-size:14.5px;color:rgba(255,255,255,.88)}
+.res-empty ul{margin-top:10px;padding-left:18px;display:grid;gap:6px}
+.res-empty b{color:var(--marker);font-weight:600}
+.res-side{display:flex;flex-direction:column;gap:14px}
+.res-box{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:18px 20px}
+.res-box h3{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.res-box p{font-size:15px;color:#333a42}
+.res-box p + p{margin-top:8px}
+.res-fix{border-left:3px solid var(--marker)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:#DDEEE4;color:#1E7B4F}
+.chip.miss{background:#F6ECCB;color:#8A6D14}
+.res-box .hint{font-size:13px;color:var(--ink-soft);margin-top:10px}
+.res-cta{display:flex;gap:10px;flex-wrap:wrap}
+
+.places-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:24px 48px;align-items:end}
+
+/* Линейка балла: сто баллов, поделённые между шестью местами */
+.scorecard{
+  background:var(--navy);color:#fff;border-radius:14px;
+  padding:24px 24px 22px;box-shadow:0 14px 40px rgba(22,50,79,.28);
+}
+.sc-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sc-top h2{font-size:14px;font-weight:600;letter-spacing:.02em}
+.sc-top .sc-max{font-family:"Piazzolla",Georgia,serif;font-weight:700;font-size:30px;line-height:1}
+.sc-top .sc-max small{font-size:13px;font-weight:400;color:rgba(255,255,255,.7);margin-left:3px;font-family:"Golos Text",system-ui,sans-serif}
+.ruler{display:flex;gap:3px;height:34px;margin:16px 0 18px}
+.ruler span{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--marker);color:var(--navy);
+  font-size:13px;font-weight:700;min-width:0;
+}
+.ruler span:first-child{border-radius:6px 0 0 6px}
+.ruler span:last-child{border-radius:0 6px 6px 0}
+.ruler .vac,.sc-legend .vac i{
+  background:repeating-linear-gradient(135deg,rgba(255,232,115,.38) 0 5px,transparent 5px 10px);
+  box-shadow:inset 0 0 0 1.5px var(--marker);color:var(--marker);
+}
+.sc-legend{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
+.sc-legend li{display:flex;align-items:center;gap:9px;font-size:14px;color:rgba(255,255,255,.92)}
+.sc-legend i{width:12px;height:12px;border-radius:3px;background:var(--marker);flex:none}
+.sc-legend b{margin-left:auto;font-weight:600;color:#fff}
+.sc-note{margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.16);font-size:13px;line-height:1.5;color:rgba(255,255,255,.8)}
+
+/* ---------- Лист: что проверяется ---------- */
+.sheet{
+  margin-top:28px;background:var(--paper);
+  box-shadow:0 1px 2px rgba(32,38,46,.12),0 18px 45px rgba(32,38,46,.16);
+  padding:clamp(24px,5vw,52px) clamp(20px,5vw,56px);
+}
+.place + .place{margin-top:26px}
+.place h3{
+  font-size:15px;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.09em;
+  display:flex;align-items:center;gap:12px;margin-bottom:8px;
+}
+.place h3::after{content:"";flex:1;height:1px;background:#E3E1DA;order:1}
+.place h3 .pts{
+  order:2;font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
+  font-size:17px;letter-spacing:0;text-transform:none;color:var(--pen);white-space:nowrap;
+}
+.place p{color:#333a42;font-size:15.5px;line-height:1.6;max-width:720px}
+
+/* ---------- Как проверить ---------- */
+.steps{list-style:none;margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.steps li{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-card);padding:20px 20px 22px;
+}
+.steps .n{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;color:var(--pen);font-size:26px;line-height:1}
+.steps h3{font-size:16.5px;font-weight:600;margin-top:10px;line-height:1.35}
+.steps p{font-size:14.5px;color:var(--ink-soft);margin-top:8px;line-height:1.55}
+.after-steps{margin-top:20px;color:#333a42;max-width:720px}
+
+/* ---------- Чего балл не скажет ---------- */
+.limits{
+  padding:24px 26px;background:#FCFBF6;border:1px solid #ECE6D2;
+  border-left:3px solid var(--marker);border-radius:var(--radius);
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center;
+}
+.limits p{color:#333a42;max-width:640px}
+.limits p + p{margin-top:10px}
+.limits .btns{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+
+/* ---------- Вопросы ---------- */
+.faq{margin-top:26px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 44px}
+.faq h3{font-size:17px;font-weight:600;line-height:1.35}
+.faq p{margin-top:8px;color:#333a42;font-size:15.5px}
+
+/* ---------- Финал ---------- */
+.final{
+  margin-top:84px;margin-bottom:84px;
+  background:var(--navy);color:#fff;border-radius:14px;
+  padding:34px clamp(22px,4vw,44px);
+  display:flex;align-items:center;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;
+}
+.final .h2{color:#fff}
+.final p{margin-top:8px;color:rgba(255,255,255,.82);max-width:520px}
+.final .btn-primary{background:var(--marker);border-color:var(--marker);color:var(--navy)}
+.final .btn-primary:hover{background:#FFF0A0;border-color:#FFF0A0}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:28px;padding-top:36px}
+  .result{grid-template-columns:1fr;margin-top:28px}
+  .places-head{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .faq{grid-template-columns:1fr;gap:24px}
+  .limits{grid-template-columns:1fr}
+  .limits .btns{flex-direction:row;flex-wrap:wrap}
+  .block{margin-top:64px}
+  .final{margin-top:64px;margin-bottom:64px}
+}
+@media (max-width:420px){
+  .wrap{padding:0 16px}
+  .hero{padding-top:18px;gap:18px}
+  .hero h1{font-size:32px;margin-top:8px}
+  .sc-legend{grid-template-columns:1fr}
+  .lede{font-size:16px;margin-top:12px}
+  .checker{padding:16px 14px 14px}
+  #resumeText{min-height:130px;height:130px}
+  .ck-row .btn{padding:11px 13px}
+  .ck-row .btn-lg{font-size:15px}
+  .res-card{padding:20px 16px}
+  .res-cta .btn{flex:1}
+}
+
+/* ---------- Подвал (общий для всех страниц) ---------- */
+.sf{border-top:1px solid var(--line);background:var(--desk-deep)}
+.sf-in{max-width:1080px;margin:0 auto;padding:28px 20px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
+.sf-brand{max-width:440px}
+.sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
+.sf-mark em{font-style:italic;background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 2px}
+.sf-brand p{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:6px}
+.sf-brand p a{color:var(--ink);font-weight:600;text-decoration:none}
+.sf-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:4px}
+.sf-nav a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
+.sf a:hover{text-decoration:underline}
+.sf-nav a[aria-current="page"]{color:var(--pen)}
+.sf-note{flex-basis:100%;font-size:12.5px;line-height:1.5;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px}
+.sf-note a{color:var(--ink-soft)}
+
+/* ---------- Cookie-уведомление ---------- */
+.cookie-bar{
+  position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
+  z-index:70;width:min(680px,calc(100% - 24px));
+  background:var(--navy);color:#fff;border-radius:12px;
+  box-shadow:0 10px 40px rgba(22,50,79,.35);
+  padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+}
+.cookie-bar p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);flex:1;min-width:220px}
+.cookie-bar a{color:var(--marker);font-weight:600;text-decoration:none}
+.cookie-bar a:hover{text-decoration:underline}
+.cookie-bar button{
+  border:none;background:var(--marker);color:var(--navy);font-weight:700;font-family:inherit;cursor:pointer;
+  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
+}
+.cookie-bar[hidden]{display:none}
+@media (max-width:420px){
+  .cookie-bar{padding:10px 12px;gap:10px;flex-wrap:nowrap}
+  .cookie-bar p{font-size:12px;min-width:0}
+  .cookie-bar button{padding:8px 12px}
+}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110415141", "ym");
+
+   /* webvisor ОТКЛЮЧЁН намеренно — как на странице конструктора: там он записал бы
+      предпросмотр резюме с ФИО и телефоном. Счётчик один на весь сайт, настройки одни. */
+   ym(110415141, "init", {
+        ssr:true,
+        webvisor:false,
+        clickmap:true,
+        accurateTrackBounce:true,
+        trackLinks:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110415141" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://do-offera.ru/proverit-rezyume/",
+  "inLanguage": "ru",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это проверка резюме на ATS?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Чужого робота конструктор не копирует. Он проверяет то, что видят и сервис, и человек: заполнены ли поля, по которым резюме сравнивают с вакансией, и сколько слов вакансии есть в тексте. На hh работодатель может включить авторазбор откликов: он сортирует отклики по полям резюме — образованию, языкам, городу, опыту, желаемому доходу, — а текстовые поля не читает."}
+    },
+    {
+      "@type": "Question",
+      "name": "Проверку делает нейросеть?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Нет. Балл считают правила, записанные заранее, поэтому одинаковый текст всегда получает одинаковый балл. Резюме не отправляется ни в какую нейросеть."}
+    },
+    {
+      "@type": "Question",
+      "name": "Куда уходит моё резюме?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Никуда: текст разбирается и проверяется в вашем браузере, на сервер не отправляется и нигде не сохраняется. Яндекс Метрика считает посещения сайта, но текста резюме не получает."}
+    },
+    {
+      "@type": "Question",
+      "name": "Можно загрузить файл резюме?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Файлом — нет, текстом — да: откройте резюме в Word, PDF или на hh, скопируйте текст и вставьте в поле в начале страницы. Разбор приблизительный, поэтому под баллом видно, что удалось найти."}
+    },
+    {
+      "@type": "Question",
+      "name": "Нужна регистрация?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Нет. Конструктор и проверка работают сразу, без входа и без почты."}
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="wordmark" href="../">до <em>оффера</em>.</a>
+    <nav class="topnav" aria-label="Разделы">
+      <a href="../proverit-rezyume/" aria-current="page">Проверить резюме</a>
+      <a href="../ob-avtore/">Об авторе</a>
+    </nav>
+    <a class="btn btn-primary" href="../">Открыть конструктор</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <p class="kicker">Без регистрации · прямо в браузере</p>
+      <h1>Проверить резюме <span class="mark">бесплатно</span></h1>
+      <p class="lede">Вставьте текст резюме — балл от 0 до 100 появится прямо здесь. Проверка идёт по шести местам, где резюме теряет отклик: поля, название, первый экран, слова вакансии, достижения и красные флаги. Под баллом — что поправить первым.</p>
+    </div>
+
+    <div class="checker" id="proverka">
+      <label class="ck-label" for="resumeText">Текст резюме</label>
+      <textarea id="resumeText" rows="8" autocomplete="off" spellcheck="false" placeholder="Вставьте сюда текст резюме целиком — с hh, из Word или PDF."></textarea>
+      <details class="ck-vac">
+        <summary>Добавить текст вакансии — по желанию</summary>
+        <textarea id="vacText" rows="5" autocomplete="off" spellcheck="false" aria-label="Текст вакансии" placeholder="Вставьте вакансию, на которую откликаетесь, — проверю шестое место: совпадение слов."></textarea>
+      </details>
+      <div class="ck-row">
+        <button class="btn btn-primary btn-lg" id="checkBtn" type="button">Проверить</button>
+        <button class="btn" id="exampleBtn" type="button">Показать на примере</button>
+      </div>
+      <p class="ck-note">Текст разбирается в вашем браузере: на сервер не уходит и нигде не сохраняется.</p>
+      <p class="ck-err" id="ckErr" role="alert" hidden></p>
+      <p class="ck-info" id="ckInfo" hidden>Это вымышленный образец. Вставьте своё резюме — проверка начнётся сама.</p>
+      <p class="hero-alt">Резюме ещё нет? Соберите его в <a href="../">конструкторе</a> — там балл пересчитывается с каждой строкой.</p>
+    </div>
+  </section>
+
+  <section class="result" id="rezultat" aria-live="polite" hidden></section>
+
+  <section class="block" aria-labelledby="h-places">
+    <div class="places-head">
+      <div>
+        <h2 class="h2" id="h-places">Что проверяется в каждом месте</h2>
+        <p class="intro">Анализ резюме идёт по шести местам. Чем больше вес места, тем сильнее оно двигает балл.</p>
+      </div>
+      <div class="scorecard">
+        <div class="sc-top">
+          <h2>Балл резюме</h2>
+          <span class="sc-max">100<small>баллов</small></span>
+        </div>
+        <div class="ruler" role="img" aria-label="Сто баллов делятся так: поля — 15, название — 10, первый экран — 15, слова вакансии — 20, достижения — 25, красные флаги — 15">
+          <span style="flex:15">15</span>
+          <span style="flex:10">10</span>
+          <span style="flex:15">15</span>
+          <span class="vac" style="flex:20">20</span>
+          <span style="flex:25">25</span>
+          <span style="flex:15">15</span>
+        </div>
+        <ul class="sc-legend">
+          <li><i></i>Поля <b>15</b></li>
+          <li><i></i>Название <b>10</b></li>
+          <li><i></i>Первый экран <b>15</b></li>
+          <li class="vac"><i></i>Слова вакансии <b>20</b></li>
+          <li><i></i>Достижения <b>25</b></li>
+          <li><i></i>Красные флаги <b>15</b></li>
+        </ul>
+        <p class="sc-note">Слова вакансии (заштрихованы) считаются, когда вы вставите её текст. Без вакансии балл идёт по пяти местам и пересчитывается на сто.</p>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="place">
+        <h3>Поля <span class="pts">15 баллов</span></h3>
+        <p>Имя, телефон или почта, опыт, образование, город и хотя бы четыре навыка. По этим полям резюме сравнивают с вакансией и находят в поиске.</p>
+      </div>
+      <div class="place">
+        <h3>Название <span class="pts">10 баллов</span></h3>
+        <p>Указана ли желаемая должность и совпадает ли она со словами вакансии. Название рекрутёр видит первым.</p>
+      </div>
+      <div class="place">
+        <h3>Первый экран <span class="pts">15 баллов</span></h3>
+        <p>Блок «О себе»: не короче двух предложений и не длиннее 600 знаков, с цифрой результата и без клише вроде «стрессоустойчивость» и «коммуникабельность».</p>
+      </div>
+      <div class="place">
+        <h3>Слова вакансии <span class="pts">20 баллов</span></h3>
+        <p>Какая доля ключевых слов вакансии есть в резюме. Каких не хватает, проверка покажет списком.</p>
+      </div>
+      <div class="place">
+        <h3>Достижения <span class="pts">25 баллов</span></h3>
+        <p>Есть ли в описании опыта цифры результата, нет ли слабых глаголов вроде «занимался» и «участвовал» и списка обязанностей вместо результатов.</p>
+      </div>
+      <div class="place">
+        <h3>Красные флаги <span class="pts">15 баллов</span></h3>
+        <p>То, что рекрутёр додумает сам: ультиматумы или личные подробности в «О себе», больше 15 навыков, почта без «@», две и больше работы короче года, перерыв больше трёх месяцев без объяснения. Здесь баллы снимаются за каждый флаг.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-steps">
+    <h2 class="h2" id="h-steps">Как проверить своё резюме</h2>
+    <ol class="steps">
+      <li>
+        <span class="n">1</span>
+        <h3>Скопируйте текст резюме</h3>
+        <p>Откройте резюме на hh, в Word или PDF, выделите текст от имени до конца и скопируйте.</p>
+      </li>
+      <li>
+        <span class="n">2</span>
+        <h3>Вставьте и нажмите «Проверить»</h3>
+        <p>Под полем появятся балл и что поправить первым. Там же видно, что проверка нашла в тексте: если раздела нет в списке, проверьте, есть ли у него заголовок.</p>
+      </li>
+      <li>
+        <span class="n">3</span>
+        <h3>Добавьте вакансию</h3>
+        <p>Балл учтёт шестое место, а проверка покажет, каких слов вакансии нет в резюме.</p>
+      </li>
+    </ol>
+    <p class="after-steps">Править удобнее в <a href="../">конструкторе</a>: там балл пересчитывается с каждой строкой, а готовое резюме скачивается в PDF.</p>
+  </section>
+
+  <section class="block" aria-labelledby="h-limits">
+    <h2 class="h2" id="h-limits">Чего балл не скажет</h2>
+    <div class="limits" style="margin-top:24px">
+      <div>
+        <p>Балл — проверка по правилам, а не прогноз. Высокий значит, что в шести местах нет типичных ошибок. Приглашений он не обещает: они зависят ещё от рынка вашей профессии и от работодателя.</p>
+        <p>Хотите, чтобы резюме прочитал человек под конкретную вакансию, — пришлите его мне, автору конструктора: главную проблему назову бесплатно, одним абзацем.</p>
+      </div>
+      <div class="btns">
+        <a class="btn btn-primary" href="https://vk.me/dooffera" target="_blank" rel="noopener noreferrer">Написать во ВКонтакте</a>
+        <a class="btn" href="../ob-avtore/">Кто автор</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-faq">
+    <h2 class="h2" id="h-faq">Вопросы</h2>
+    <div class="faq">
+      <div>
+        <h3>Это проверка резюме на ATS?</h3>
+        <p>Чужого робота конструктор не копирует. Он проверяет то, что видят и сервис, и человек: заполнены ли поля, по которым резюме сравнивают с вакансией, и сколько слов вакансии есть в тексте. На hh работодатель может включить <a href="https://feedback.hh.ru/knowledge-base/article/9110" target="_blank" rel="noopener">авторазбор откликов</a>: он сортирует отклики по полям резюме — образованию, языкам, городу, опыту, желаемому доходу, — а текстовые поля не читает.</p>
+      </div>
+      <div>
+        <h3>Проверку делает нейросеть?</h3>
+        <p>Нет. Балл считают правила, записанные заранее, поэтому одинаковый текст всегда получает одинаковый балл. Резюме не отправляется ни в какую нейросеть.</p>
+      </div>
+      <div>
+        <h3>Куда уходит моё резюме?</h3>
+        <p>Никуда: текст разбирается и проверяется в вашем браузере, на сервер не отправляется и нигде не сохраняется. Яндекс Метрика считает посещения сайта, но текста резюме не получает. Подробнее — в <a href="../privacy.html">политике конфиденциальности</a>.</p>
+      </div>
+      <div>
+        <h3>Можно загрузить файл резюме?</h3>
+        <p>Файлом — нет, текстом — да: откройте резюме в Word, PDF или на hh, скопируйте текст и вставьте в поле в начале страницы. Разбор приблизительный, поэтому под баллом видно, что удалось найти.</p>
+      </div>
+      <div>
+        <h3>Нужна регистрация?</h3>
+        <p>Нет. Конструктор и проверка работают сразу, без входа и без почты.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="h-final">
+    <div>
+      <h2 class="h2" id="h-final">Проверить своё резюме</h2>
+      <p>Вставьте текст резюме — балл и что поправить первым появятся сразу.</p>
+    </div>
+    <a class="btn btn-primary btn-lg" href="#proverka">Вставить резюме</a>
+  </section>
+
+</main>
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sf-mark" href="../">до <em>оффера</em>.</a>
+      <p>Бесплатный конструктор и проверка резюме. Автор — <a href="../ob-avtore/">Роман Шкляев</a>.</p>
+    </div>
+    <nav class="sf-nav" aria-label="Страницы сайта">
+      <ul>
+        <li><a href="../">Конструктор резюме</a></li>
+        <li><a href="../proverit-rezyume/" aria-current="page">Проверить резюме</a></li>
+        <li><a href="../ob-avtore/">Об авторе</a></li>
+        <li><a href="../privacy.html">Политика конфиденциальности</a></li>
+      </ul>
+    </nav>
+    <p class="sf-note">© 2026 до оффера. Связь — <a href="https://vk.com/dooffera" target="_blank" rel="noopener noreferrer">сообщество во ВКонтакте</a>.</p>
+  </div>
+</footer>
+
+<div class="cookie-bar" id="cookieBar" hidden>
+  <p>Мы используем cookie и обезличенную Яндекс.Метрику для статистики посещений. Содержимое резюме при этом не собирается. <a href="../privacy.html">Политика конфиденциальности</a>.</p>
+  <button type="button" id="cookieOk">Понятно</button>
+</div>
+
+<script src="../js/score.js?v=20261019"></script>
+<script src="../js/parse-resume.js?v=20261019"></script>
+<script>
+"use strict";
+/* Проверка вставленного текста: разбор в поля (js/parse-resume.js) и балл тем же
+   кодом, что в конструкторе (js/score.js). Текст никуда не отправляется и нигде
+   не сохраняется; в Метрику уходит только факт цели score_ready, без параметров. */
+(function(){
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+  const plural = (n, one, few, many) => n % 10 === 1 && n % 100 !== 11 ? one : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? few : many;
+  const EXPERT_LINK = "https://vk.me/dooffera";
+  // вымышленный образец: человек и компании условные, совпадения случайны
+  const EXAMPLE = [
+    "Мария Примерова", "Женщина, 31 год", "+7 900 000-00-00", "primerova@example.com", "Проживает: Москва", "",
+    "Желаемая должность и зарплата", "Менеджер по работе с клиентами", "",
+    "Опыт работы — 6 лет", "Апрель 2022 —", "настоящее время", "ООО «Пример»", "Менеджер по работе с клиентами",
+    "— Веду 45 клиентов, повторные заказы выросли на 20% за год.", "— Отвечала за подготовку коммерческих предложений.",
+    "Март 2019 —", "Март 2022", "ООО «Условная торговля»", "Менеджер по продажам",
+    "Занималась обработкой входящих заявок, участвовала в выставках.", "",
+    "Образование", "Высшее", "Условный экономический университет", "Менеджмент", "",
+    "Ключевые навыки", "Навыки  CRM  1С  Деловая переписка  Переговоры  Excel", "",
+    "Дополнительная информация", "Обо мне Ответственная, коммуникабельная, быстро обучаюсь."
+  ].join("\n");
+  let scoreGoalDone = false;
+
+  function placesHTML(sc){
+    // без вакансии «слова вакансии» не считаются — оставляем место пустым на своём месте шкалы
+    const parts = sc.parts.slice();
+    if(!sc.hasVac) parts.splice(3, 0, {label:"слова вакансии", score:0, max:20, note:"не считались: вставьте вакансию", off:true});
+    const ruler = parts.map(pt => `<span class="${pt.off ? "off" : ""}" style="flex:${pt.max}">${pt.off ? "" : `<i style="width:${Math.round(pt.score / pt.max * 100)}%"></i>`}</span>`).join("");
+    const rows = parts.map(pt => `<li class="${pt.off ? "off" : ""}"><span class="nm">${cap(pt.label)}</span><span class="pt">${pt.off ? "—" : `${pt.score} из ${pt.max}`}</span>${pt.note ? `<span class="nt">${esc(cap(pt.note))}</span>` : ""}</li>`).join("");
+    return `<div class="res-ruler" aria-hidden="true">${ruler}</div><ul class="res-places">${rows}</ul>`;
+  }
+
+  function foundHTML(st, f){
+    const chip = (ok, text) => `<span class="chip${ok ? "" : " miss"}">${esc(text)}</span>`;
+    const p = st.personal;
+    const undated = f.experience - f.experienceDated;
+    return [
+      chip(f.name, f.name ? "Имя: " + p.name : "Имя — не нашли"),
+      chip(!!f.title, f.title ? "Должность: " + f.title : "Должность — не нашли"),
+      chip(f.contacts, f.contacts ? "Контакты" : "Телефон или почта — не нашли"),
+      chip(!!f.city, f.city ? "Город: " + f.city : "Город — не нашли"),
+      chip(f.about > 0, f.about ? "«О себе»" : "«О себе» — не нашли"),
+      chip(f.experience > 0, f.experience ? `Опыт: ${f.experience} ${plural(f.experience, "место", "места", "мест")}${undated ? `, без дат — ${undated}` : ""}` : "Опыт — не нашли"),
+      chip(f.education, f.education ? "Образование" : "Образование — не нашли"),
+      chip(f.skills > 0, f.skills ? `Навыки: ${f.skills}` : "Навыки — не нашли")
+    ].join("");
+  }
+
+  function run(){
+    const text = $("#resumeText").value, err = $("#ckErr"), box = $("#rezultat");
+    if(text.trim().length < 80){
+      err.textContent = "Вставьте резюме целиком: сейчас текста слишком мало, чтобы его проверить.";
+      err.hidden = false;
+      return;
+    }
+    err.hidden = true;
+    const {state, found} = parseResumeText(text);
+    state.vacancy = $("#vacText").value;
+    const c = completeness(state);
+    // человек — сразу под баллом, без цены
+    const human = `<div class="res-human"><span>Посмотрю резюме и подберу вакансии под вас</span><a class="btn" id="resReview" href="${EXPERT_LINK}" target="_blank" rel="noopener noreferrer">Разбор человеком</a></div>`;
+    let card, fix = "", vac = "";
+    if(c.pct < 40){
+      // как в конструкторе: пока заполнено меньше 40 %, балл не ставим, а говорим, чего не хватает
+      card = `<div class="res-card"><div class="res-top"><h2>Балл резюме</h2><span class="res-total">—</span></div>${human}
+        <div class="res-empty"><p>В тексте нашлось слишком мало, чтобы поставить балл. Чего не хватает:</p><ul>${c.tips.slice(0, 4).map(t => `<li>${t}</li>`).join("")}</ul></div></div>`;
+    } else {
+      const sc = scoreResume(state);
+      card = `<div class="res-card"><div class="res-top"><h2>Балл резюме</h2><span class="res-total">${sc.total}<small>/100${sc.hasVac ? "" : " · без вакансии"}</small></span></div>${human}${placesHTML(sc)}</div>`;
+      if(!scoreGoalDone && window.ym){ scoreGoalDone = true; ym(110415141, "reachGoal", "score_ready"); }
+      const weak = weakParts(sc);
+      const places = sc.hasVac ? "всем шести местам" : "пяти местам";
+      fix = `<div class="res-box res-fix"><h3>Что поправить первым</h3>${weak.length
+        ? weak.map(pt => `<p><b>${cap(pt.label)}</b>${pt.note ? " — " + esc(pt.note) : ""}.</p>`).join("")
+        : `<p>${sc.total >= 90 ? `Сильное резюме по ${places}.` : `Ровно по ${places}: осталось докрутить детали.`}</p>`}${sc.hasVac ? "" : "<p>Добавьте текст вакансии — проверю шестое место: совпадение слов.</p>"}</div>`;
+      if(sc.hasVac){
+        const v = analyzeVacancy(state);
+        vac = `<div class="res-box"><h3>Слова вакансии</h3><p>Совпало ${v.hits.length} из ${v.total} ключевых слов.${v.miss.length ? " Нет в резюме — если такой опыт есть, назовите его словами вакансии:" : ""}</p>${v.miss.length ? `<div class="chips" style="margin-top:8px">${v.miss.slice(0, 12).map(x => `<span class="chip miss">${esc(x.word)}</span>`).join("")}</div>` : ""}</div>`;
+      }
+    }
+    box.innerHTML = card + `<div class="res-side">${fix}${vac}
+      <div class="res-box"><h3>Что нашли в тексте</h3><div class="chips">${foundHTML(state, found)}</div>
+        <p class="hint">Не нашли то, что в резюме есть? Проверьте, что у раздела есть заголовок — «Опыт работы», «Образование», «Навыки», — или перенесите резюме в конструктор: там каждое поле заполняется отдельно.</p></div>
+      <div class="res-cta"><a class="btn btn-primary" href="../">Доделать в конструкторе</a></div>
+    </div>`;
+    box.hidden = false;
+    $("#resReview").addEventListener("click", () => { if(window.ym) ym(110415141, "reachGoal", "order_review"); });
+    scrollToScore();
+  }
+
+  // к баллу — плавно; если браузер не доиграл прокрутку (фоновая вкладка, слабый телефон), переходим сразу
+  function scrollToScore(){
+    const card = $("#rezultat .res-card");
+    const target = () => card.getBoundingClientRect().top + window.scrollY - 72;
+    const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({top:target(), behavior:smooth ? "smooth" : "instant"});
+    if(smooth) setTimeout(() => {
+      if(Math.abs(card.getBoundingClientRect().top - 72) > 24) window.scrollTo({top:target(), behavior:"instant"});
+    }, 900);
+  }
+
+  $("#checkBtn").addEventListener("click", run);
+  ["#resumeText", "#vacText"].forEach(id => {
+    $(id).addEventListener("keydown", e => { if(e.key === "Enter" && (e.ctrlKey || e.metaKey)) run(); });
+    // вставили текст — проверяем сразу; значение поля обновится после события, поэтому на следующем шаге
+    $(id).addEventListener("paste", () => setTimeout(() => {
+      $("#ckInfo").hidden = true;
+      if(id === "#resumeText" || $("#resumeText").value.trim().length >= 80) run();
+    }, 0));
+  });
+  $("#resumeText").addEventListener("input", () => { $("#ckInfo").hidden = true; });
+  $("#exampleBtn").addEventListener("click", () => {
+    $("#resumeText").value = EXAMPLE;
+    $("#ckInfo").hidden = false;
+    if(window.ym) ym(110415141, "reachGoal", "fill_example");
+    run();
+  });
+})();
+</script>
+<script>
+/* Cookie-уведомление: тот же ключ, что в конструкторе, — нажали «Понятно» на одной странице, на других не покажем */
+(function(){
+  var KEY = "cookie_ack_v1";
+  var bar = document.getElementById("cookieBar");
+  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  bar.hidden = false;
+  document.getElementById("cookieOk").addEventListener("click", function(){
+    bar.hidden = true;
+    try{ localStorage.setItem(KEY, "1"); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

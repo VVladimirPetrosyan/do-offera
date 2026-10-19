@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Роман Шкляев — автор конструктора резюме «до оффера.»</title>
+<meta name="description" content="Роман Шкляев — автор «до оффера.», бесплатного конструктора и проверки резюме. Как резюме проходит отбор на hh, по какой методике я проверяю резюме, статьи и контакты.">
+<link rel="canonical" href="https://do-offera.ru/ob-avtore/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#E9E6DF">
+<meta property="og:title" content="Роман Шкляев — автор конструктора резюме «до оффера.»">
+<meta property="og:description" content="Как резюме проходит отбор на hh, по какой методике я проверяю резюме, статьи и контакты.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://do-offera.ru/ob-avtore/">
+<meta property="og:image" content="https://do-offera.ru/og-image.png">
+<meta property="og:image:width" content="1590">
+<meta property="og:image:height" content="400">
+<meta property="og:image:alt" content="до оффера. — конструктор резюме">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<style>
+:root{
+  --desk:#E9E6DF;
+  --desk-deep:#DDD9CF;
+  --paper:#FFFFFF;
+  --ink:#20262E;
+  --ink-soft:#5A6470;
+  --navy:#16324F;
+  --marker:#FFE873;
+  --pen:#2743C7;
+  --pen-deep:#1E33A0;
+  --line:#D8D4CA;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1100px 480px at 80% -8%,rgba(255,255,255,.55),transparent 60%),
+    var(--desk);
+  color:var(--ink);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--pen)}
+:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
+
+/* ---------- Шапка ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(233,230,223,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:22px}
+.wordmark{
+  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
+  font-size:24px;color:var(--navy);letter-spacing:-.01em;white-space:nowrap;text-decoration:none;
+  margin-right:auto;
+}
+.wordmark em{
+  font-style:italic;
+  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
+  padding:0 2px;
+}
+.topnav{display:flex;gap:20px}
+.topnav a{font-size:14px;font-weight:500;color:var(--ink-soft);text-decoration:none}
+.topnav a:hover{color:var(--ink)}
+.topnav a[aria-current="page"]{color:var(--ink)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:var(--radius);padding:9px 16px;font-size:14px;font-weight:500;
+  text-decoration:none;white-space:nowrap;
+  transition:border-color .15s,background .15s,transform .1s;
+}
+.btn:hover{border-color:var(--ink-soft)}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--pen);border-color:var(--pen);color:#fff;font-weight:600}
+.btn-primary:hover{background:var(--pen-deep);border-color:var(--pen-deep)}
+.btn-lg{font-size:16px;padding:13px 26px}
+@media (max-width:720px){
+  .topnav{display:none}
+  .wordmark{font-size:22px}
+}
+
+/* ---------- Автор — листом резюме, тем же шаблоном, что в конструкторе ---------- */
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.cv{
+  max-width:860px;margin:44px auto 0;background:var(--paper);
+  box-shadow:0 1px 2px rgba(32,38,46,.12),0 18px 45px rgba(32,38,46,.18);
+  padding:clamp(26px,6vw,60px) clamp(20px,6vw,64px) clamp(30px,6vw,60px);
+}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.cv-head{border-bottom:3px solid var(--navy);padding-bottom:22px;margin-top:10px;display:flex;gap:28px;align-items:flex-start}
+.cv-head-main{flex:1;min-width:0}
+.cv-photo{width:132px;height:176px;object-fit:cover;border-radius:8px;flex:none}
+.cv-head h1{
+  font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--navy);
+  font-size:clamp(36px,6vw,48px);line-height:1.08;letter-spacing:-.01em;
+}
+.cv-role{font-size:18px;font-weight:500;color:#3d4650;margin-top:6px}
+.cv-links{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px}
+.cv-links a{color:var(--pen);text-decoration:none;font-weight:500}
+.cv-links a:hover{text-decoration:underline}
+
+.cv-sec{margin-top:34px}
+.cv-sec > h2{
+  font-size:15px;font-weight:700;color:var(--navy);
+  text-transform:uppercase;letter-spacing:.09em;
+  display:flex;align-items:center;gap:12px;margin-bottom:12px;
+}
+.cv-sec > h2::after{content:"";flex:1;height:1px;background:#E3E1DA}
+.cv-sec p{color:#333a42;margin-top:10px}
+.cv-sec > p:first-of-type{margin-top:0}
+
+.items{list-style:none;display:grid;gap:18px}
+.item-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.item h3{font-size:16.5px;font-weight:600;line-height:1.35}
+.item .tag{font-size:12.5px;color:#6b7480;white-space:nowrap;flex:none}
+.item p{font-size:15.5px;margin-top:5px}
+
+/* Путь отклика: порядок здесь — правда, поэтому номера */
+.path{list-style:none;display:grid;gap:20px;margin-top:16px}
+.path li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:0 12px}
+.path .n{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;color:var(--pen);font-size:24px;line-height:1.1}
+.path h3{font-size:16.5px;font-weight:600;line-height:1.35}
+.path p{font-size:15.5px;margin-top:5px}
+.src{font-size:13px;color:var(--ink-soft)}
+.src a{color:var(--ink-soft)}
+
+.rules{list-style:none;display:grid;gap:10px}
+.rules li{position:relative;padding-left:20px;color:#333a42;font-size:15.5px}
+.rules li::before{content:"—";position:absolute;left:0;color:var(--ink-soft)}
+
+.arts{list-style:none;display:grid;gap:9px}
+.arts li{font-size:15px;line-height:1.45}
+.arts .from{font-size:12px;color:var(--ink-soft);margin-right:6px}
+.arts a{text-decoration:none}
+.arts a:hover{text-decoration:underline}
+
+.after{max-width:860px;margin:28px auto 80px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* ---------- Подвал (общий для всех страниц) ---------- */
+.sf{border-top:1px solid var(--line);background:var(--desk-deep)}
+.sf-in{max-width:1080px;margin:0 auto;padding:28px 20px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
+.sf-brand{max-width:440px}
+.sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
+.sf-mark em{font-style:italic;background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 2px}
+.sf-brand p{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:6px}
+.sf-brand p a{color:var(--ink);font-weight:600;text-decoration:none}
+.sf-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:4px}
+.sf-nav a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
+.sf a:hover{text-decoration:underline}
+.sf-nav a[aria-current="page"]{color:var(--pen)}
+.sf-note{flex-basis:100%;font-size:12.5px;line-height:1.5;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px}
+.sf-note a{color:var(--ink-soft)}
+
+/* ---------- Cookie-уведомление ---------- */
+.cookie-bar{
+  position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
+  z-index:70;width:min(680px,calc(100% - 24px));
+  background:var(--navy);color:#fff;border-radius:12px;
+  box-shadow:0 10px 40px rgba(22,50,79,.35);
+  padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+}
+.cookie-bar p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);flex:1;min-width:220px}
+.cookie-bar a{color:var(--marker);font-weight:600;text-decoration:none}
+.cookie-bar a:hover{text-decoration:underline}
+.cookie-bar button{
+  border:none;background:var(--marker);color:var(--navy);font-weight:700;font-family:inherit;cursor:pointer;
+  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
+}
+.cookie-bar[hidden]{display:none}
+@media (max-width:420px){
+  .cookie-bar{padding:10px 12px;gap:10px;flex-wrap:nowrap}
+  .cookie-bar p{font-size:12px;min-width:0}
+  .cookie-bar button{padding:8px 12px}
+}
+
+@media (max-width:560px){
+  .wrap{padding:0 12px}
+  .cv{margin-top:20px}
+  .cv-head{flex-direction:column-reverse;gap:16px}
+  .cv-photo{width:108px;height:144px}
+  .item-top{flex-direction:column;gap:2px}
+  .path li{grid-template-columns:26px minmax(0,1fr)}
+}
+</style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110415141", "ym");
+
+   /* webvisor ОТКЛЮЧЁН намеренно — как на странице конструктора: там он записал бы
+      предпросмотр резюме с ФИО и телефоном. Счётчик один на весь сайт, настройки одни. */
+   ym(110415141, "init", {
+        ssr:true,
+        webvisor:false,
+        clickmap:true,
+        accurateTrackBounce:true,
+        trackLinks:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110415141" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "https://do-offera.ru/ob-avtore/",
+  "name": "Роман Шкляев — автор конструктора резюме «до оффера.»",
+  "inLanguage": "ru",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://do-offera.ru/ob-avtore/#person",
+    "name": "Роман Шкляев",
+    "url": "https://do-offera.ru/ob-avtore/",
+    "image": "https://do-offera.ru/img/roman-shklyaev.jpg",
+    "jobTitle": "Консультант по резюме",
+    "description": "Автор бесплатного конструктора и проверки резюме «до оффера.». Разбирает резюме под конкретные вакансии и пишет о том, как резюме проходит отбор на hh.",
+    "knowsAbout": ["резюме", "отбор резюме на hh.ru", "сопроводительное письмо", "смена профессии"],
+    "sameAs": [
+      "https://setka.ru/users/019d2eb8-9aae-71f0-91c0-46b4905aeb84",
+      "https://tenchat.ru/5283601",
+      "https://hrtime.ru/profile/101213/",
+      "https://pikabu.ru/@romansh777"
+    ]
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="wordmark" href="../">до <em>оффера</em>.</a>
+    <nav class="topnav" aria-label="Разделы">
+      <a href="../proverit-rezyume/">Проверить резюме</a>
+      <a href="../ob-avtore/" aria-current="page">Об авторе</a>
+    </nav>
+    <a class="btn btn-primary" href="../">Открыть конструктор</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="cv">
+    <p class="kicker">Об авторе</p>
+    <header class="cv-head">
+      <div class="cv-head-main">
+        <h1>Роман Шкляев</h1>
+        <p class="cv-role">Автор «до оффера.» — конструктора и проверки резюме</p>
+        <ul class="cv-links" aria-label="Где меня найти">
+          <li><a href="https://setka.ru/users/019d2eb8-9aae-71f0-91c0-46b4905aeb84" target="_blank" rel="noopener">Сетка</a></li>
+          <li><a href="https://tenchat.ru/5283601" target="_blank" rel="noopener">ТенЧат</a></li>
+          <li><a href="https://hrtime.ru/profile/101213/" target="_blank" rel="noopener">hrtime</a></li>
+          <li><a href="https://pikabu.ru/@romansh777" target="_blank" rel="noopener">Пикабу</a></li>
+          <li><a href="https://vk.com/dooffera" target="_blank" rel="noopener">Сообщество во ВКонтакте</a></li>
+        </ul>
+      </div>
+      <img class="cv-photo" src="../img/roman-shklyaev.jpg" width="480" height="640" alt="Роман Шкляев">
+    </header>
+
+    <section class="cv-sec">
+      <h2>О себе</h2>
+      <p>Я сделал «до оффера.» — бесплатный конструктор резюме с проверкой «глазами рекрутёра». Разбираю резюме под конкретные вакансии и пишу о том, как отклик проходит отбор на hh.</p>
+      <p>По профессии я тестировщик, автоматизирую проверки на Python. Проверку резюме в конструкторе собрал так же: правила записаны заранее, поэтому одинаковый текст всегда получает одинаковый балл. Я не рекрутёр. Как устроен отбор, сверяю по справке hh для работодателей и по резюме, которые разбираю.</p>
+      <p>Работаю как самозанятый: на каждую оплату выдаю чек из «Мой налог».</p>
+    </section>
+
+    <section class="cv-sec">
+      <h2>Чем занимается проект</h2>
+      <ul class="items">
+        <li class="item">
+          <div class="item-top"><h3>Конструктор резюме</h3><span class="tag">бесплатно</span></div>
+          <p>Заполняете форму, видите резюме на листе A4 и скачиваете PDF. Без регистрации, черновик хранится в вашем браузере.</p>
+        </li>
+        <li class="item">
+          <div class="item-top"><h3><a href="../proverit-rezyume/">Проверка резюме</a></h3><span class="tag">бесплатно</span></div>
+          <p>Балл от 0 до 100 по шести местам, где резюме теряет отклик, и что поправить первым. Если вставить вакансию, конструктор покажет, каких её слов нет в резюме.</p>
+        </li>
+        <li class="item">
+          <div class="item-top"><h3>Разбор под вашу вакансию</h3><span class="tag">платно, первый шаг бесплатно</span></div>
+          <p>Читаю резюме против вакансии, на которую вы целитесь. Сначала бесплатно, одним абзацем, называю главную проблему; полный разбор — письменно, с готовыми строками. Написать можно в <a href="https://vk.me/dooffera" target="_blank" rel="noopener noreferrer">сообщения сообщества во ВКонтакте</a>.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cv-sec">
+      <h2>Как устроен отбор резюме</h2>
+      <p>Отклик на hh проходит до трёх фильтров. Первые два — работа сервиса, третий — человек.</p>
+      <ol class="path">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <h3>Авторазбор откликов</h3>
+            <p>Его включает и настраивает сам работодатель. Робот сортирует отклики по полям резюме: образование, языки, город и готовность к переезду, опыт работы, желаемый доход. Текстовые поля он не читает.</p>
+            <p class="src">Источник: справка hh — <a href="https://feedback.hh.ru/knowledge-base/article/9110" target="_blank" rel="noopener">«Авторазбор откликов»</a></p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <h3>Умный поиск</h3>
+            <p>hh сравнивает резюме с вакансией — опыт, навыки, зарплатные ожидания, город — и ставит подходящих выше в списке у работодателя. По словам hh, алгоритм понимает синонимы и контекст.</p>
+            <p class="src">Источник: справка hh — <a href="https://feedback.hh.ru/knowledge-base/article/1116" target="_blank" rel="noopener">«Умный поиск»</a></p>
+          </div>
+        </li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>Рекрутёр</h3>
+            <p>Сначала отклик просматривают бегло: название резюме, последнее место работы, сроки. Если название расходится с вакансией, резюме могут не открыть вовсе. Внимательно читают тех, кто прошёл этот первый взгляд.</p>
+          </div>
+        </li>
+      </ol>
+      <p>Отсюда шесть мест, которые проверяет конструктор и с которых я начинаю разбор: поля, название, первый экран, слова вакансии, достижения и красные флаги.</p>
+    </section>
+
+    <section class="cv-sec">
+      <h2>Методика</h2>
+      <ul class="rules">
+        <li>Резюме читаю против конкретной вакансии. Без неё разбор слабее, поэтому прошу её прислать.</li>
+        <li>Сначала поля и название, потом текст: если резюме отсекают по городу или зарплате, переписывать «О себе» рано.</li>
+        <li>Достижение записываю так: что вы сделали и что изменилось, с цифрой, если она есть. Цифр не выдумываю — каждую строку вы должны спокойно объяснить на собеседовании.</li>
+        <li>Общие слова меняю на факты. «Ответственный и коммуникабельный» может написать кто угодно, а факт из вашей работы — только вы.</li>
+        <li>Показываю готовые строки «было → стало», а не советы «сделайте ярче».</li>
+        <li>Если дело не в резюме, говорю прямо.</li>
+        <li>Работу не обещаю: приглашение зависит ещё от рынка и работодателя. Обещаю показать, где резюме теряет отклик, а если разбор не принесёт пользы — верну деньги.</li>
+      </ul>
+    </section>
+
+    <section class="cv-sec">
+      <h2>Статьи</h2>
+      <ul class="arts">
+        <li><span class="from">hrtime</span><a href="https://hrtime.ru/material/shest-mest-gde-rezhut-reziume-kak-proverit-svoe-za-odin-vecher-vy-otp-174285/" target="_blank" rel="noopener">Шесть мест, где режут резюме: как проверить своё за один вечер</a></li>
+        <li><span class="from">hrtime</span><a href="https://hrtime.ru/material/reziume-pered-otklikom-20-punktov-i-sposob-poniat-gde-zastrevaiut-otkl-174342/" target="_blank" rel="noopener">Резюме перед откликом: 20 пунктов и способ понять, где застревают отклики</a></li>
+        <li><span class="from">hrtime</span><a href="https://hrtime.ru/material/soprovoditelnoe-pismo-kogda-ego-prochtut-a-kogda-net--i-chto-v-nem-174344/" target="_blank" rel="noopener">Сопроводительное письмо: когда его прочтут, а когда нет — и что в нём писать</a></li>
+        <li><span class="from">hrtime</span><a href="https://hrtime.ru/material/smenit-professiiu-v-40-kak-perepisat-reziume--razbor-na-primere-uchit-174447/" target="_blank" rel="noopener">Сменить профессию в 40: как переписать резюме — разбор на примере учительницы</a></li>
+        <li><span class="from">Сетка</span><a href="https://setka.ru/posts/01a0b9f0-fbba-7b92-a647-dcb29c717b39" target="_blank" rel="noopener">Почему после отклика тишина: 6 мест, где режут резюме</a></li>
+        <li><span class="from">Сетка</span><a href="https://setka.ru/posts/01a11b28-b97b-7fa2-b227-8e9b8ab8d295" target="_blank" rel="noopener">418 вакансий или 29: как узнать размер своего рынка на hh</a></li>
+        <li><span class="from">Пикабу</span><a href="https://pikabu.ru/story/proverka_rezyume_za_desyat_sekund_14210409" target="_blank" rel="noopener">Проверка резюме за десять секунд</a></li>
+        <li><span class="from">Пикабу</span><a href="https://pikabu.ru/story/samoe_dorogoe_mesto_v_rezyume__odna_stroka_14222356" target="_blank" rel="noopener">Самое дорогое место в резюме — одна строка</a></li>
+        <li><span class="from">Пикабу</span><a href="https://pikabu.ru/story/pole_zarplatyi_v_rezyume_rabotaet_protiv_vas_v_obe_storonyi_14244858" target="_blank" rel="noopener">Поле зарплаты в резюме работает против вас в обе стороны</a></li>
+        <li><span class="from">Пикабу</span><a href="https://pikabu.ru/story/khotel_napisat_chto_rezyume_nado_zatachivat_pod_slova_vakansii_polez_v_spravku_hh__tam_napisano_obratnoe_14204622" target="_blank" rel="noopener">Хотел написать, что резюме надо затачивать под слова вакансии. Полез в справку hh — там написано обратное</a></li>
+        <li><span class="from">Пикабу</span><a href="https://pikabu.ru/story/vam_sovetuyut_pisat_v_rezyume_tsifryi_gde_ikh_vzyat_esli_vyi_ne_prodavali_i_ne_rezali_byudzhet_14199334" target="_blank" rel="noopener">Вам советуют писать в резюме цифры. Где их взять, если вы не продавали и не резали бюджет</a></li>
+      </ul>
+    </section>
+  </article>
+
+  <div class="after">
+    <a class="btn btn-primary btn-lg" href="../">Открыть конструктор</a>
+    <a class="btn btn-lg" href="../proverit-rezyume/">Проверить резюме</a>
+  </div>
+</main>
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sf-mark" href="../">до <em>оффера</em>.</a>
+      <p>Бесплатный конструктор и проверка резюме. Автор — <a href="../ob-avtore/">Роман Шкляев</a>.</p>
+    </div>
+    <nav class="sf-nav" aria-label="Страницы сайта">
+      <ul>
+        <li><a href="../">Конструктор резюме</a></li>
+        <li><a href="../proverit-rezyume/">Проверить резюме</a></li>
+        <li><a href="../ob-avtore/" aria-current="page">Об авторе</a></li>
+        <li><a href="../privacy.html">Политика конфиденциальности</a></li>
+      </ul>
+    </nav>
+    <p class="sf-note">© 2026 до оффера. Связь — <a href="https://vk.com/dooffera" target="_blank" rel="noopener noreferrer">сообщество во ВКонтакте</a>.</p>
+  </div>
+</footer>
+
+<div class="cookie-bar" id="cookieBar" hidden>
+  <p>Мы используем cookie и обезличенную Яндекс.Метрику для статистики посещений. Содержимое резюме при этом не собирается. <a href="../privacy.html">Политика конфиденциальности</a>.</p>
+  <button type="button" id="cookieOk">Понятно</button>
+</div>
+
+<script>
+/* Cookie-уведомление: тот же ключ, что в конструкторе, — нажали «Понятно» на одной странице, на других не покажем */
+(function(){
+  var KEY = "cookie_ack_v1";
+  var bar = document.getElementById("cookieBar");
+  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  bar.hidden = false;
+  document.getElementById("cookieOk").addEventListener("click", function(){
+    bar.hidden = true;
+    try{ localStorage.setItem(KEY, "1"); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
