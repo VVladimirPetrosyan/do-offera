@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спасибо за покупку — гайд «Как посчитать свой рынок на hh» | до оффера.</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#E9E6DF">
+<link rel="stylesheet" href="../../fonts/fonts.css">
+<style>
+:root{
+  --desk:#E9E6DF;
+  --desk-deep:#DDD9CF;
+  --paper:#FFFFFF;
+  --ink:#20262E;
+  --ink-soft:#5A6470;
+  --navy:#16324F;
+  --marker:#FFE873;
+  --pen:#2743C7;
+  --pen-deep:#1E33A0;
+  --line:#D8D4CA;
+  --ok-bg:#EAF6EE;
+  --ok-ink:#1F6E3F;
+  --warn-bg:#FFF6D6;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(1100px 480px at 80% -8%,rgba(255,255,255,.55),transparent 60%),
+    var(--desk);
+  color:var(--ink);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--pen)}
+:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
+.topbar{border-bottom:1px solid var(--line);background:rgba(233,230,223,.92)}
+.topbar-in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center}
+.wordmark{
+  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
+  font-size:24px;color:var(--navy);letter-spacing:-.01em;white-space:nowrap;text-decoration:none;
+}
+.wordmark em{font-style:italic;background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 2px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--line);background:var(--paper);color:var(--ink);
+  border-radius:var(--radius);padding:9px 16px;font-size:14px;font-weight:500;
+  text-decoration:none;white-space:nowrap;
+}
+.btn:hover{border-color:var(--ink-soft)}
+.btn-primary{background:var(--pen);border-color:var(--pen);color:#fff;font-weight:600}
+.btn-primary:hover{background:var(--pen-deep);border-color:var(--pen-deep)}
+.btn-lg{font-size:16px;padding:13px 26px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.sheet{
+  max-width:720px;margin:44px auto 80px;background:var(--paper);
+  box-shadow:0 1px 2px rgba(32,38,46,.12),0 18px 45px rgba(32,38,46,.18);
+  padding:clamp(26px,6vw,52px) clamp(20px,6vw,56px);
+}
+.kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+h1{font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--navy);font-size:clamp(30px,5vw,40px);line-height:1.1;margin-top:10px}
+.state{margin-top:22px;border-radius:12px;padding:18px 20px;background:#F3F2EE}
+.state[data-kind="ok"]{background:var(--ok-bg)}
+.state[data-kind="warn"]{background:var(--warn-bg)}
+.state p{font-size:16px;color:#2c333b}
+.state p + p{margin-top:8px}
+.state .btn{margin-top:14px}
+.state[hidden]{display:none}
+.help{font-size:14px;color:var(--ink-soft);margin-top:22px}
+.next{border-top:1px solid #E3E1DA;margin-top:28px;padding-top:20px}
+.next p{font-size:15px;color:#333a42}
+.next .btn{margin-top:12px}
+@media (max-width:560px){
+  .wrap{padding:0 12px}
+  .sheet{margin-top:20px}
+  .state .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="wordmark" href="../../">до <em>оффера</em>.</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="sheet">
+    <p class="kicker">Гайд «Как посчитать свой рынок на hh»</p>
+    <h1>Спасибо за покупку</h1>
+
+    <div class="state" id="sChecking">
+      <p>Проверяю оплату — это занимает несколько секунд.</p>
+    </div>
+
+    <div class="state" id="sOk" data-kind="ok" hidden>
+      <p><b>Оплата прошла.</b> Скачайте файл и сохраните его на устройство: ссылка работает 7 дней.</p>
+      <a class="btn btn-primary btn-lg" id="pdfLink" href="#">Скачать PDF</a>
+      <p>Чек самозанятого пришлю на почту, которую вы указали при оплате, в течение дня.</p>
+    </div>
+
+    <div class="state" id="sPending" data-kind="warn" hidden>
+      <p><b>Платёж ещё обрабатывается.</b> Страница проверит его сама — оставьте её открытой.</p>
+    </div>
+
+    <div class="state" id="sMissing" data-kind="warn" hidden>
+      <p><b>Оплату найти не удалось</b> — возможно, её отменили или прошло больше 7 дней.</p>
+      <p>Если деньги списались, напишите на <a href="mailto:shklyaevr@gmail.com">shklyaevr@gmail.com</a> — пришлю файл в течение дня.</p>
+      <a class="btn" href="../">Вернуться к гайду</a>
+    </div>
+
+    <div class="state" id="sError" data-kind="warn" hidden>
+      <p><b>Связь с кассой прервалась.</b> Обновите страницу через минуту — оплата от этого не пострадает.</p>
+      <p>Если повторится, напишите на <a href="mailto:shklyaevr@gmail.com">shklyaevr@gmail.com</a>.</p>
+    </div>
+
+    <p class="help">Вопросы по покупке — <a href="mailto:shklyaevr@gmail.com">shklyaevr@gmail.com</a> или <a href="https://vk.me/dooffera" target="_blank" rel="noopener noreferrer">сообщения сообщества во ВКонтакте</a>. Застряли на каком-то шаге гайда — напишите профессию и город, посчитаю ваш рынок сам.</p>
+
+    <div class="next">
+      <p>Когда список вакансий готов, резюме под них можно собрать в бесплатном конструкторе «до оффера.».</p>
+      <a class="btn btn-lg" href="../../">Открыть конструктор</a>
+    </div>
+  </article>
+</main>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){
+       m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js?id=110415141", "ym");
+   ym(110415141, "init", {ssr:true, webvisor:false, clickmap:true, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<script>
+(function(){
+  var FN = "https://functions.yandexcloud.net/d4ef0r0bam5vrkfl5oqp";
+  var order = new URLSearchParams(location.search).get("o") || "";
+  var states = ["sChecking", "sOk", "sPending", "sMissing", "sError"];
+  function show(id){
+    states.forEach(function(s){ document.getElementById(s).hidden = (s !== id); });
+  }
+  if(!/^[A-Za-z0-9_-]{8,64}$/.test(order)){ show("sMissing"); return; }
+
+  var tries = 0;
+  function check(){
+    tries++;
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function(){ if(ctrl) ctrl.abort(); }, 30000);
+    fetch(FN + "?a=status&o=" + encodeURIComponent(order), {cache: "no-store", signal: ctrl ? ctrl.signal : undefined})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        clearTimeout(timer);
+        if(d.status === "succeeded"){
+          document.getElementById("pdfLink").href = FN + "?a=pdf&o=" + encodeURIComponent(order);
+          show("sOk");
+          try{ ym(110415141, "reachGoal", "gayd_paid"); }catch(e){}
+        }else if(d.status === "pending" || d.status === "waiting_for_capture"){
+          show("sPending");
+          if(tries < 40) setTimeout(check, 5000); else show("sError");
+        }else if(d.status === "error"){
+          if(tries < 3) setTimeout(check, 4000); else show("sError");
+        }else{
+          show("sMissing");
+        }
+      })
+      .catch(function(){
+        clearTimeout(timer);
+        if(tries < 3) setTimeout(check, 4000); else show("sError");
+      });
+  }
+  check();
+})();
+</script>
+</body>
+</html>
