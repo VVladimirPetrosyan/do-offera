@@ -646,7 +646,7 @@ a{color:var(--pen)}
     state.vacancy = $("#vacText").value;
     const c = completeness(state);
     // человек — сразу под баллом, без цены
-    const human = `<div class="res-human"><span>Посмотрю резюме и подберу вакансии под вас</span><a class="btn" id="resReview" href="${EXPERT_LINK}" target="_blank" rel="noopener noreferrer">Разбор человеком</a></div>`;
+    const human = `<div class="res-human"><span>Посмотрю резюме и подберу вакансии под вас</span><a class="btn" id="resReview" href="${EXPERT_LINK}" target="_blank" rel="noopener noreferrer">Разбор специалистом</a></div>`;
     let card, fix = "", vac = "";
     if(c.pct < 40){
       // как в конструкторе: пока заполнено меньше 40 %, балл не ставим, а говорим, чего не хватает
