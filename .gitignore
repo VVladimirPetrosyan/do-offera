@@ -1,6 +1,11 @@
 .claude/
+.zcode/
+memory/
 marketing/
 journal/
 DECISIONS.md
 _trash/
 plans/
+.zcode-site/
+.zcode-site.json
+AGENTS.md
