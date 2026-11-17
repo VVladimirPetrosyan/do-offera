@@ -7,7 +7,7 @@
 <meta name="description" content="Пошаговый порядок на один вечер: сколько вакансий под ваш опыт на самом деле, какие из них живые и на какие 10–15 откликаться первыми. PDF, 12 страниц, 290 ₽.">
 <link rel="canonical" href="https://do-offera.ru/gayd/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#E9E6DF">
+<meta name="theme-color" content="#2E241A">
 <meta property="og:title" content="Как посчитать свой рынок на hh — PDF-гайд">
 <meta property="og:description" content="Сколько вакансий под ваш опыт на самом деле и на какие 10–15 откликаться первыми. 12 страниц, 290 ₽.">
 <meta property="og:type" content="product">
@@ -18,70 +18,22 @@
 <meta property="og:image:alt" content="до оффера. — конструктор резюме">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../css/base.css">
 <style>
+/* Токены и база — общий слой css/base.css («Деревянный стол»); здесь только страничное */
 :root{
-  --desk:#E9E6DF;
-  --desk-deep:#DDD9CF;
-  --paper:#FFFFFF;
-  --ink:#20262E;
-  --ink-soft:#5A6470;
-  --navy:#16324F;
-  --marker:#FFE873;
-  --pen:#2743C7;
-  --pen-deep:#1E33A0;
-  --line:#D8D4CA;
   --ok-bg:#EAF6EE;
   --ok-ink:#1F6E3F;
-  --radius:10px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
-body{
-  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(1100px 480px at 80% -8%,rgba(255,255,255,.55),transparent 60%),
-    var(--desk);
-  color:var(--ink);font-size:16px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
 }
 a{color:var(--pen)}
-:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
+body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
-/* ---------- Шапка ---------- */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(233,230,223,.92);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.topbar-in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:22px}
-.wordmark{
-  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
-  font-size:24px;color:var(--navy);letter-spacing:-.01em;white-space:nowrap;text-decoration:none;
-  margin-right:auto;
-}
-.wordmark em{
-  font-style:italic;
-  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
-  padding:0 2px;
-}
+/* ---------- Шапка: общий тёмный орех (css/base.css) ---------- */
+.topbar-in{max-width:1080px}
+.wordmark{margin-right:auto}
 .topnav{display:flex;gap:20px}
-.topnav a{font-size:14px;font-weight:500;color:var(--ink-soft);text-decoration:none}
-.topnav a:hover{color:var(--ink)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  border:1px solid var(--line);background:var(--paper);color:var(--ink);
-  border-radius:var(--radius);padding:9px 16px;font-size:14px;font-weight:500;font-family:inherit;
-  text-decoration:none;white-space:nowrap;cursor:pointer;
-  transition:border-color .15s,background .15s,transform .1s;
-}
-.btn:hover{border-color:var(--ink-soft)}
-.btn:active{transform:translateY(1px)}
-.btn-primary{background:var(--pen);border-color:var(--pen);color:#fff;font-weight:600}
-.btn-primary:hover{background:var(--pen-deep);border-color:var(--pen-deep)}
+.topnav a{font-size:14px;font-weight:500;color:rgba(243,234,216,.78);text-decoration:none}
+.topnav a:hover{color:var(--cream)}
 .btn-lg{font-size:16px;padding:13px 26px}
 @media (max-width:720px){
   .topnav{display:none}
@@ -91,14 +43,16 @@ a{color:var(--pen)}
 /* ---------- Лист ---------- */
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 .sheet{
-  max-width:860px;margin:44px auto 0;background:var(--paper);
-  box-shadow:0 1px 2px rgba(32,38,46,.12),0 18px 45px rgba(32,38,46,.18);
+  max-width:860px;margin:44px auto 0;
+  background-color:var(--paper);
+  background-image:var(--paper-noise);
+  box-shadow:var(--shadow-sheet);
   padding:clamp(26px,6vw,60px) clamp(20px,6vw,64px) clamp(30px,6vw,60px);
 }
 .kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
-.hero{border-bottom:3px solid var(--navy);padding-bottom:24px;margin-top:10px}
+.hero{border-bottom:3px solid var(--marker);padding-bottom:24px;margin-top:10px}
 .hero h1{
-  font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--navy);
+  font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--walnut-deep);
   font-size:clamp(34px,6vw,48px);line-height:1.08;letter-spacing:-.01em;
 }
 .lead{font-size:18.5px;line-height:1.5;color:#3d4650;margin-top:12px;max-width:640px}
@@ -107,11 +61,11 @@ a{color:var(--pen)}
 
 .sec{margin-top:36px}
 .sec > h2{
-  font-size:15px;font-weight:700;color:var(--navy);
+  font-size:15px;font-weight:700;color:var(--ink-soft);
   text-transform:uppercase;letter-spacing:.09em;
   display:flex;align-items:center;gap:12px;margin-bottom:12px;
 }
-.sec > h2::after{content:"";flex:1;height:1px;background:#E3E1DA}
+.sec > h2::after{content:"";flex:1;height:1px;background:var(--line)}
 .sec p{color:#333a42;margin-top:10px}
 .sec > p:first-of-type{margin-top:0}
 .src{font-size:13px;color:var(--ink-soft)}
@@ -119,9 +73,9 @@ a{color:var(--pen)}
 /* Пример с двумя числами */
 .nums{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:4px 0 14px}
 .num-card{border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
-.num-card b{display:block;font-family:"Piazzolla",Georgia,serif;font-size:34px;line-height:1.1;color:var(--navy)}
+.num-card b{display:block;font-family:"Piazzolla",Georgia,serif;font-size:34px;line-height:1.1;color:var(--walnut-deep)}
 .num-card span{font-size:14px;color:var(--ink-soft)}
-.num-card.hl{border-color:var(--navy);background:#F6F8FB}
+.num-card.hl{border-color:var(--gold);background:rgba(255,232,115,.18)}
 
 .rules{list-style:none;display:grid;gap:10px}
 .rules li{position:relative;padding-left:20px;color:#333a42;font-size:15.5px}
@@ -135,7 +89,7 @@ a{color:var(--pen)}
 .page{border:1px solid var(--line);border-radius:var(--radius);padding:18px 18px 14px;background:#FCFBF8}
 .page-cap{font-size:13px;color:var(--ink-soft);margin-bottom:10px}
 .tbl{width:100%;border-collapse:collapse;font-size:14px}
-.tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700;padding:6px 8px;border-bottom:2px solid var(--navy)}
+.tbl th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);font-weight:700;padding:6px 8px;border-bottom:2px solid var(--ink-soft)}
 .tbl td{padding:7px 8px;border-bottom:1px solid #E7E4DC;vertical-align:top}
 .tbl code{font-family:Consolas,"Courier New",monospace;font-size:13px;background:#EEF1F8;border-radius:4px;padding:1px 5px;white-space:nowrap}
 .page .note{font-size:13.5px;color:#4a525c;margin-top:12px}
@@ -148,15 +102,15 @@ a{color:var(--pen)}
 }
 
 /* Покупка */
-.buy{border:2px solid var(--navy);border-radius:14px;padding:clamp(18px,4vw,28px);margin-top:12px}
+.buy{border:2px solid var(--gold);border-radius:14px;padding:clamp(18px,4vw,28px);margin-top:12px}
 .buy-top{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 16px}
-.price{font-family:"Piazzolla",Georgia,serif;font-weight:700;font-size:40px;color:var(--navy);line-height:1}
+.price{font-family:"Piazzolla",Georgia,serif;font-weight:700;font-size:40px;color:var(--walnut-deep);line-height:1}
 .buy-what{font-size:14.5px;color:var(--ink-soft)}
 .buy form{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .buy label{flex-basis:100%;font-size:14px;font-weight:600}
 .buy input{
   flex:1 1 260px;min-width:0;font:inherit;font-size:16px;padding:12px 14px;
-  border:1px solid var(--line);border-radius:var(--radius);background:#fff;color:var(--ink);
+  border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);color:var(--ink);
 }
 .buy input:focus{border-color:var(--pen);outline:none;box-shadow:0 0 0 3px rgba(39,67,199,.15)}
 .buy .btn-lg{flex:0 0 auto}
@@ -173,41 +127,12 @@ a{color:var(--pen)}
 
 .after{max-width:860px;margin:28px auto 80px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 
-/* ---------- Подвал (общий для всех страниц) ---------- */
-.sf{border-top:1px solid var(--line);background:var(--desk-deep)}
-.sf-in{max-width:1080px;margin:0 auto;padding:28px 20px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
-.sf-brand{max-width:440px}
-.sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
-.sf-mark em{font-style:italic;background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 2px}
-.sf-brand p{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:6px}
-.sf-brand p a{color:var(--ink);font-weight:600;text-decoration:none}
-.sf-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:4px}
-.sf-nav a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
-.sf a:hover{text-decoration:underline}
-.sf-nav a[aria-current="page"]{color:var(--pen)}
-.sf-note{flex-basis:100%;font-size:12.5px;line-height:1.5;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px}
-.sf-note a{color:var(--ink-soft)}
+/* ---------- Подвал: общий тёмный орех (css/base.css) ---------- */
+.sf-in{max-width:1080px}
 
-/* ---------- Cookie-уведомление ---------- */
-.cookie-bar{
-  position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
-  z-index:70;width:min(680px,calc(100% - 24px));
-  background:var(--navy);color:#fff;border-radius:12px;
-  box-shadow:0 10px 40px rgba(22,50,79,.35);
-  padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
-}
-.cookie-bar p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);flex:1;min-width:220px}
-.cookie-bar a{color:var(--marker);font-weight:600;text-decoration:none}
-.cookie-bar a:hover{text-decoration:underline}
-.cookie-bar button{
-  border:none;background:var(--marker);color:var(--navy);font-weight:700;font-family:inherit;cursor:pointer;
-  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
-}
-.cookie-bar[hidden]{display:none}
-@media (max-width:420px){
-  .cookie-bar{padding:10px 12px;gap:10px;flex-wrap:nowrap}
-  .cookie-bar p{font-size:12px;min-width:0}
-  .cookie-bar button{padding:8px 12px}
+/* ---------- Cookie-уведомление: общий стиль (css/base.css) ---------- */
+@media (max-width:1023px){
+  .cookie-bar{bottom:16px}
 }
 
 @media (max-width:560px){
@@ -368,7 +293,7 @@ a{color:var(--pen)}
           <button class="btn btn-primary btn-lg" type="submit" id="buyBtn">Оплатить 290 ₽</button>
         </form>
         <p class="fine">Оплата через ЮKassa. Нажимая «Оплатить», вы принимаете условия <a href="../oferta/">оферты</a>. Почту используем только для чека и копии файла — <a href="../privacy.html">политика конфиденциальности</a>.</p>
-        <p class="promise"><b>Файл повреждён или отличается от описания</b> — пришлю исправный или верну деньги. <b>Застряли на каком-то шаге</b> — напишите профессию и город на <a href="mailto:shklyaevr@gmail.com">shklyaevr@gmail.com</a>, посчитаю ваш рынок сам.</p>
+        <p class="promise"><b>Файл повреждён или отличается от описания</b> — пришлю исправный файл или верну оплату. <b>Застряли на каком-то шаге</b> — напишите профессию и город на <a href="mailto:shklyaevr@gmail.com">shklyaevr@gmail.com</a>, посчитаю ваш рынок сам.</p>
       </div>
     </section>
 

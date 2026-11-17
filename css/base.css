@@ -1,0 +1,240 @@
+/* ============================================================
+   «до оффера.» — дизайн-система «Деревянный стол»
+   Общий слой: токены, текстуры дерева, шапка, подвал, кнопки,
+   cookie-плашки. Страничные стили живут в самих страницах.
+   ============================================================ */
+
+:root{
+  /* дерево */
+  --wood:#8A6B45;
+  --wood-stage:#7E613C;
+  --walnut:#2E241A;
+  --walnut-deep:#221A11;
+  --cream:#F3EAD8;
+  /* Шкала текста: 12.5 служебные чипы · 13 подсказки · 14 основной текст ·
+     15 заголовки карточек · 17 заголовки блоков · 20 h3. Других размеров нет. */
+  /* бумага и чернила */
+  --paper:#FFFDF8;
+  --paper-soft:#F7F1E4;
+  --ink:#26221B;
+  --ink-soft:#6E6250;
+  --line:#E3D9C6;
+  /* канцелярия */
+  --marker:#FFE873;
+  --pen:#2743C7;
+  --pen-deep:#1E33A0;
+  --gold:#D9B36C;
+  /* маркер на тёмных поверхностях: полупрозрачный, не слепит */
+  --marker-glass:rgba(255,232,115,.4);
+  /* статус */
+  --ok:#1E7B4F;
+  --danger:#B4452F;
+  /* совместимость со старыми правилами */
+  --desk:var(--paper-soft);
+  --desk-deep:var(--wood-stage);
+  /* служебные */
+  --radius:10px;
+  --shadow-card:0 1px 2px rgba(40,26,10,.16),0 6px 18px rgba(40,26,10,.14);
+  --shadow-card-hover:0 2px 4px rgba(40,26,10,.18),0 14px 34px rgba(40,26,10,.22);
+  --shadow-sheet:0 2px 4px rgba(25,15,4,.28),0 24px 60px rgba(25,15,4,.4);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.14' numOctaves='4' seed='8'/%3E%3CfeColorMatrix values='0 0 0 0 0.22 0 0 0 0 0.14 0 0 0 0 0.05 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='640' height='640' filter='url(%23g)'/%3E%3C/svg%3E");
+  --grain-dark:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.14' numOctaves='4' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0.94 0 0 0 0 0.86 0 0 0 0 0.68 0 0 0 0.10 0'/%3E%3C/filter%3E%3Crect width='640' height='640' filter='url(%23g)'/%3E%3C/svg%3E");
+  /* дощатая столешница: 3 доски по 140px, швы с фаской, торцевые стыки вразбежку,
+     волокна и минеральные прожилки — всё бесшовно тайлится (stitchTiles) */
+  --planks:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='420'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%2384653F'/%3E%3Cstop offset='.5' stop-color='%238E6F48'/%3E%3Cstop offset='1' stop-color='%23815F3A'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%238E7049'/%3E%3Cstop offset='.45' stop-color='%23866743'/%3E%3Cstop offset='1' stop-color='%237C5D38'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%238A6941'/%3E%3Cstop offset='.6' stop-color='%2393744D'/%3E%3Cstop offset='1' stop-color='%2385653E'/%3E%3C/linearGradient%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0013 0.013' numOctaves='4' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.09 0 0 0 0 0.03 0 0 0 0.42 0'/%3E%3C/filter%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.0009 0.005' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.05 0 0 0 0 0.01 0 0 0 0.22 0'/%3E%3C/filter%3E%3C/defs%3E%3Crect width='1440' height='140' fill='url(%23a)'/%3E%3Crect y='140' width='1440' height='140' fill='url(%23b)'/%3E%3Crect y='280' width='1440' height='140' fill='url(%23c)'/%3E%3Crect width='1440' height='420' filter='url(%23m)'/%3E%3Crect width='1440' height='420' filter='url(%23g)'/%3E%3Crect y='139' width='1440' height='2' fill='%233E2A12' opacity='.55'/%3E%3Crect y='141' width='1440' height='1' fill='%23C99B5B' opacity='.28'/%3E%3Crect y='279' width='1440' height='2' fill='%233E2A12' opacity='.55'/%3E%3Crect y='281' width='1440' height='1' fill='%23C99B5B' opacity='.28'/%3E%3Crect y='419' width='1440' height='2' fill='%233E2A12' opacity='.55'/%3E%3Crect y='1' width='1440' height='1' fill='%23C99B5B' opacity='.28'/%3E%3Crect x='960' y='0' width='1.5' height='139' fill='%233E2A12' opacity='.3'/%3E%3Crect x='420' y='140' width='1.5' height='139' fill='%233E2A12' opacity='.3'/%3E%3Crect x='1180' y='280' width='1.5' height='139' fill='%233E2A12' opacity='.3'/%3E%3C/svg%3E");
+  --paper-noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.18 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23p)'/%3E%3C/svg%3E");
+  --sheet-w:794px; /* 210mm @96dpi */
+  --tb-h:64px; /* высота шапки — для sticky-сцены */
+}
+
+/* ---------- База ---------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color:var(--ink);
+  font-size:15px;
+  line-height:1.5;
+  background-color:var(--wood);
+  background-image:
+    radial-gradient(130% 60% at 50% -8%,rgba(255,238,196,.22),transparent 62%),
+    linear-gradient(105deg,rgba(255,240,200,.06),transparent 38%),
+    var(--planks);
+  background-attachment:fixed;
+}
+button{font-family:inherit;cursor:pointer}
+input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
+:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
+.topbar :focus-visible,.sf :focus-visible,.cookie-bar :focus-visible,.mobile-tabs :focus-visible{outline-color:var(--marker)}
+::selection{background:var(--marker);color:var(--walnut-deep)}
+
+/* ---------- Шапка (тёмный орех с латунной кромкой) ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background-color:rgba(46,36,26,.74);
+  background-image:
+    radial-gradient(90% 130% at 50% 0%,rgba(255,226,160,.12),transparent 72%),
+    var(--grain-dark);
+  border-bottom:2px solid;
+  border-image:linear-gradient(90deg,#7d5f2e,#ecd28e 18%,#a8854a 42%,#f4e3ac 62%,#8d6f3c 85%,#7d5f2e) 1;
+  backdrop-filter:blur(14px) saturate(1.2);
+  -webkit-backdrop-filter:blur(14px) saturate(1.2);
+  box-shadow:0 2px 14px rgba(20,12,4,.35),inset 0 1px 0 rgba(233,222,190,.14);
+}
+.topbar-in{
+  max-width:1440px;margin:0 auto;padding:10px 20px;
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.wordmark{
+  font-family:"Piazzolla",Georgia,serif;
+  font-style:italic;font-weight:700;
+  font-size:26px;color:var(--cream);
+  letter-spacing:-.01em;white-space:nowrap;
+  text-decoration:none;
+}
+.wordmark em,.sf-mark em{
+  font-style:italic;
+  color:var(--gold);
+}
+.savestate{font-size:13px;color:rgba(243,234,216,.78);display:flex;align-items:center;gap:6px;white-space:nowrap;margin-left:auto}
+.savestate .dot{width:8px;height:8px;border-radius:50%;background:#5FBF8A;flex:none;transition:background .3s}
+.savestate.saving .dot{background:var(--gold)}
+
+/* ---------- Hero: тезис на тёмном дереве ---------- */
+.hero{
+  background-color:var(--walnut);
+  background-image:
+    radial-gradient(90% 130% at 50% 0%,rgba(255,226,160,.14),transparent 72%),
+    var(--grain-dark);
+  color:var(--cream);
+  border-bottom:1px solid rgba(217,179,108,.35);
+}
+.hero-in{max-width:1440px;margin:0 auto;padding:56px 24px 52px}
+.hero h1{
+  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
+  font-size:clamp(30px,4.2vw,46px);line-height:1.12;letter-spacing:-.015em;
+  color:var(--cream);max-width:760px;text-wrap:balance;
+}
+.hero h1 em{
+  font-style:italic;padding:0 1px;
+  color:var(--gold);
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+}
+.hero-eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);flex:none}
+.hero p{margin-top:16px;font-size:14px;line-height:1.55;color:rgba(243,234,216,.82);max-width:560px}
+.hero-actions{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero .btn{border-color:rgba(243,234,216,.32);background:rgba(255,253,248,.07);color:var(--cream)}
+.hero .btn:hover{border-color:rgba(243,234,216,.6);background:rgba(255,253,248,.12)}
+.hero .btn-primary{background:var(--marker);border-color:var(--marker);color:var(--walnut-deep);font-weight:700}
+.hero .btn-primary:hover{background:#FFEF9E;border-color:#FFEF9E}
+.hero-aside{margin-top:12px;font-size:14px}
+.hero-aside a{color:var(--gold);font-weight:600;text-decoration:none}
+.hero-aside a:hover{text-decoration:underline}
+body.boot .hero-in{animation:settle .5s cubic-bezier(.22,.61,.36,1) both}
+@media (max-width:1023px){
+  .hero-in{padding:32px 20px 28px}
+  .hero h1{font-size:clamp(26px,7vw,32px)}
+}
+@media (max-width:420px){ .hero-in{padding:24px 16px 22px} }
+
+/* ---------- Кнопки ---------- */
+.btn{
+  border:1px solid var(--line);
+  background:var(--paper);
+  color:var(--ink);
+  border-radius:var(--radius);
+  padding:11px 16px;font-size:14px;font-weight:500;
+  display:inline-flex;align-items:center;gap:8px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75);
+  transition:border-color .15s,background .15s,transform .15s,box-shadow .15s;
+}
+.btn:hover{border-color:var(--ink-soft);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 3px 10px rgba(40,26,10,.16)}
+.btn:active{transform:translateY(1px);box-shadow:none}
+.btn svg{flex:none}
+.btn-primary{background:var(--marker);border-color:var(--marker);color:var(--walnut-deep);font-weight:700}
+.btn-primary:hover{background:#FFEF9E;border-color:#FFEF9E}
+.btn-ghost{background:transparent}
+.btn-danger{color:var(--danger)}
+/* кнопки на тёмном дереве */
+.topbar .btn,.hero .btn{border-color:rgba(243,234,216,.3);background:rgba(255,253,248,.07);color:var(--cream);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+.topbar .btn:hover,.hero .btn:hover{border-color:rgba(243,234,216,.6);background:rgba(255,253,248,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 3px 10px rgba(20,12,4,.3)}
+.topbar .btn-primary,.hero .btn-primary{background:var(--marker);border-color:var(--marker);color:var(--walnut-deep);box-shadow:inset 0 1px 0 rgba(255,255,255,.55)}
+.topbar .btn-primary:hover{background:#FFEF9E;border-color:#FFEF9E}
+.topbar .btn-ghost{background:transparent}
+.topbar .btn-danger{color:#E89B7B}
+
+/* ---------- Cookie-плашки ---------- */
+.cookie-bar{
+  position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
+  z-index:70;width:min(680px,calc(100% - 24px));
+  background-color:rgba(46,36,26,.8);
+  background-image:radial-gradient(90% 130% at 50% 0%,rgba(255,226,160,.10),transparent 72%),var(--grain-dark);
+  backdrop-filter:blur(12px) saturate(1.15);
+  -webkit-backdrop-filter:blur(12px) saturate(1.15);
+  color:var(--cream);
+  border:1px solid rgba(217,179,108,.35);
+  border-radius:12px;
+  box-shadow:0 10px 40px rgba(20,12,4,.45);
+  padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+}
+.cookie-bar p{font-size:13.5px;line-height:1.5;color:rgba(243,234,216,.9);flex:1;min-width:220px}
+.cookie-bar a{color:var(--gold);font-weight:600;text-decoration:none}
+.cookie-bar a:hover{text-decoration:underline}
+.cookie-bar button{
+  border:none;background:var(--marker);color:var(--walnut-deep);font-weight:700;
+  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
+}
+.cookie-bar[hidden]{display:none}
+@media (max-width:1023px){ .cookie-bar{bottom:76px} }
+@media print{ .cookie-bar{display:none!important} }
+#pdfPlateCta{
+  border:none;background:var(--marker);color:var(--walnut-deep);font-weight:700;
+  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
+  text-decoration:none;
+}
+#pdfPlateClose{
+  border:none;background:transparent;color:rgba(243,234,216,.7);
+  font-size:16px;line-height:1;padding:6px;border-radius:8px;
+}
+#pdfPlateClose:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* ---------- Подвал (тёмный орех) ---------- */
+.sf{
+  background-color:var(--walnut);
+  background-image:radial-gradient(90% 100% at 50% 0%,rgba(255,226,160,.07),transparent 70%),var(--grain-dark);
+  color:var(--cream);
+}
+.sf-in{max-width:1440px;margin:0 auto;padding:28px 20px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
+.sf-brand{max-width:440px}
+.sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--cream);text-decoration:none;letter-spacing:-.01em}
+.sf-brand p{font-size:14px;line-height:1.5;color:rgba(243,234,216,.72);margin-top:6px}
+.sf-brand p a{color:var(--cream);font-weight:600;text-decoration:none}
+.sf-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:4px}
+.sf-nav a{font-size:14px;font-weight:500;color:var(--cream);text-decoration:none}
+.sf a:hover{text-decoration:underline}
+.sf-nav a[aria-current="page"]{color:var(--gold)}
+.sf-note{flex-basis:100%;font-size:13px;line-height:1.5;color:rgba(243,234,216,.6);border-top:1px solid rgba(243,234,216,.16);padding-top:14px}
+.sf-note a{color:rgba(243,234,216,.72)}
+@media (max-width:1023px){ .sf-in{padding-bottom:88px} }
+@media print{ .sf{display:none!important} }
+
+/* ---------- Печать: страница всегда белая ---------- */
+@media print{
+  body{background:#fff;background-image:none!important}
+}
+
+/* ---------- Движение: сцена «оживает» при загрузке ---------- */
+@keyframes settle{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes lay{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes swipe{from{background-size:0 100%}to{background-size:100% 100%}}
+/* Класс boot ставит скрипт сразу после <body> и снимает через 1.8 с:
+   без JS страница видима полностью, а переключение вкладок на телефоне
+   не перезапускает сцену */

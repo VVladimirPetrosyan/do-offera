@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>до оффера. — конструктор резюме: заполните форму и скачайте PDF бесплатно</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#E9E6DF">
+<meta name="theme-color" content="#2E241A">
 <meta name="yandex-verification" content="bf4db4d4021c4e03">
 <meta name="yandex-verification" content="8a9322e1d1e2fa7e">
 <link rel="canonical" href="https://do-offera.ru/">
@@ -20,86 +20,10 @@
 <meta property="og:image:alt" content="до оффера. — конструктор резюме">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/base.css">
 <style>
-:root{
-  --desk:#E9E6DF;
-  --desk-deep:#DDD9CF;
-  --paper:#FFFFFF;
-  --ink:#20262E;
-  --ink-soft:#5A6470;
-  --navy:#16324F;
-  --marker:#FFE873;
-  --pen:#2743C7;
-  --pen-deep:#1E33A0;
-  --line:#D8D4CA;
-  --ok:#1E7B4F;
-  --danger:#B4452F;
-  --radius:10px;
-  --shadow-card:0 1px 2px rgba(32,38,46,.06),0 4px 14px rgba(32,38,46,.05);
-  --sheet-w:794px; /* 210mm @96dpi */
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
-body{
-  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:var(--desk);
-  color:var(--ink);
-  font-size:15px;
-  line-height:1.5;
-}
-button{font-family:inherit;cursor:pointer}
-input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
-:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
-
-/* ---------- Шапка ---------- */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(233,230,223,.92);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.topbar-in{
-  max-width:1440px;margin:0 auto;padding:10px 20px;
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-}
-.wordmark{
-  font-family:"Piazzolla",Georgia,serif;
-  font-style:italic;font-weight:700;
-  font-size:26px;color:var(--navy);
-  letter-spacing:-.01em;white-space:nowrap;
-  text-decoration:none;
-}
-.wordmark em{
-  font-style:italic;
-  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
-  padding:0 2px;
-}
-.tagline{font-size:13px;color:var(--ink-soft);margin-right:auto}
-.savestate{font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:6px;white-space:nowrap}
-.savestate .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none;transition:background .3s}
-.savestate.saving .dot{background:#C9A227}
-.btn{
-  border:1px solid var(--line);
-  background:var(--paper);
-  color:var(--ink);
-  border-radius:var(--radius);
-  padding:9px 16px;font-size:14px;font-weight:500;
-  display:inline-flex;align-items:center;gap:8px;
-  transition:border-color .15s,background .15s,transform .1s;
-}
-.btn:hover{border-color:var(--ink-soft)}
-.btn:active{transform:translateY(1px)}
-.btn-primary{
-  background:var(--pen);border-color:var(--pen);color:#fff;font-weight:600;
-}
-.btn-primary:hover{background:var(--pen-deep);border-color:var(--pen-deep)}
-.btn-ghost{background:transparent}
-.btn-danger{color:var(--danger)}
-.btn svg{flex:none}
+/* Страничные стили конструктора. Общий слой (токены, дерево,
+   шапка, кнопки, подвал, cookie) — в css/base.css */
 
 /* ---------- Каркас ---------- */
 .layout{
@@ -108,43 +32,78 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
   gap:0;align-items:start;
 }
 .editor{
-  padding:20px 20px 80px;
-  display:flex;flex-direction:column;gap:14px;
+  padding:24px 24px 96px;
+  display:flex;flex-direction:column;gap:16px;
+  scroll-margin-top:80px;
 }
 .stage{
-  position:sticky;top:57px;
-  height:calc(100vh - 57px);
+  position:sticky;top:var(--tb-h);
+  height:calc(100vh - var(--tb-h));
   overflow:auto;
-  padding:22px 28px 40px;
-  background:
-    radial-gradient(1200px 500px at 70% -10%,rgba(255,255,255,.5),transparent 60%),
-    var(--desk-deep);
-  border-left:1px solid var(--line);
+  padding:24px 32px 48px;
+  background-color:var(--wood-stage);
+  background-image:
+    radial-gradient(150% 110% at 50% 45%,transparent 50%,rgba(28,17,5,.5) 100%),
+    radial-gradient(120% 50% at 70% -8%,rgba(255,238,196,.16),transparent 60%),
+    var(--planks);
+  background-attachment:fixed;
+  border-left:1px solid rgba(46,30,12,.28);
 }
+/* Тонкий скроллбар сцены — в тонах дерева */
+.stage::-webkit-scrollbar{width:10px}
+.stage::-webkit-scrollbar-track{background:transparent}
+.stage::-webkit-scrollbar-thumb{
+  background:rgba(46,36,26,.45);border-radius:99px;
+  border:2px solid transparent;background-clip:padding-box;
+}
+.stage::-webkit-scrollbar-thumb:hover{background:rgba(46,36,26,.65);border:2px solid transparent;background-clip:padding-box}
 
-/* ---------- Готовность ---------- */
+/* ---------- Загрузка: бумаги ложатся на стол по очереди ---------- */
+body.boot .editor > *{
+  animation:settle .55s cubic-bezier(.22,.61,.36,1) both;
+  animation-delay:calc(.1s + var(--i,0) * .055s);
+}
+.editor > :nth-child(1){--i:0}
+.editor > :nth-child(2){--i:1}
+.editor > :nth-child(3){--i:2}
+.editor > :nth-child(4){--i:3}
+.editor > :nth-child(5){--i:4}
+.editor > :nth-child(6){--i:5}
+.editor > :nth-child(7){--i:6}
+.editor > :nth-child(8){--i:7}
+.editor > :nth-child(9){--i:8}
+.editor > :nth-child(10){--i:9}
+.editor > :nth-child(11){--i:10}
+.editor > :nth-child(12){--i:11}
+.editor > :nth-child(13){--i:12}
+body.boot .sheet-wrap{animation:lay .8s .3s cubic-bezier(.22,.61,.36,1) both}
+body.boot .expert-cta{animation:settle .6s .9s cubic-bezier(.22,.61,.36,1) both}
+
+/* ---------- Готовность: жёлтый маркер ---------- */
 .readiness{
-  background:var(--navy);color:#fff;
+  background:var(--marker);color:var(--walnut-deep);
   border-radius:var(--radius);
   padding:16px 18px;
-  box-shadow:var(--shadow-card);
+  box-shadow:var(--shadow-card),inset 0 1px 0 rgba(255,255,255,.6);
 }
 .readiness-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
-.readiness-top h2{font-size:14px;font-weight:600;letter-spacing:.02em}
-.readiness-top .pct{font-family:"Piazzolla",Georgia,serif;font-weight:700;font-size:26px}
-.readiness-top .pct small{font-size:13px;font-weight:400;color:rgba(255,255,255,.7);margin-left:2px}
-.meter{height:8px;background:rgba(255,255,255,.18);border-radius:99px;margin:10px 0 8px;overflow:hidden}
-.meter i{display:block;height:100%;width:0;background:var(--marker);border-radius:99px;transition:width .4s ease}
-.readiness p{font-size:13px;color:rgba(255,255,255,.85);line-height:1.45}
-.readiness p b{color:var(--marker);font-weight:600}
+.readiness-top h2{font-size:15px;font-weight:700;letter-spacing:.02em}
+.readiness-top .pct{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:30px}
+.readiness-top .pct small{font-size:13px;font-weight:400;color:rgba(34,26,17,.62);margin-left:2px}
+.meter{height:8px;background:rgba(34,26,17,.16);border-radius:99px;margin:10px 0 8px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--pen);border-radius:99px;transition:width .4s ease}
+.readiness p{font-size:14px;color:rgba(34,26,17,.82);line-height:1.45}
+.readiness p b{color:var(--pen-deep);font-weight:600}
 
-/* ---------- Заголовок страницы и пустая форма ---------- */
-.page-top{display:flex;flex-direction:column;gap:12px}
-.page-top h1{font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--navy);font-size:24px;line-height:1.15;letter-spacing:-.01em}
-.btn-check{justify-content:center;border-color:var(--pen);color:var(--pen);font-weight:600;text-decoration:none}
-.btn-check:hover{border-color:var(--pen-deep);color:var(--pen-deep);background:rgba(39,67,199,.04)}
-/* Пока форма пуста, балл и замечания свёрнуты в одну строку — первое поле анкеты видно сразу */
-.empty-promise{display:none;background:var(--navy);color:rgba(255,255,255,.9);border-radius:var(--radius);padding:12px 16px;font-size:13.5px;line-height:1.45;box-shadow:var(--shadow-card)}
+/* ---------- Пустая форма ---------- */
+.empty-promise{
+  display:none;
+  background-color:var(--walnut);
+  background-image:var(--grain-dark);
+  color:rgba(243,234,216,.9);
+  border-radius:var(--radius);padding:12px 16px;
+  font-size:14px;line-height:1.45;box-shadow:var(--shadow-card);
+}
 .empty-promise b{color:var(--marker);font-weight:600}
 body.form-empty .empty-promise{display:block}
 body.form-empty .readiness,body.form-empty #lintCard{display:none}
@@ -153,17 +112,16 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 #vacCard.collapsed{padding:0}
 #vacCard.collapsed .vac-open{display:block}
 #vacCard.collapsed > :not(.vac-open){display:none}
-@media (max-width:420px){ .page-top h1{font-size:21px} }
 
 /* ---------- Взгляд рекрутёра ---------- */
 .lint-card{padding:16px 18px}
 .lint-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
 .lint-head h2{font-size:15px;font-weight:600}
-.lint-badge{font-size:12px;font-weight:600;color:var(--ink-soft);background:var(--desk);border-radius:99px;padding:3px 10px;white-space:nowrap}
+.lint-badge{font-size:12.5px;font-weight:600;color:var(--ink-soft);background:var(--paper-soft);border-radius:99px;padding:3px 10px;white-space:nowrap}
 .lint-badge.warn{background:#F6ECCB;color:#8A6D14}
 .lint-badge.ok{background:#DDEEE4;color:var(--ok)}
 #lintList{list-style:none;display:flex;flex-direction:column;gap:9px}
-#lintList li{display:flex;gap:9px;font-size:13px;line-height:1.5;color:var(--ink-soft)}
+#lintList li{display:flex;gap:9px;font-size:14px;line-height:1.5;color:var(--ink-soft)}
 #lintList li i{width:8px;height:8px;border-radius:50%;margin-top:6px;flex:none}
 #lintList li.l-warn i{background:#C9A227}
 #lintList li.l-ok i{background:var(--ok)}
@@ -173,14 +131,14 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 
 /* ---------- Соответствие вакансии ---------- */
 .lint-badge.bad{background:#F4E0DB;color:var(--danger)}
-.vac-result{margin-top:12px;display:flex;flex-direction:column;gap:9px;font-size:13px;color:var(--ink-soft);line-height:1.5}
+.vac-result{margin-top:12px;display:flex;flex-direction:column;gap:9px;font-size:14px;color:var(--ink-soft);line-height:1.5}
 .vac-result b{color:var(--ink);font-weight:600}
 .vac-chips{display:flex;flex-wrap:wrap;gap:6px}
-.vac-chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:var(--desk);color:var(--ink-soft)}
+.vac-chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:var(--paper-soft);color:var(--ink-soft)}
 .vac-chip.hit{background:#DDEEE4;color:var(--ok)}
 .vac-chip.miss{background:#F6ECCB;color:#8A6D14}
-.vac-note{font-size:12.5px;line-height:1.5;color:var(--ink-soft);background:#FCFBF9;border:1px solid var(--line);border-radius:8px;padding:8px 11px}
-.vac-cta{font-size:13px;color:var(--ink)}
+.vac-note{font-size:13.5px;line-height:1.5;color:var(--ink-soft);background:var(--paper-soft);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.vac-cta{font-size:14px;color:var(--ink)}
 .vac-cta a{color:var(--pen);font-weight:600;text-decoration:none}
 .vac-cta a:hover{text-decoration:underline}
 
@@ -197,54 +155,64 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 }
 .expert-cta .expert-txt{flex:1;min-width:260px}
 .expert-cta h3{font-size:17px;font-weight:700;margin-bottom:4px}
-.expert-cta p{font-size:13.5px;color:var(--ink-soft);line-height:1.5}
-.expert-cta .offer-h{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin:14px 0 6px}
+.expert-cta p{font-size:14px;color:var(--ink-soft);line-height:1.5}
+.expert-cta .offer-h{
+  display:flex;align-items:center;gap:12px;
+  font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 8px;
+}
+.expert-cta .offer-h::after{content:"";flex:1;height:1px;background:rgba(217,179,108,.5)}
 .expert-cta .offer-steps{margin:0;padding-left:20px;display:grid;gap:6px}
-.expert-cta .offer-steps li{font-size:13.5px;color:var(--ink);line-height:1.45}
+.expert-cta .offer-steps li{font-size:14px;color:var(--ink);line-height:1.45}
 .expert-cta .offer-list{list-style:none;margin:0;display:grid;gap:7px}
-.expert-cta .offer-list li{font-size:13.5px;color:var(--ink);line-height:1.45}
+.expert-cta .offer-list li{font-size:14px;color:var(--ink);line-height:1.45}
 .expert-cta .offer-list .hl{
   font-weight:700;padding:0 3px;
-  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
+  background-image:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
+  background-repeat:no-repeat;background-size:100% 100%;
 }
+body.boot .expert-cta .offer-list .hl{animation:swipe .6s .8s cubic-bezier(.3,.6,.2,1) both}
 .expert-cta .offer-guarantee{
-  font-size:13px;color:var(--ink);line-height:1.5;margin-top:14px;
-  padding:9px 13px;border-radius:8px;
+  font-size:14px;color:var(--ink);line-height:1.5;margin-top:16px;
+  padding:12px 16px;border-radius:8px;
   background:#EAF4EE;border:1px solid #CBE4D5;
 }
 .expert-cta .offer-sample{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .expert-cta .offer-sample a{display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
 .expert-cta .offer-sample img{display:block;width:100%;height:auto}
-.expert-cta .offer-sample-cap{font-size:12.5px;margin-top:6px}
+.expert-cta .offer-sample-cap{font-size:13px;margin-top:8px}
 .expert-cta .offer-prices{list-style:none;margin:0;display:grid;gap:7px}
-.expert-cta .offer-prices li{font-size:13.5px;color:var(--ink);line-height:1.45}
+.expert-cta .offer-prices li{font-size:14px;color:var(--ink);line-height:1.45}
 .expert-cta .offer-prices b{font-weight:600}
 .expert-cta .offer-foot{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
-.expert-cta .offer-price{font-size:13px;color:var(--ink-soft);flex:1;min-width:180px;line-height:1.4}
+.expert-cta .offer-price{font-size:14px;color:var(--ink-soft);flex:1;min-width:180px;line-height:1.4}
 .expert-cta .offer-price b{font-size:19px;color:var(--ink);font-weight:700}
 .expert-cta .offer-author{color:var(--ink);margin-bottom:8px}
 .expert-cta .offer-articles{list-style:none;margin:0;display:grid;gap:7px}
-.expert-cta .offer-articles li{font-size:13.5px;line-height:1.45}
-.expert-cta .offer-articles .src{font-size:12px;color:var(--ink-soft);margin-right:4px}
+.expert-cta .offer-articles li{font-size:14px;line-height:1.45}
+.expert-cta .offer-articles .src{font-size:12.5px;color:var(--ink-soft);margin-right:4px}
 .expert-cta .offer-articles a{color:var(--pen);text-decoration:none}
 .expert-cta .offer-articles a:hover{text-decoration:underline}
 
 /* ---------- Черновик и приватность ---------- */
 .draft-row{display:flex;gap:8px;flex-wrap:wrap}
-.draft-row .btn{font-size:13px;padding:8px 12px}
-.privacy{font-size:12px;color:var(--ink-soft);line-height:1.5;margin-top:2px}
-.save-warn{font-size:12.5px;color:var(--danger);line-height:1.5;margin-top:10px}
+.draft-row .btn{font-size:14px;padding:10px 14px}
+.privacy{font-size:13px;color:var(--ink-soft);line-height:1.5;margin-top:2px}
+.save-warn{font-size:13px;color:var(--danger);line-height:1.5;margin-top:12px}
 
 /* ---------- Карточки формы ---------- */
 .card{
-  background:var(--paper);
+  background-color:var(--paper);
+  background-image:var(--paper-noise);
   border:1px solid var(--line);
   border-radius:var(--radius);
   box-shadow:var(--shadow-card);
+  transition:transform .35s ease,box-shadow .35s ease;
 }
+.card:hover{box-shadow:var(--shadow-card-hover)}
+.card-head:hover{background:var(--paper-soft)}
 .card > .card-head{
   width:100%;display:flex;align-items:center;gap:10px;
-  padding:14px 16px;background:none;border:none;text-align:left;
+  padding:16px;background:none;border:none;text-align:left;
   border-radius:var(--radius);
 }
 .card-head .num{
@@ -254,27 +222,31 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 .card-head h2{font-size:15px;font-weight:600;flex:1}
 .card-head .chev{transition:transform .2s;color:var(--ink-soft);flex:none}
 .card.open .chev{transform:rotate(180deg)}
-.card-body{display:none;padding:2px 16px 18px}
+.card-body{display:none;padding:0 16px 20px}
 .card.open .card-body{display:block}
 
-.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
-.field{display:flex;flex-direction:column;gap:5px;margin-bottom:10px;min-width:0}
-.field label{font-size:12.5px;font-weight:500;color:var(--ink-soft)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;min-width:0}
+.field label{font-size:14px;font-weight:500;color:var(--ink-soft)}
 .field input,.field textarea,.field select{
   border:1px solid var(--line);border-radius:8px;
-  padding:9px 11px;background:#FCFBF9;
+  padding:11px 12px;
+  background-color:var(--paper-soft);
+  background-image:var(--paper-noise);
+  box-shadow:inset 0 1px 2px rgba(40,26,10,.08);
   width:100%;min-width:0;
   transition:border-color .15s;
 }
-.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pen);outline:none;background:#fff}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pen);outline:none;background:var(--paper)}
+.field input:focus-visible,.field textarea:focus-visible,.field select:focus-visible{outline:3px solid rgba(39,67,199,.22);outline-offset:1px}
 .field textarea{resize:vertical;min-height:74px;line-height:1.5}
-.hint{font-size:12px;color:var(--ink-soft)}
+.hint{font-size:13px;color:var(--ink-soft)}
 
 /* фото */
-.photo-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.photo-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
 .photo-thumb{
   width:56px;height:56px;border-radius:10px;flex:none;
-  background:var(--desk);border:1px dashed var(--line);
+  background:var(--paper-soft);border:1px dashed var(--line);
   display:flex;align-items:center;justify-content:center;
   color:var(--ink-soft);font-size:20px;overflow:hidden;
 }
@@ -283,7 +255,7 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 /* динамические записи */
 .entry{
   border:1px solid var(--line);border-radius:8px;
-  padding:12px;margin-bottom:10px;background:#FCFBF9;
+  padding:12px;margin-bottom:12px;background:var(--paper-soft);
   position:relative;
 }
 .entry-tools{
@@ -294,12 +266,12 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
   width:28px;height:28px;border-radius:6px;
   display:flex;align-items:center;justify-content:center;font-size:14px;
 }
-.icon-btn:hover{background:var(--desk);color:var(--ink)}
+.icon-btn:hover{background:var(--paper-soft);color:var(--ink)}
 .icon-btn.del:hover{color:var(--danger)}
 .add-btn{
   width:100%;border:1px dashed var(--ink-soft);background:transparent;
   color:var(--pen);font-weight:600;font-size:14px;
-  border-radius:8px;padding:10px;
+  border-radius:8px;padding:12px;
 }
 .add-btn:hover{border-color:var(--pen);background:rgba(39,67,199,.04)}
 .current-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin-bottom:10px}
@@ -308,7 +280,7 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 /* навыки-теги */
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .tag{
-  background:var(--desk);border-radius:99px;padding:4px 6px 4px 12px;
+  background:var(--paper-soft);border-radius:99px;padding:4px 6px 4px 12px;
   font-size:13px;display:inline-flex;align-items:center;gap:4px;
 }
 .tag button{border:none;background:none;color:var(--ink-soft);font-size:14px;line-height:1;padding:2px 4px;border-radius:50%}
@@ -318,17 +290,25 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 .stage-tools{
   display:flex;align-items:center;gap:14px;flex-wrap:wrap;
   margin-bottom:16px;
+  background-color:rgba(255,253,248,.82);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-card);
+  padding:12px 16px;
 }
+body.boot .stage-tools{animation:settle .5s .5s cubic-bezier(.22,.61,.36,1) both}
 .stage-tools .group{display:flex;align-items:center;gap:8px}
-.stage-tools .lbl{font-size:12.5px;font-weight:500;color:var(--ink-soft)}
+.stage-tools .lbl{font-size:13px;font-weight:500;color:var(--ink-soft)}
 .swatches{display:flex;gap:6px}
 .swatch{
   width:26px;height:26px;border-radius:50%;border:2px solid transparent;
   padding:0;position:relative;
 }
-.swatch.active{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--desk-deep)}
-.seg{display:flex;background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.seg button{border:none;background:transparent;padding:6px 14px;font-size:13px;font-weight:500;color:var(--ink-soft)}
+.swatch.active{border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--paper-soft)}
+.seg{display:flex;background:var(--paper-soft);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:none;background:transparent;padding:6px 14px;font-size:14px;font-weight:500;color:var(--ink-soft)}
 .seg button.active{background:var(--paper);color:var(--ink);box-shadow:var(--shadow-card)}
 
 .sheet-wrap{position:relative;margin:0 auto;transition:height .2s}
@@ -336,7 +316,7 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
   width:var(--sheet-w);
   min-height:1123px; /* 297mm */
   background:var(--paper);
-  box-shadow:0 1px 2px rgba(32,38,46,.12),0 18px 45px rgba(32,38,46,.22);
+  box-shadow:var(--shadow-sheet);
   transform-origin:top left;
   padding:56px 60px;
 }
@@ -383,101 +363,68 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 }
 .r-empty p{font-size:14px;max-width:340px;margin:0 auto;line-height:1.6}
 
+/* ---------- Логотип-воронка: «оффера» проявляется с ростом балла ---------- */
+/* Пустая форма — слово-призрак (цель ещё не видна); балл растёт — слово материализуется
+   до латунного золота; скачал PDF — золото становится ярче (финиш). Механика только здесь,
+   на конструкторе: на остальных страницах логотип статичен. */
+.wordmark em{
+  opacity:calc(.15 + .85*var(--offer-progress,0));
+  transition:opacity .4s ease;
+}
+.wordmark .wm-dot,.sf-mark .wm-dot{color:var(--gold)}
+body.goal .wordmark em,body.goal .wordmark .wm-dot{color:#F0D394}
+
 /* ---------- Мобильная версия ---------- */
 .mobile-tabs{display:none}
 @media (max-width:1023px){
   .layout{grid-template-columns:1fr}
-  .stage{position:static;height:auto;border-left:none;border-top:1px solid var(--line)}
+  .stage{position:static;height:auto;border-left:none;border-top:1px solid rgba(46,30,12,.28)}
   .mobile-tabs{
     display:flex;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
-    z-index:60;background:var(--navy);border-radius:99px;padding:4px;
-    box-shadow:0 8px 30px rgba(22,50,79,.4);
+    z-index:60;
+    background-color:rgba(46,36,26,.85);
+    background-image:var(--grain-dark);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(217,179,108,.4);
+    border-radius:99px;padding:4px;
+    box-shadow:0 8px 30px rgba(20,12,4,.5);
   }
   .mobile-tabs button{
-    border:none;background:transparent;color:rgba(255,255,255,.75);
+    border:none;background:transparent;color:rgba(243,234,216,.75);
     padding:9px 22px;border-radius:99px;font-size:14px;font-weight:600;
   }
-  .mobile-tabs button.active{background:var(--marker);color:var(--navy)}
+  .mobile-tabs button.active{background:var(--marker);color:var(--walnut-deep)}
   body.show-preview .editor{display:none}
   body:not(.show-preview) .stage{display:none}
-  .tagline{display:none}
 }
 
 /* ---------- Печать ---------- */
 @media print{
   @page{size:A4;margin:0}
-  body{background:#fff}
-  .topbar,.editor,.stage-tools,.mobile-tabs,.print-hint,.expert-cta{display:none!important}
+  .topbar,.hero,.editor,.stage-tools,.mobile-tabs,.print-hint,.expert-cta{display:none!important}
   .layout{display:block;max-width:none}
   .stage{position:static;height:auto;overflow:visible;padding:0;background:#fff;border:none;display:block!important}
-  .sheet-wrap{height:auto!important;margin:0}
+  .sheet-wrap{height:auto!important;margin:0;animation:none!important;transform:none!important}
   .sheet{
     transform:none!important;width:210mm;min-height:auto;
     box-shadow:none;padding:14mm 15mm;
   }
   .r-sec,.r-item{break-inside:avoid}
 }
-.print-hint{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:14px}
+.print-hint{font-size:13.5px;color:#3A2E1C;text-align:center;margin-top:16px}
 
-/* ---------- Cookie-уведомление ---------- */
-.cookie-bar{
-  position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
-  z-index:70;width:min(680px,calc(100% - 24px));
-  background:var(--navy);color:#fff;border-radius:12px;
-  box-shadow:0 10px 40px rgba(22,50,79,.35);
-  padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
-}
-.cookie-bar p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);flex:1;min-width:220px}
-.cookie-bar a{color:var(--marker);font-weight:600;text-decoration:none}
-.cookie-bar a:hover{text-decoration:underline}
-.cookie-bar button{
-  border:none;background:var(--marker);color:var(--navy);font-weight:700;
-  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
-}
-.cookie-bar[hidden]{display:none}
-@media (max-width:1023px){ .cookie-bar{bottom:76px} }
-@media print{ .cookie-bar{display:none!important} }
-/* Плашка после скачивания PDF (мобильный): блок разбора во вкладке «Предпросмотр»,
-   на телефоне она не видна, поэтому предложение мини-диагноза дублируем плашкой */
-#pdfPlateCta{
-  border:none;background:var(--marker);color:var(--navy);font-weight:700;
-  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
-  text-decoration:none;
-}
-#pdfPlateClose{
-  border:none;background:transparent;color:rgba(255,255,255,.7);
-  font-size:16px;line-height:1;padding:6px;border-radius:8px;
-}
-#pdfPlateClose:hover{background:rgba(255,255,255,.12);color:#fff}
 /* Телефон: шапка в два ряда и низкая плашка cookie — чтобы первое поле анкеты было видно сразу */
 @media (max-width:420px){
   .topbar-in{padding:8px 14px;gap:8px 10px}
   .wordmark{font-size:22px}
   .savestate{display:none}
   #downloadPdf{order:1;margin-left:auto}
-  #fillExample,#resetAll{order:2}
   .topbar .btn{padding:7px 11px;font-size:13px}
   .cookie-bar{padding:10px 12px;gap:10px;flex-wrap:nowrap}
   .cookie-bar p{font-size:12px;min-width:0}
   .cookie-bar button{padding:8px 12px}
 }
-
-/* ---------- Подвал (общий для всех страниц) ---------- */
-.sf{border-top:1px solid var(--line);background:var(--desk-deep)}
-.sf-in{max-width:1440px;margin:0 auto;padding:28px 20px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
-.sf-brand{max-width:440px}
-.sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
-.sf-mark em{font-style:italic;background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 2px}
-.sf-brand p{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:6px}
-.sf-brand p a{color:var(--ink);font-weight:600;text-decoration:none}
-.sf-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:4px}
-.sf-nav a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
-.sf a:hover{text-decoration:underline}
-.sf-nav a[aria-current="page"]{color:var(--pen)}
-.sf-note{flex-basis:100%;font-size:12.5px;line-height:1.5;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px}
-.sf-note a{color:var(--ink-soft)}
-@media (max-width:1023px){ .sf-in{padding-bottom:88px} }
-@media print{ .sf{display:none!important} }
 </style>
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -504,14 +451,12 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 <!-- /Yandex.Metrika counter -->
 </head>
 <body class="form-empty">
+<script>document.body.classList.add("boot");window.setTimeout(function(){document.body.classList.remove("boot")},1800);</script>
 
 <header class="topbar">
   <div class="topbar-in">
-    <a class="wordmark" href="#">до <em>оффера</em>.</a>
-    <span class="tagline">Резюме, с которым зовут на собеседование. Бесплатно, без регистрации.</span>
+    <a class="wordmark" href="#">до <em>оффера</em><span class="wm-dot">.</span></a>
     <span class="savestate" id="saveState"><span class="dot"></span><span id="saveText">Черновик в браузере</span></span>
-    <button class="btn btn-ghost" id="fillExample" type="button">Показать пример</button>
-    <button class="btn btn-ghost btn-danger" id="resetAll" type="button">Очистить</button>
     <button class="btn btn-primary" id="downloadPdf" type="button">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
       Скачать PDF
@@ -519,15 +464,23 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
   </div>
 </header>
 
+<header class="hero">
+  <div class="hero-in">
+    <p class="hero-eyebrow">Бесплатный конструктор резюме</p>
+    <h1>Резюме, с которым <em>зовут на&nbsp;собеседование</em>.</h1>
+    <p>Заполните форму — скачайте PDF и получите балл 0–100 глазами рекрутёра. Без регистрации, содержимое остаётся в вашем браузере.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#editor">Заполнить форму</a>
+      <button class="btn" id="fillExample" type="button">Показать пример</button>
+    </div>
+    <p class="hero-aside">Уже есть резюме? <a href="proverit-rezyume/">Проверить по тексту →</a></p>
+  </div>
+</header>
+
 <div class="layout">
 
   <!-- ================= РЕДАКТОР ================= -->
   <main class="editor" id="editor">
-
-    <div class="page-top">
-      <h1>Конструктор резюме: заполните форму — получите PDF и балл 0–100</h1>
-      <a class="btn btn-check" href="proverit-rezyume/">Уже есть резюме? Проверить по тексту</a>
-    </div>
 
     <p class="empty-promise">Здесь появятся <b>балл 0–100</b> и замечания рекрутёра — начните с имени и должности.</p>
 
@@ -680,6 +633,7 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
           Загрузить из файла
           <input type="file" id="importDraft" accept="application/json,.json" hidden>
         </label>
+        <button class="btn btn-ghost btn-danger" id="resetAll" type="button">Очистить</button>
       </div>
       <p class="save-warn" id="saveWarn" hidden>Черновик не влез в хранилище браузера — после закрытия страницы он потеряется. Нажмите «Сохранить в файл», чтобы сделать резервную копию. Обычно мешает фото — попробуйте его убрать.</p>
       <p class="privacy" style="margin-top:10px">Содержимое резюме хранится только в вашем браузере и не отправляется на наши серверы. Файл черновика — резервная копия, её можно открыть на другом устройстве. Для обезличенной статистики посещений используется Яндекс.Метрика — содержимого резюме она не получает. <a href="privacy.html" style="color:var(--pen);font-weight:600;text-decoration:none">Политика конфиденциальности</a></p>
@@ -744,7 +698,7 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
         <p class="offer-sample-cap">Какой формат нужен, подскажу после мини-диагноза.</p>
         <p class="offer-guarantee">✅ <b>Результат:</b> через сутки у вас — письменный разбор: где резюме режется, готовые правки и план откликов на две недели.</p>
         <div class="offer-foot">
-          <div class="offer-price"><b>1990 ₽</b> — полный разбор, цена основателя, пока набираю отзывы. Мини-диагноз — бесплатно.</div>
+          <div class="offer-price"><b>3 000 ₽</b> — полный разбор. Мини-диагноз — бесплатно.</div>
           <a class="btn btn-primary" id="expertBtn" href="#" target="_blank" rel="noopener noreferrer">Прислать резюме</a>
         </div>
         <h4 class="offer-h">Посчитать самому</h4>
@@ -1012,6 +966,10 @@ window.addEventListener("resize", fitSheet);
 /* ================= Балл резюме ================= */
 /* Правила балла — в js/score.js: тем же кодом считает страница «Проверить резюме». */
 let scoreGoalDone = false;
+/* Логотип-воронка: прозрачность слова «оффера» = готовность резюме */
+function setOfferProgress(v){
+  document.body.style.setProperty("--offer-progress",(Math.max(0,Math.min(100,v))/100).toFixed(3));
+}
 function renderScore(){
   const c = completeness(state);
   const numEl = $("#readyPct"), tipEl = $("#readyTip");
@@ -1019,9 +977,11 @@ function renderScore(){
     numEl.textContent = "—";
     $("#readyBar").style.width = c.pct + "%";
     tipEl.innerHTML = "Следующий шаг: " + (c.tips[0] || "добавьте языки или курсы, чтобы усилить резюме.");
+    setOfferProgress(c.pct);
     return;
   }
   const sc = scoreResume(state);
+  setOfferProgress(sc.total);
   numEl.innerHTML = sc.total + "<small>/100" + (sc.hasVac ? "" : " · без вакансии") + "</small>";
   $("#readyBar").style.width = sc.total + "%";
   if(!scoreGoalDone && window.ym){ scoreGoalDone = true; ym(110415141,'reachGoal','score_ready'); }
@@ -1481,6 +1441,8 @@ document.querySelectorAll("[data-toggle]").forEach(btn=>{
 /* ================= Верхние кнопки ================= */
 $("#downloadPdf").addEventListener("click", ()=>{
   if(window.ym) ym(110415141,'reachGoal','pdf_download');
+  /* Логотип-воронка: PDF скачан — маркер под «оффера» прочерчивается золотым до перезагрузки */
+  document.body.classList.add("goal");
   /* Мобильная плашка с мини-диагнозом: показываем один раз за сессию,
      после закрытия — не пристаём */
   try{
@@ -1594,7 +1556,7 @@ window.addEventListener("load", fitSheet);
 <footer class="sf">
   <div class="sf-in">
     <div class="sf-brand">
-      <a class="sf-mark" href="./">до <em>оффера</em>.</a>
+      <a class="sf-mark" href="./">до <em>оффера</em><span class="wm-dot">.</span></a>
       <p>Бесплатный конструктор и проверка резюме. Автор — <a href="ob-avtore/">Роман Шкляев</a>.</p>
     </div>
     <nav class="sf-nav" aria-label="Страницы сайта">
