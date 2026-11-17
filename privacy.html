@@ -6,52 +6,29 @@
 <title>Политика конфиденциальности — до оффера.</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#E9E6DF">
+<meta name="theme-color" content="#2E241A">
 <link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/base.css">
 <style>
-:root{
-  --desk:#E9E6DF;--paper:#FFFFFF;--ink:#20262E;--ink-soft:#5A6470;
-  --navy:#16324F;--marker:#FFE873;--pen:#2743C7;--line:#D8D4CA;
-  --radius:12px;--shadow:0 1px 2px rgba(32,38,46,.06),0 8px 30px rgba(32,38,46,.07);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(1100px 480px at 80% -8%,rgba(255,255,255,.55),transparent 60%),
-    var(--desk);
-  color:var(--ink);font-size:16px;line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-}
+/* Токены и база — общий слой css/base.css; здесь страничное */
 a{color:var(--pen);text-decoration:none}
 a:hover{text-decoration:underline}
-:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
-
-.topbar{
-  position:sticky;top:0;z-index:10;
-  background:rgba(233,230,223,.9);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.topbar-in{max-width:820px;margin:0 auto;padding:14px 22px}
-.wordmark{
-  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
-  font-size:24px;color:var(--navy);letter-spacing:-.01em;white-space:nowrap;
-}
-.wordmark em{
-  font-style:italic;
-  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
-  padding:0 2px;
-}
+body{font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.topbar-in{max-width:820px;padding:14px 24px}
+.wordmark{margin-right:auto}
 
 .wrap{max-width:820px;margin:0 auto;padding:38px 22px 72px}
 .doc{
-  background:var(--paper);border:1px solid var(--line);
-  border-radius:var(--radius);box-shadow:var(--shadow);
+  background-color:var(--paper);
+  background-image:var(--paper-noise);
+  border:1px solid var(--line);
+  border-radius:12px;
+  box-shadow:var(--shadow-card);
   padding:44px clamp(22px,5vw,56px);
 }
 .doc h1{
   font-family:"Piazzolla",Georgia,serif;font-weight:700;
-  font-size:clamp(28px,5vw,38px);line-height:1.12;color:var(--navy);
+  font-size:clamp(28px,5vw,38px);line-height:1.12;color:var(--walnut-deep);
   letter-spacing:-.01em;
 }
 .updated{margin-top:10px;font-size:14px;color:var(--ink-soft)}
@@ -87,25 +64,14 @@ strong{font-weight:600;color:var(--ink)}
 .backrow{margin-top:36px;text-align:center}
 .back{
   display:inline-flex;align-items:center;gap:8px;
-  background:var(--pen);color:#fff;font-weight:600;font-size:15px;
-  padding:11px 22px;border-radius:10px;
+  background:var(--marker);color:var(--walnut-deep);font-weight:700;font-size:15px;
+  padding:11px 22px;border-radius:10px;text-decoration:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 3px 12px rgba(150,112,45,.30);
 }
-.back:hover{background:#1E33A0;text-decoration:none}
+.back:hover{background:#FFEF9E;text-decoration:none}
 
-/* ---------- Подвал (общий для всех страниц) ---------- */
-.sf{border-top:1px solid var(--line);background:#DDD9CF}
-.sf-in{max-width:820px;margin:0 auto;padding:28px 22px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
-.sf-brand{max-width:440px}
-.sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
-.sf-mark em{font-style:italic;background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 2px}
-.sf-brand p{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:6px}
-.sf-brand p a{color:var(--ink);font-weight:600;text-decoration:none}
-.sf-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:4px}
-.sf-nav a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
-.sf a:hover{text-decoration:underline}
-.sf-nav a[aria-current="page"]{color:var(--pen)}
-.sf-note{flex-basis:100%;font-size:12.5px;line-height:1.5;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px}
-.sf-note a{color:var(--ink-soft)}
+/* ---------- Подвал: общий тёмный орех (css/base.css) ---------- */
+.sf-in{max-width:820px}
 </style>
 </head>
 <body>

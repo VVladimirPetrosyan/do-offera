@@ -205,8 +205,8 @@ body.boot .expert-cta .offer-list .hl{animation:swipe .6s .8s cubic-bezier(.3,.6
   background-image:var(--paper-noise);
   border:1px solid var(--line);
   border-radius:var(--radius);
-  box-shadow:var(--shadow-card);
-  transition:transform .35s ease,box-shadow .35s ease;
+  box-shadow:var(--shadow-card),inset 0 1px 0 rgba(255,255,255,.8);
+  transition:box-shadow .35s ease;
 }
 .card:hover{box-shadow:var(--shadow-card-hover)}
 .card-head:hover{background:var(--paper-soft)}
@@ -416,7 +416,7 @@ body.goal .wordmark em,body.goal .wordmark .wm-dot{color:#F0D394}
 
 /* Телефон: шапка в два ряда и низкая плашка cookie — чтобы первое поле анкеты было видно сразу */
 @media (max-width:420px){
-  .topbar-in{padding:8px 14px;gap:8px 10px}
+  .topbar-in{padding:8px 16px;gap:8px 10px}
   .wordmark{font-size:22px}
   .savestate{display:none}
   #downloadPdf{order:1;margin-left:auto}

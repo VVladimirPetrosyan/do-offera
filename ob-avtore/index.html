@@ -7,7 +7,7 @@
 <meta name="description" content="Роман Шкляев — автор «до оффера.», бесплатного конструктора и проверки резюме. Как резюме проходит отбор на hh, по какой методике я проверяю резюме, статьи и контакты.">
 <link rel="canonical" href="https://do-offera.ru/ob-avtore/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#E9E6DF">
+<meta name="theme-color" content="#2E241A">
 <meta property="og:title" content="Роман Шкляев — автор конструктора резюме «до оффера.»">
 <meta property="og:description" content="Как резюме проходит отбор на hh, по какой методике я проверяю резюме, статьи и контакты.">
 <meta property="og:type" content="profile">
@@ -18,69 +18,17 @@
 <meta property="og:image:alt" content="до оффера. — конструктор резюме">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../css/base.css">
 <style>
-:root{
-  --desk:#E9E6DF;
-  --desk-deep:#DDD9CF;
-  --paper:#FFFFFF;
-  --ink:#20262E;
-  --ink-soft:#5A6470;
-  --navy:#16324F;
-  --marker:#FFE873;
-  --pen:#2743C7;
-  --pen-deep:#1E33A0;
-  --line:#D8D4CA;
-  --radius:10px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-}
-body{
-  font-family:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:
-    radial-gradient(1100px 480px at 80% -8%,rgba(255,255,255,.55),transparent 60%),
-    var(--desk);
-  color:var(--ink);font-size:16px;line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-}
+/* Токены и база — общий слой css/base.css; здесь страничное */
 a{color:var(--pen)}
-:focus-visible{outline:3px solid var(--pen);outline-offset:2px;border-radius:4px}
-
-/* ---------- Шапка ---------- */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  background:rgba(233,230,223,.92);backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-.topbar-in{max-width:1080px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:22px}
-.wordmark{
-  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
-  font-size:24px;color:var(--navy);letter-spacing:-.01em;white-space:nowrap;text-decoration:none;
-  margin-right:auto;
-}
-.wordmark em{
-  font-style:italic;
-  background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);
-  padding:0 2px;
-}
+body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.topbar-in{max-width:1080px}
+.wordmark{margin-right:auto}
 .topnav{display:flex;gap:20px}
-.topnav a{font-size:14px;font-weight:500;color:var(--ink-soft);text-decoration:none}
-.topnav a:hover{color:var(--ink)}
-.topnav a[aria-current="page"]{color:var(--ink)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  border:1px solid var(--line);background:var(--paper);color:var(--ink);
-  border-radius:var(--radius);padding:9px 16px;font-size:14px;font-weight:500;
-  text-decoration:none;white-space:nowrap;
-  transition:border-color .15s,background .15s,transform .1s;
-}
-.btn:hover{border-color:var(--ink-soft)}
-.btn:active{transform:translateY(1px)}
-.btn-primary{background:var(--pen);border-color:var(--pen);color:#fff;font-weight:600}
-.btn-primary:hover{background:var(--pen-deep);border-color:var(--pen-deep)}
+.topnav a{font-size:14px;font-weight:500;color:rgba(243,234,216,.78);text-decoration:none}
+.topnav a:hover{color:var(--cream)}
+.topnav a[aria-current="page"]{color:var(--gold)}
 .btn-lg{font-size:16px;padding:13px 26px}
 @media (max-width:720px){
   .topnav{display:none}
@@ -90,37 +38,39 @@ a{color:var(--pen)}
 /* ---------- Автор — листом резюме, тем же шаблоном, что в конструкторе ---------- */
 .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
 .cv{
-  max-width:860px;margin:44px auto 0;background:var(--paper);
-  box-shadow:0 1px 2px rgba(32,38,46,.12),0 18px 45px rgba(32,38,46,.18);
+  max-width:860px;margin:44px auto 0;
+  background-color:var(--paper);
+  background-image:var(--paper-noise);
+  box-shadow:var(--shadow-sheet);
   padding:clamp(26px,6vw,60px) clamp(20px,6vw,64px) clamp(30px,6vw,60px);
 }
 .kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
-.cv-head{border-bottom:3px solid var(--navy);padding-bottom:22px;margin-top:10px;display:flex;gap:28px;align-items:flex-start}
+.cv-head{border-bottom:3px solid var(--marker);padding-bottom:22px;margin-top:10px;display:flex;gap:28px;align-items:flex-start}
 .cv-head-main{flex:1;min-width:0}
 .cv-photo{width:132px;height:176px;object-fit:cover;border-radius:8px;flex:none}
 .cv-head h1{
-  font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--navy);
+  font-family:"Piazzolla",Georgia,serif;font-weight:700;color:var(--walnut-deep);
   font-size:clamp(36px,6vw,48px);line-height:1.08;letter-spacing:-.01em;
 }
-.cv-role{font-size:18px;font-weight:500;color:#3d4650;margin-top:6px}
+.cv-role{font-size:18px;font-weight:500;color:var(--ink);margin-top:6px}
 .cv-links{list-style:none;margin-top:14px;display:flex;flex-wrap:wrap;gap:6px 20px;font-size:14px}
 .cv-links a{color:var(--pen);text-decoration:none;font-weight:500}
 .cv-links a:hover{text-decoration:underline}
 
 .cv-sec{margin-top:34px}
 .cv-sec > h2{
-  font-size:15px;font-weight:700;color:var(--navy);
+  font-size:15px;font-weight:700;color:var(--ink-soft);
   text-transform:uppercase;letter-spacing:.09em;
   display:flex;align-items:center;gap:12px;margin-bottom:12px;
 }
-.cv-sec > h2::after{content:"";flex:1;height:1px;background:#E3E1DA}
+.cv-sec > h2::after{content:"";flex:1;height:1px;background:var(--hairline-gold)}
 .cv-sec p{color:#333a42;margin-top:10px}
 .cv-sec > p:first-of-type{margin-top:0}
 
 .items{list-style:none;display:grid;gap:18px}
 .item-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
 .item h3{font-size:16.5px;font-weight:600;line-height:1.35}
-.item .tag{font-size:12.5px;color:#6b7480;white-space:nowrap;flex:none}
+.item .tag{font-size:12.5px;color:var(--ink-soft);white-space:nowrap;flex:none}
 .item p{font-size:15.5px;margin-top:5px}
 
 /* Путь отклика: порядок здесь — правда, поэтому номера */
@@ -144,41 +94,10 @@ a{color:var(--pen)}
 
 .after{max-width:860px;margin:28px auto 80px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 
-/* ---------- Подвал (общий для всех страниц) ---------- */
-.sf{border-top:1px solid var(--line);background:var(--desk-deep)}
-.sf-in{max-width:1080px;margin:0 auto;padding:28px 20px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
-.sf-brand{max-width:440px}
-.sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
-.sf-mark em{font-style:italic;background:linear-gradient(transparent 55%,var(--marker) 55%,var(--marker) 92%,transparent 92%);padding:0 2px}
-.sf-brand p{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin-top:6px}
-.sf-brand p a{color:var(--ink);font-weight:600;text-decoration:none}
-.sf-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:4px}
-.sf-nav a{font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
-.sf a:hover{text-decoration:underline}
-.sf-nav a[aria-current="page"]{color:var(--pen)}
-.sf-note{flex-basis:100%;font-size:12.5px;line-height:1.5;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px}
-.sf-note a{color:var(--ink-soft)}
-
-/* ---------- Cookie-уведомление ---------- */
-.cookie-bar{
-  position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
-  z-index:70;width:min(680px,calc(100% - 24px));
-  background:var(--navy);color:#fff;border-radius:12px;
-  box-shadow:0 10px 40px rgba(22,50,79,.35);
-  padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
-}
-.cookie-bar p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.9);flex:1;min-width:220px}
-.cookie-bar a{color:var(--marker);font-weight:600;text-decoration:none}
-.cookie-bar a:hover{text-decoration:underline}
-.cookie-bar button{
-  border:none;background:var(--marker);color:var(--navy);font-weight:700;font-family:inherit;cursor:pointer;
-  font-size:13px;padding:9px 18px;border-radius:8px;white-space:nowrap;
-}
-.cookie-bar[hidden]{display:none}
-@media (max-width:420px){
-  .cookie-bar{padding:10px 12px;gap:10px;flex-wrap:nowrap}
-  .cookie-bar p{font-size:12px;min-width:0}
-  .cookie-bar button{padding:8px 12px}
+/* ---------- Подвал и cookie: общий тёмный орех (css/base.css) ---------- */
+.sf-in{max-width:1080px}
+@media (max-width:1023px){
+  .cookie-bar{bottom:16px}
 }
 
 @media (max-width:560px){

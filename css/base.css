@@ -24,6 +24,8 @@
   --pen:#2743C7;
   --pen-deep:#1E33A0;
   --gold:#D9B36C;
+  /* латунная линейка для разделителей на бумаге */
+  --hairline-gold:linear-gradient(90deg,rgba(217,179,108,0),rgba(217,179,108,.55) 15%,rgba(217,179,108,.18) 75%,rgba(217,179,108,0));
   /* маркер на тёмных поверхностях: полупрозрачный, не слепит */
   --marker-glass:rgba(255,232,115,.4);
   /* статус */
@@ -86,7 +88,7 @@ input,textarea,select{font-family:inherit;font-size:14px;color:var(--ink)}
   box-shadow:0 2px 14px rgba(20,12,4,.35),inset 0 1px 0 rgba(233,222,190,.14);
 }
 .topbar-in{
-  max-width:1440px;margin:0 auto;padding:10px 20px;
+  max-width:1440px;margin:0 auto;padding:10px 24px;
   display:flex;align-items:center;gap:14px;flex-wrap:wrap;
 }
 .wordmark{
@@ -159,7 +161,7 @@ body.boot .hero-in{animation:settle .5s cubic-bezier(.22,.61,.36,1) both}
 .btn:hover{border-color:var(--ink-soft);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 3px 10px rgba(40,26,10,.16)}
 .btn:active{transform:translateY(1px);box-shadow:none}
 .btn svg{flex:none}
-.btn-primary{background:var(--marker);border-color:var(--marker);color:var(--walnut-deep);font-weight:700}
+.btn-primary{background:var(--marker);border-color:var(--marker);color:var(--walnut-deep);font-weight:700;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 3px 12px rgba(150,112,45,.30)}
 .btn-primary:hover{background:#FFEF9E;border-color:#FFEF9E}
 .btn-ghost{background:transparent}
 .btn-danger{color:var(--danger)}
@@ -212,7 +214,7 @@ body.boot .hero-in{animation:settle .5s cubic-bezier(.22,.61,.36,1) both}
   background-image:radial-gradient(90% 100% at 50% 0%,rgba(255,226,160,.07),transparent 70%),var(--grain-dark);
   color:var(--cream);
 }
-.sf-in{max-width:1440px;margin:0 auto;padding:28px 20px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
+.sf-in{max-width:1440px;margin:0 auto;padding:28px 24px 30px;display:flex;flex-wrap:wrap;gap:18px 48px;align-items:flex-start;justify-content:space-between}
 .sf-brand{max-width:440px}
 .sf-mark{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:21px;color:var(--cream);text-decoration:none;letter-spacing:-.01em}
 .sf-brand p{font-size:14px;line-height:1.5;color:rgba(243,234,216,.72);margin-top:6px}
