@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>до оффера. — конструктор резюме: заполните форму и скачайте PDF бесплатно</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#2E241A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23D9A441'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%230F241D'%3Eд.%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#17342B">
 <meta name="yandex-verification" content="bf4db4d4021c4e03">
 <meta name="yandex-verification" content="8a9322e1d1e2fa7e">
 <link rel="canonical" href="https://do-offera.ru/">
@@ -43,20 +43,20 @@
   padding:24px 32px 48px;
   background-color:var(--wood-stage);
   background-image:
-    radial-gradient(150% 110% at 50% 45%,transparent 50%,rgba(28,17,5,.5) 100%),
-    radial-gradient(120% 50% at 70% -8%,rgba(255,238,196,.16),transparent 60%),
-    var(--planks);
+    radial-gradient(150% 110% at 50% 45%,transparent 50%,rgba(6,18,14,.5) 100%),
+    radial-gradient(120% 50% at 70% -8%,rgba(234,242,236,.16),transparent 60%),
+    var(--stage-tex);
   background-attachment:fixed;
-  border-left:1px solid rgba(46,30,12,.28);
+  border-left:1px solid rgba(10,30,24,.28);
 }
 /* Тонкий скроллбар сцены — в тонах дерева */
 .stage::-webkit-scrollbar{width:10px}
 .stage::-webkit-scrollbar-track{background:transparent}
 .stage::-webkit-scrollbar-thumb{
-  background:rgba(46,36,26,.45);border-radius:99px;
+  background:rgba(23,52,43,.45);border-radius:99px;
   border:2px solid transparent;background-clip:padding-box;
 }
-.stage::-webkit-scrollbar-thumb:hover{background:rgba(46,36,26,.65);border:2px solid transparent;background-clip:padding-box}
+.stage::-webkit-scrollbar-thumb:hover{background:rgba(23,52,43,.65);border:2px solid transparent;background-clip:padding-box}
 
 /* ---------- Загрузка: бумаги ложатся на стол по очереди ---------- */
 body.boot .editor > *{
@@ -91,16 +91,16 @@ body.boot .expert-cta{animation:settle .6s .9s cubic-bezier(.22,.61,.36,1) both}
 .readiness-top .pct{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:30px}
 .readiness-top .pct small{font-size:13px;font-weight:400;color:rgba(34,26,17,.62);margin-left:2px}
 .meter{height:8px;background:rgba(34,26,17,.16);border-radius:99px;margin:10px 0 8px;overflow:hidden}
-.meter i{display:block;height:100%;width:0;background:var(--pen);border-radius:99px;transition:width .4s ease}
+.meter i{display:block;height:100%;width:0;background:var(--walnut-deep);border-radius:99px;transition:width .4s ease}
 .readiness p{font-size:14px;color:rgba(34,26,17,.82);line-height:1.45}
-.readiness p b{color:var(--pen-deep);font-weight:600}
+.readiness p b{color:var(--walnut-deep);font-weight:600}
 
 /* ---------- Пустая форма ---------- */
 .empty-promise{
   display:none;
   background-color:var(--walnut);
   background-image:var(--grain-dark);
-  color:rgba(243,234,216,.9);
+  color:rgba(234,242,236,.9);
   border-radius:var(--radius);padding:12px 16px;
   font-size:14px;line-height:1.45;box-shadow:var(--shadow-card);
 }
@@ -118,15 +118,15 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 .lint-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
 .lint-head h2{font-size:15px;font-weight:600}
 .lint-badge{font-size:12.5px;font-weight:600;color:var(--ink-soft);background:var(--paper-soft);border-radius:99px;padding:3px 10px;white-space:nowrap}
-.lint-badge.warn{background:#F6ECCB;color:#8A6D14}
-.lint-badge.ok{background:#DDEEE4;color:var(--ok)}
+.lint-badge.warn{background:#F6ECCB;color:#6E570F}
+.lint-badge.ok{background:var(--ok-soft);color:var(--ok)}
 #lintList{list-style:none;display:flex;flex-direction:column;gap:9px}
 #lintList li{display:flex;gap:9px;font-size:14px;line-height:1.5;color:var(--ink-soft)}
 #lintList li i{width:8px;height:8px;border-radius:50%;margin-top:6px;flex:none}
 #lintList li.l-warn i{background:#C9A227}
 #lintList li.l-ok i{background:var(--ok)}
-#lintList li.l-info i{background:#8892A0}
-#lintList li.l-empty i{background:#8892A0}
+#lintList li.l-info i{background:var(--muted)}
+#lintList li.l-empty i{background:var(--muted)}
 #lintList b{color:var(--ink);font-weight:600}
 
 /* ---------- Соответствие вакансии ---------- */
@@ -135,8 +135,8 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
 .vac-result b{color:var(--ink);font-weight:600}
 .vac-chips{display:flex;flex-wrap:wrap;gap:6px}
 .vac-chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:var(--paper-soft);color:var(--ink-soft)}
-.vac-chip.hit{background:#DDEEE4;color:var(--ok)}
-.vac-chip.miss{background:#F6ECCB;color:#8A6D14}
+.vac-chip.hit{background:var(--ok-soft);color:var(--ok)}
+.vac-chip.miss{background:#F6ECCB;color:#6E570F}
 .vac-note{font-size:13.5px;line-height:1.5;color:var(--ink-soft);background:var(--paper-soft);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
 .vac-cta{font-size:14px;color:var(--ink)}
 .vac-cta a{color:var(--pen);font-weight:600;text-decoration:none}
@@ -160,7 +160,7 @@ body.form-empty .readiness,body.form-empty #lintCard{display:none}
   display:flex;align-items:center;gap:12px;
   font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 8px;
 }
-.expert-cta .offer-h::after{content:"";flex:1;height:1px;background:rgba(217,179,108,.5)}
+.expert-cta .offer-h::after{content:"";flex:1;height:1px;background:rgba(217,164,65,.5)}
 .expert-cta .offer-steps{margin:0;padding-left:20px;display:grid;gap:6px}
 .expert-cta .offer-steps li{font-size:14px;color:var(--ink);line-height:1.45}
 .expert-cta .offer-list{list-style:none;margin:0;display:grid;gap:7px}
@@ -233,12 +233,12 @@ body.boot .expert-cta .offer-list .hl{animation:swipe .6s .8s cubic-bezier(.3,.6
   padding:11px 12px;
   background-color:var(--paper-soft);
   background-image:var(--paper-noise);
-  box-shadow:inset 0 1px 2px rgba(40,26,10,.08);
+  box-shadow:inset 0 1px 2px rgba(15,36,29,.08);
   width:100%;min-width:0;
   transition:border-color .15s;
 }
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pen);outline:none;background:var(--paper)}
-.field input:focus-visible,.field textarea:focus-visible,.field select:focus-visible{outline:3px solid rgba(39,67,199,.22);outline-offset:1px}
+.field input:focus-visible,.field textarea:focus-visible,.field select:focus-visible{outline:3px solid rgba(31,92,70,.22);outline-offset:1px}
 .field textarea{resize:vertical;min-height:74px;line-height:1.5}
 .hint{font-size:13px;color:var(--ink-soft)}
 
@@ -273,7 +273,7 @@ body.boot .expert-cta .offer-list .hl{animation:swipe .6s .8s cubic-bezier(.3,.6
   color:var(--pen);font-weight:600;font-size:14px;
   border-radius:8px;padding:12px;
 }
-.add-btn:hover{border-color:var(--pen);background:rgba(39,67,199,.04)}
+.add-btn:hover{border-color:var(--pen);background:rgba(31,92,70,.04)}
 .current-row{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin-bottom:10px}
 .current-row input{width:16px;height:16px;accent-color:var(--pen)}
 
@@ -355,11 +355,11 @@ body.boot .stage-tools{animation:settle .5s .5s cubic-bezier(.22,.61,.36,1) both
 .r-lang i{font-style:normal;color:#6b7480}
 .r-two{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
 .r-empty{
-  text-align:center;padding:120px 40px;color:#9aa2ac;
+  text-align:center;padding:120px 40px;color:var(--muted);
 }
 .r-empty .r-empty-mark{
   font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
-  font-size:26px;color:#c6c2b8;margin-bottom:12px;
+  font-size:26px;color:#C9BFA9;margin-bottom:12px;
 }
 .r-empty p{font-size:14px;max-width:340px;margin:0 auto;line-height:1.6}
 
@@ -378,20 +378,20 @@ body.goal .wordmark em,body.goal .wordmark .wm-dot{color:#F0D394}
 .mobile-tabs{display:none}
 @media (max-width:1023px){
   .layout{grid-template-columns:1fr}
-  .stage{position:static;height:auto;border-left:none;border-top:1px solid rgba(46,30,12,.28)}
+  .stage{position:static;height:auto;border-left:none;border-top:1px solid rgba(10,30,24,.28)}
   .mobile-tabs{
     display:flex;position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
     z-index:60;
-    background-color:rgba(46,36,26,.85);
+    background-color:rgba(23,52,43,.85);
     background-image:var(--grain-dark);
     backdrop-filter:blur(12px);
     -webkit-backdrop-filter:blur(12px);
-    border:1px solid rgba(217,179,108,.4);
+    border:1px solid rgba(217,164,65,.4);
     border-radius:99px;padding:4px;
-    box-shadow:0 8px 30px rgba(20,12,4,.5);
+    box-shadow:0 8px 30px rgba(8,22,18,.5);
   }
   .mobile-tabs button{
-    border:none;background:transparent;color:rgba(243,234,216,.75);
+    border:none;background:transparent;color:rgba(234,242,236,.75);
     padding:9px 22px;border-radius:99px;font-size:14px;font-weight:600;
   }
   .mobile-tabs button.active{background:var(--marker);color:var(--walnut-deep)}

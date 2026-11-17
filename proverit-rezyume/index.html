@@ -6,8 +6,8 @@
 <title>Проверить резюме бесплатно: оценка от 0 до 100 — до оффера.</title>
 <meta name="description" content="Бесплатная проверка резюме онлайн: вставьте текст и получите оценку от 0 до 100 по шести местам, где резюме теряет отклик, и что поправить первым. Без регистрации, текст не уходит на сервер.">
 <link rel="canonical" href="https://do-offera.ru/proverit-rezyume/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23FFE873'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%2320262E'%3Eд.%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#2E241A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23D9A441'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%230F241D'%3Eд.%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#17342B">
 <meta property="og:title" content="Проверить резюме бесплатно: оценка от 0 до 100">
 <meta property="og:description" content="Вставьте текст резюме — балл по шести местам, где резюме теряет отклик, и что поправить первым. Без регистрации, прямо в браузере.">
 <meta property="og:type" content="website">
@@ -31,7 +31,7 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .topbar-in{max-width:1080px}
 .wordmark{margin-right:auto}
 .topnav{display:flex;gap:20px}
-.topnav a{font-size:14px;font-weight:500;color:rgba(243,234,216,.78);text-decoration:none}
+.topnav a{font-size:14px;font-weight:500;color:rgba(234,242,236,.78);text-decoration:none}
 .topnav a:hover{color:var(--cream)}
 .topnav a[aria-current="page"]{color:var(--gold)}
 .btn-lg{font-size:16px;padding:13px 26px}
@@ -93,7 +93,7 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 /* ---------- Результат ---------- */
 .result{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start;scroll-margin-top:72px}
 .result[hidden]{display:none}
-.res-card{background:var(--walnut);color:#fff;border-radius:14px;padding:24px;box-shadow:0 14px 40px rgba(25,15,4,.35)}
+.res-card{background:var(--walnut);color:#fff;border-radius:14px;padding:24px;box-shadow:0 14px 40px rgba(10,25,20,.35)}
 .res-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .res-top h2{font-size:14px;font-weight:600;letter-spacing:.02em}
 .res-total{font-family:"Piazzolla",Georgia,serif;font-weight:700;font-size:44px;line-height:1;white-space:nowrap}
@@ -101,13 +101,13 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .res-human{margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.08);display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
 .res-human span{flex:1;min-width:180px;font-size:14px;color:rgba(255,255,255,.92);line-height:1.45}
 .res-human .btn{background:var(--marker);border-color:var(--marker);color:var(--walnut-deep);font-weight:700}
-.res-human .btn:hover{background:#FFF0A0;border-color:#FFF0A0}
+.res-human .btn:hover{background:#E4B45C;border-color:#E4B45C}
 .res-ruler{display:flex;gap:3px;height:14px;margin:18px 0 18px}
 .res-ruler span{position:relative;background:rgba(255,255,255,.14);overflow:hidden;min-width:0}
 .res-ruler span:first-child{border-radius:5px 0 0 5px}
 .res-ruler span:last-child{border-radius:0 5px 5px 0}
 .res-ruler i{position:absolute;top:0;bottom:0;left:0;background:var(--marker)}
-.res-ruler .off{background:repeating-linear-gradient(135deg,rgba(255,232,115,.30) 0 5px,transparent 5px 10px)}
+.res-ruler .off{background:repeating-linear-gradient(135deg,rgba(217,164,65,.30) 0 5px,transparent 5px 10px)}
 .res-places{list-style:none;display:grid;gap:11px}
 .res-places li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;font-size:14.5px}
 .res-places .nm{font-weight:600}
@@ -124,8 +124,8 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .res-box p + p{margin-top:8px}
 .res-fix{border-left:3px solid var(--marker)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:#DDEEE4;color:#1E7B4F}
-.chip.miss{background:#F6ECCB;color:#8A6D14}
+.chip{font-size:12.5px;border-radius:99px;padding:3px 10px;background:var(--ok-soft);color:var(--ok)}
+.chip.miss{background:#F6ECCB;color:#6E570F}
 .res-box .hint{font-size:13px;color:var(--ink-soft);margin-top:10px}
 .res-cta{display:flex;gap:10px;flex-wrap:wrap}
 
@@ -134,7 +134,7 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 /* Линейка балла: сто баллов, поделённые между шестью местами */
 .scorecard{
   background:var(--walnut);color:#fff;border-radius:14px;
-  padding:24px 24px 22px;box-shadow:0 14px 40px rgba(25,15,4,.35);
+  padding:24px 24px 22px;box-shadow:0 14px 40px rgba(10,25,20,.35);
 }
 .sc-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .sc-top h2{font-size:14px;font-weight:600;letter-spacing:.02em}
@@ -149,7 +149,7 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .ruler span:first-child{border-radius:6px 0 0 6px}
 .ruler span:last-child{border-radius:0 6px 6px 0}
 .ruler .vac,.sc-legend .vac i{
-  background:repeating-linear-gradient(135deg,rgba(255,232,115,.38) 0 5px,transparent 5px 10px);
+  background:repeating-linear-gradient(135deg,rgba(217,164,65,.38) 0 5px,transparent 5px 10px);
   box-shadow:inset 0 0 0 1.5px var(--marker);color:var(--marker);
 }
 .sc-legend{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 22px}
@@ -215,7 +215,7 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .final .h2{color:#fff}
 .final p{margin-top:8px;color:rgba(255,255,255,.82);max-width:520px}
 .final .btn-primary{background:var(--marker);border-color:var(--marker);color:var(--walnut-deep)}
-.final .btn-primary:hover{background:#FFF0A0;border-color:#FFF0A0}
+.final .btn-primary:hover{background:#E4B45C;border-color:#E4B45C}
 
 @media (max-width:900px){
   .hero{grid-template-columns:1fr;gap:28px;padding-top:36px}
@@ -241,6 +241,28 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
   .res-card{padding:20px 16px}
   .res-cta .btn{flex:1}
 }
+
+/* ---------- Мост, галерея «было → стало» и цены (план sajt-koncepciya-povorot) ---------- */
+.bridge{background-color:var(--paper);background-image:var(--paper-noise);border:1px solid var(--line);border-top:3px solid var(--marker);border-radius:14px;box-shadow:var(--shadow-card);padding:24px clamp(20px,4vw,36px)}
+.bridge-p{margin-top:12px;color:var(--ink);line-height:1.6;max-width:720px}
+.bridge-actions{margin-top:18px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.bridge-trust{font-size:13.5px;color:var(--ink-soft)}
+.bridge-method{margin-top:12px;font-size:13.5px;color:var(--ink-soft)}
+.bridge-method a{color:var(--pen);font-weight:600;text-decoration:none}
+.bs-grid{display:grid;gap:14px}
+.bs-pair{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper-soft);padding:14px 16px}
+.bs-was,.bs-now{display:flex;gap:10px;align-items:baseline}
+.bs-was span,.bs-now span{font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;flex:none}
+.bs-was span{color:var(--danger)}
+.bs-now span{color:var(--ok)}
+.bs-now{color:var(--ink);font-weight:600}
+.bs-pair p{font-size:13.5px;color:var(--ink-soft);margin-top:8px;line-height:1.5}
+.ceny-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px}
+.cen-card{background-color:var(--paper);background-image:var(--paper-noise);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:18px 20px}
+.cen-card h3{font-size:15px;font-weight:700}
+.cen-price{font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;font-size:26px;color:var(--walnut-deep);margin:6px 0 8px}
+.cen-card p:not(.cen-price){font-size:14.5px;color:var(--ink-soft);line-height:1.5}
+@media (max-width:900px){ .ceny-grid{grid-template-columns:1fr} }
 
 /* ---------- Подвал и cookie: общий тёмный орех (css/base.css) ---------- */
 .sf-in{max-width:1080px}
@@ -438,6 +460,71 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
         <a class="btn btn-primary" href="https://vk.me/dooffera" target="_blank" rel="noopener noreferrer">Написать во ВКонтакте</a>
         <a class="btn" href="../ob-avtore/">Кто автор</a>
       </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-razbor">
+    <h2 class="h2" id="h-razbor">Балл показывает места. Разбор даёт готовые строки.</h2>
+    <div class="bridge">
+      <p class="bridge-p">В проверке выше — балл и найденные места. В полном разборе за сутки: готовые строки «было → стало» под вашу вакансию, таблица «требование → строка», сопроводительное письмо, живой замер вашего рынка в день сдачи и второй взгляд через неделю после ваших правок.</p>
+      <p class="bridge-p"><b>Балл ниже 70 — разберу вручную.</b></p>
+      <div class="bridge-actions">
+        <a class="btn btn-primary btn-lg" href="https://t.me/zzzqb" target="_blank" rel="noopener noreferrer" onclick="try{ym(110415141,'reachGoal','razbor_bridge')}catch(e){}">Написать в Telegram @zzzqb</a>
+        <span class="bridge-trust">Без регистрации и подписок. Работаю официально — чек самозанятого.</span>
+      </div>
+      <p class="bridge-method">Как именно проверяю резюме — методика по справке hh: <a href="../ob-avtore/">«Об авторе»</a>.</p>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-bylo">
+    <h2 class="h2" id="h-bylo">Что меняется строка за строкой</h2>
+    <p class="intro">Примеры из реальных разборов, обезличены.</p>
+    <div class="bs-grid">
+      <div class="bs-pair">
+        <div class="bs-was"><span>Было</span> Юрист</div>
+        <div class="bs-now"><span>Стало</span> Внутренний контроль и аудит</div>
+        <p>11 лет руководил компанией, ищет контроль: резюме было представлено на другом рынке — по фильтрам его не видели.</p>
+      </div>
+      <div class="bs-pair">
+        <div class="bs-was"><span>Было</span> Чип: «серьезнон отношение к поставленным задачам»</div>
+        <div class="bs-now"><span>Стало</span> «Ответственность» и «Администрирование СУБД»</div>
+        <p>Опечатка в чипах читается как будущая небрежность в работе.</p>
+      </div>
+      <div class="bs-pair">
+        <div class="bs-was"><span>Было</span> Финансовый университет при РФ</div>
+        <div class="bs-now"><span>Стало</span> Финансовый университет при Правительстве РФ</div>
+        <p>Ошибка в названии вуза роняет доверие к сильному тексту.</p>
+      </div>
+      <div class="bs-pair">
+        <div class="bs-was"><span>Было</span> Управление деятельностью компании</div>
+        <div class="bs-now"><span>Стало</span> 11 лет руководил компанией: масштаб, зона ответственности, результат</div>
+        <p>Без масштаба строка пуста.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" aria-labelledby="h-ceny">
+    <h2 class="h2" id="h-ceny">Если править самому некогда</h2>
+    <div class="ceny-grid">
+      <div class="cen-card">
+        <h3>Полный разбор под вакансию</h3>
+        <p class="cen-price">3 000 ₽</p>
+        <p>За сутки: готовые строки, сопроводительное, живой замер вашего рынка. Две недели на связи.</p>
+      </div>
+      <div class="cen-card">
+        <h3>Карта рынка</h3>
+        <p class="cen-price">4 500 ₽</p>
+        <p>10–15 живых вакансий под ваш опыт, резюме под них и два сопроводительных.</p>
+      </div>
+      <div class="cen-card">
+        <h3>«Старт»</h3>
+        <p class="cen-price">от 12 000 ₽</p>
+        <p>Две недели сопровождения: правки под каждую вакансию, подбор, подготовка к разговорам.</p>
+      </div>
+    </div>
+    <div class="bridge-actions">
+      <a class="btn btn-primary btn-lg" href="https://t.me/zzzqb" target="_blank" rel="noopener noreferrer">Написать в Telegram @zzzqb</a>
+      <span class="bridge-trust">Без регистрации и подписок.</span>
     </div>
   </section>
 
