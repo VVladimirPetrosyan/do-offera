@@ -1,0 +1,15 @@
+# Render Blueprint for the cloud draft API (free plan).
+# Deploy: Render dashboard → New → Blueprint → point at this repo.
+# DATABASE_URL is set manually in the dashboard (Neon connection string) —
+# sync: false keeps it out of git.
+services:
+  - type: web
+    name: dooffera-cloud-draft
+    runtime: python
+    plan: free
+    rootDir: api
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false

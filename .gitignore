@@ -9,3 +9,6 @@ plans/
 .zcode-site/
 .zcode-site.json
 AGENTS.md
+.env
+.env.local
+neon.ts
