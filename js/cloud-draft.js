@@ -5,7 +5,7 @@
    Перенос между устройствами: пользователь вводит код черновика. */
 (function(){
   "use strict";
-  var CLOUD_URL = ""; /* ← адрес API после деплоя, например "https://dooffera-cloud-draft.onrender.com" */
+  var CLOUD_URL = "https://dooffera-cloud-draft.onrender.com"; /* Render free: first hit after idle may wake ~1 min */
   var CODE_KEY = "dd_cloud_code";
 
   if (!CLOUD_URL) return;
