@@ -12,3 +12,4 @@ AGENTS.md
 .env
 .env.local
 neon.ts
+__pycache__/
