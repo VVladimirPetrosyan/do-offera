@@ -34,6 +34,12 @@ _pool = None
 _last_cleanup = 0.0
 _hits: dict[str, list[float]] = {}
 
+SCHEMA = (
+    "CREATE TABLE IF NOT EXISTS drafts ("
+    "device_code TEXT PRIMARY KEY, payload JSONB NOT NULL, "
+    "updated_at TIMESTAMPTZ NOT NULL DEFAULT now())"
+)
+
 
 async def pool():
     global _pool
@@ -43,7 +49,11 @@ async def pool():
             raise HTTPException(status_code=503, detail="DATABASE_URL is not set")
         # asyncpg needs the postgresql:// scheme; Neon URLs use postgres://
         url = url.replace("postgres://", "postgresql://", 1)
+        # asyncpg rejects the libpq-only channel_binding parameter Neon appends
+        url = re.sub(r"[?&]channel_binding=require", "", url)
         _pool = await asyncpg.create_pool(url, min_size=0, max_size=3)
+        # self-provisioning: no manual SQL needed on a fresh database
+        await _pool.execute(SCHEMA)
     return _pool
 
 
