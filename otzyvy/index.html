@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Отзывы клиентов — до оффера.</title>
+<meta name="description" content="Отзывы клиентов «до оффера.»: разбор резюме, карта рынка, сопровождение. Каждый отзыв — от реального клиента после выполненной работы, с согласия автора.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23D9A441'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-style='italic' font-weight='700' font-size='38' text-anchor='middle' fill='%230F241D'%3Eд.%3C/text%3E%3C/svg%3E%22%3E">
+<meta name="theme-color" content="#17342B">
+<link rel="stylesheet" href="../fonts/fonts.css">
+<link rel="stylesheet" href="../css/base.css">
+<style>
+/* Токены и база — общий слой css/base.css; здесь страничное */
+a{color:var(--pen);text-decoration:none}
+a:hover{text-decoration:underline}
+body{font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.topbar-in{max-width:1080px}
+.wrap{max-width:1080px;margin:0 auto;padding:38px 22px 72px}
+
+.hero{
+  background-color:var(--walnut);
+  background-image:var(--glass);
+  border-radius:14px;
+  padding:clamp(34px,6vw,56px) clamp(24px,5vw,56px);
+  color:var(--cream);
+  box-shadow:var(--shadow-sheet);
+}
+.hero h1{
+  font-family:"Piazzolla",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.5vw,44px);line-height:1.1;color:var(--cream);
+  letter-spacing:-.01em;
+}
+.hero h1 em{color:var(--marker);font-style:italic}
+.hero p{margin-top:14px;max-width:640px;color:var(--cream)}
+.hero .open-line{
+  margin-top:18px;font-size:13px;color:var(--gold);
+  letter-spacing:.02em;
+}
+
+.rz-grid{margin-top:30px;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.rz{
+  background-color:var(--paper);
+  background-image:var(--paper-noise);
+  border:1px solid var(--line);border-radius:12px;
+  box-shadow:var(--shadow-card);
+  padding:22px 24px;
+}
+.rz .quote{color:var(--ink)}
+.rz .who{margin-top:14px;font-size:13px;color:var(--ink-soft)}
+.rz .who b{color:var(--ink);font-weight:600}
+.rz .mark{
+  font-family:"Piazzolla",Georgia,serif;font-size:34px;line-height:1;
+  color:var(--marker);display:block;margin-bottom:8px;
+}
+
+.empty{
+  margin-top:30px;
+  background-color:var(--walnut);
+  background-image:var(--glass);
+  border-radius:14px;
+  padding:clamp(28px,5vw,44px) clamp(24px,5vw,52px);
+  color:var(--cream);
+  box-shadow:var(--shadow-sheet);
+}
+.empty h2{
+  font-family:"Piazzolla",Georgia,serif;font-weight:700;
+  font-size:clamp(22px,3.5vw,28px);line-height:1.15;color:var(--cream);
+}
+.empty p{margin-top:12px;max-width:660px;color:var(--cream)}
+.empty .actions{margin-top:22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:10px;padding:11px 20px;font-weight:700;font-size:15px;text-decoration:none}
+.btn:hover{text-decoration:none}
+.btn-primary{background:var(--marker);color:var(--walnut-deep);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 3px 12px rgba(150,112,45,.30)}
+.btn-primary:hover{background:#E4B45C}
+.btn-glass{border:1px solid var(--marker-glass);color:var(--gold)}
+.btn-glass:hover{border-color:var(--marker)}
+
+section.s{margin-top:36px}
+section.s h2{
+  font-size:20px;font-weight:700;color:var(--ink);
+  display:flex;align-items:baseline;gap:12px;margin-bottom:12px;
+  padding-top:24px;border-top:1px solid var(--line);
+}
+section.s:first-of-type h2{border-top:none;padding-top:0}
+section.s h2 .num{
+  font-family:"Piazzolla",Georgia,serif;font-style:italic;font-weight:700;
+  color:var(--pen);font-size:17px;flex:none;
+}
+section.s p{margin-top:8px;color:#333a42}
+section.s ul{margin:10px 0 0;padding-left:2px;list-style:none;display:grid;gap:9px}
+section.s ul li{position:relative;padding-left:20px;color:#333a42}
+section.s ul li::before{content:"—";position:absolute;left:0;color:var(--ink-soft)}
+strong{font-weight:600;color:var(--ink)}
+
+.sf-in{max-width:1080px}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="wordmark" href="../">до <em>оффера</em>.</a>
+    <nav class="topnav" aria-label="Основные страницы">
+      <a href="../proverit-rezyume/">Проверить резюме</a>
+      <a href="../ob-avtore/">Об авторе</a>
+    </nav>
+    <a class="btn btn-primary" href="../">Открыть конструктор</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>Отзывы <em>клиентов</em></h1>
+    <p>Каждый отзыв на этой странице — от реального человека, для которого мы выполнили работу: разбор резюме, карту рынка или сопровождение поиска. Публикуем с согласия автора, без правок смысла.</p>
+    <p class="open-line">Раздел открыт 22 ноября 2026 года</p>
+  </div>
+
+  <div class="empty">
+    <h2>Первые отзывы встанут сюда в ближайшие дни</h2>
+    <p>Проект молодой, и мы решили честно: пустая страница с чужими словами не нужна. Отзыв появляется здесь в день, когда клиент его напишет и согласится на публикацию. Пока это можно проверить на живом разборе — бесплатно.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="../proverit-rezyume/">Проверить резюме бесплатно</a>
+      <a class="btn btn-glass" href="https://vk.com/dooffera" target="_blank" rel="noopener noreferrer">Написать автору во ВКонтакте</a>
+    </div>
+  </div>
+
+  <!-- Слоты отзывов: карточки добавляются по мере согласий клиентов.
+       Разметка одной карточки:
+       <figure class="rz">
+         <span class="mark">„</span>
+         <blockquote class="quote">Текст отзыва дословно.</blockquote>
+         <figcaption class="who"><b>Имя</b> — услуга, дата публикации</figcaption>
+       </figure>
+       помещать в контейнер .rz-grid ниже -->
+
+  <div class="rz-grid" id="rz-grid"></div>
+
+  <section class="s">
+    <h2><span class="num">01</span> Как появляются отзывы</h2>
+    <ul>
+      <li>Выполняем работу и сдаём в срок — разбор, карту рынка или сопровождение.</li>
+      <li>В день сдачи просим клиента поделиться впечатлением — одной строкой или развёрнуто, как удобнее.</li>
+      <li>Публикуем дословно и только с согласия автора; правки смысла и редактура цитат — не наш метод.</li>
+    </ul>
+  </section>
+
+  <section class="s">
+    <h2><span class="num">02</span> Почему отзывов пока немного</h2>
+    <p>«до оффера.» — проект с открытой статистикой: два платных разбора выполнены, работа идёт на биржах услуг, где история заказов видна публично. Покупные или заказные отзывы мы не размещаем — на этой странице будут только слова настоящих клиентов.</p>
+  </section>
+
+  <section class="s">
+    <h2><span class="num">03</span> Проверить резюме можно сразу</h2>
+    <p>Конструктор и проверка «Соответствие вакансии» работают бесплатно: балл, слабые места первого экрана и живой замер вашего рынка на hh — до любого платежа.</p>
+    <p style="margin-top:14px"><a class="btn btn-primary" href="../proverit-rezyume/">Проверить резюме</a></p>
+  </section>
+</div>
+
+<footer class="sf">
+  <div class="sf-in">
+    <div class="sf-brand">
+      <a class="sf-mark" href="../">до <em>оффера</em>.</a>
+      <p>Бесплатный конструктор и проверка резюме. Автор — <a href="../ob-avtore/">Роман Шкляев</a>.</p>
+    </div>
+    <nav class="sf-nav" aria-label="Страницы сайта">
+      <ul>
+        <li><a href="../">Конструктор резюме</a></li>
+        <li><a href="../proverit-rezyume/">Проверить резюме</a></li>
+        <li><a href="../gayd/">PDF-гайд</a></li>
+        <li><a href="../ob-avtore/">Об авторе</a></li>
+        <li><a href="./" aria-current="page">Отзывы</a></li>
+        <li><a href="../privacy.html">Политика конфиденциальности</a></li>
+      </ul>
+    </nav>
+    <p class="sf-note">© 2026 до оффера. Связь — <a href="https://vk.com/dooffera" target="_blank" rel="noopener noreferrer">сообщество во ВКонтакте</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
