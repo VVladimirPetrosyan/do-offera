@@ -229,7 +229,23 @@ async def debug_worker():
         dispatched = "error: " + str(e)[:160]
     p = await pool()
     row = await p.fetchrow("SELECT id, status, b24_lead_id FROM leads WHERE id = 1")
-    return {"broker": broker, "rescan": dispatched,
+    workers = None
+    try:
+        from tasks import celery_app
+        insp = celery_app.control.inspect(timeout=5)
+        workers = insp.ping()
+    except Exception as e:
+        workers = "error: " + str(e)[:120]
+    sync_result = ""
+    try:
+        from tasks import sync_lead
+        res = sync_lead.apply(args=[1])
+        sync_result = str(res.result)[:160]
+    except Exception as e:
+        sync_result = "error: " + str(e)[:160]
+    row = await p.fetchrow("SELECT id, status, b24_lead_id FROM leads WHERE id = 1")
+    return {"broker": broker, "rescan": dispatched, "workers": workers,
+            "sync_inline": sync_result,
             "lead": dict(row) if row else None}
 
 
