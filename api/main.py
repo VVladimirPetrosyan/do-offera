@@ -201,67 +201,6 @@ async def get_lead(lead_id: int, request: Request):
     }
 
 
-@app.get("/debug/worker")
-async def debug_worker():
-    """TEMP diagnostic (remove after lead-conveyor bring-up): broker ping + rescan + lead 1 status."""
-    import hashlib
-    import redis as redis_py
-    from tasks import rescan_pending
-    url = os.environ.get("REDIS_URL", "")
-    broker = {"set": bool(url), "len": len(url),
-              "scheme": url.split("://")[0] if "://" in url else "",
-              "has_query": "?" in url}
-    if "@" in url:
-        pwd = url.split("@")[0].split("default:")[-1]
-        broker["pwd_sha8"] = hashlib.sha256(pwd.encode()).hexdigest()[:8]
-        broker["pwd_len"] = len(pwd)
-    if url:
-        try:
-            r = redis_py.from_url(url, socket_timeout=10)
-            broker["ping"] = r.ping()
-        except Exception as e:
-            broker["error"] = str(e)[:160]
-    dispatched = ""
-    try:
-        rescan_pending.delay()
-        dispatched = "queued"
-    except Exception as e:
-        dispatched = "error: " + str(e)[:160]
-    p = await pool()
-    row = await p.fetchrow("SELECT id, status, b24_lead_id FROM leads WHERE id = 1")
-    workers = None
-    try:
-        from tasks import celery_app
-        insp = celery_app.control.inspect(timeout=5)
-        workers = insp.ping()
-    except Exception as e:
-        workers = "error: " + str(e)[:120]
-    sync_result = ""
-    try:
-        import threading
-
-        out = {}
-
-        def _run_sync():
-            try:
-                from tasks import sync_lead
-                res = sync_lead.apply(args=[1])
-                out["res"] = str(res.result)[:300]
-            except Exception as e:
-                out["res"] = "error: " + str(e)[:300]
-
-        t = threading.Thread(target=_run_sync)
-        t.start()
-        t.join(60)
-        sync_result = out.get("res", "thread timeout 60s")
-    except Exception as e:
-        sync_result = "error: " + str(e)[:160]
-    row = await p.fetchrow("SELECT id, status, b24_lead_id FROM leads WHERE id = 1")
-    return {"broker": broker, "rescan": dispatched, "workers": workers,
-            "sync_inline": sync_result,
-            "lead": dict(row) if row else None}
-
-
 @app.post("/b24/event")
 async def b24_event(request: Request):
     """Bitrix24 outbound webhook receiver: lead stage changes land in lead_events."""
