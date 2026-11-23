@@ -1,0 +1,21 @@
+# Local development helper (optional). Production runs on Render from the
+# same image. Secrets live in a local .env (gitignored) — never in the repo.
+services:
+  web:
+    build: .
+    ports: ["8080:8080"]
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
+  worker:
+    build: .
+    command: celery -A tasks worker --loglevel=info --concurrency=1
+    env_file: .env
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    depends_on:
+      - redis
+  redis:
+    image: redis:7-alpine

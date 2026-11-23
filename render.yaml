@@ -1,15 +1,25 @@
-# Render Blueprint for the cloud draft API (free plan).
-# Deploy: Render dashboard → New → Blueprint → point at this repo.
-# DATABASE_URL is set manually in the dashboard (Neon connection string) —
-# sync: false keeps it out of git.
+# Render Blueprint for the do-offera API (free plan, Docker image:
+# web + celery worker in one container). Deploy: Render dashboard →
+# Blueprint → point at this repo. All secrets are set manually in the
+# dashboard — sync: false keeps them out of git.
 services:
   - type: web
     name: dooffera-cloud-draft
-    runtime: python
+    runtime: docker
     plan: free
     rootDir: api
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
     envVars:
       - key: DATABASE_URL
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: B24_WEBHOOK_URL
+        sync: false
+      - key: B24_EVENT_SECRET
+        sync: false
+      - key: TG_BOT_TOKEN
+        sync: false
+      - key: TG_CHAT_ID
         sync: false
