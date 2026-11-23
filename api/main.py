@@ -204,10 +204,17 @@ async def get_lead(lead_id: int, request: Request):
 @app.get("/debug/worker")
 async def debug_worker():
     """TEMP diagnostic (remove after lead-conveyor bring-up): broker ping + rescan + lead 1 status."""
+    import hashlib
     import redis as redis_py
     from tasks import rescan_pending
     url = os.environ.get("REDIS_URL", "")
-    broker = {"set": bool(url)}
+    broker = {"set": bool(url), "len": len(url),
+              "scheme": url.split("://")[0] if "://" in url else "",
+              "has_query": "?" in url}
+    if "@" in url:
+        pwd = url.split("@")[0].split("default:")[-1]
+        broker["pwd_sha8"] = hashlib.sha256(pwd.encode()).hexdigest()[:8]
+        broker["pwd_len"] = len(pwd)
     if url:
         try:
             r = redis_py.from_url(url, socket_timeout=10)
