@@ -238,9 +238,22 @@ async def debug_worker():
         workers = "error: " + str(e)[:120]
     sync_result = ""
     try:
-        from tasks import sync_lead
-        res = sync_lead.apply(args=[1])
-        sync_result = str(res.result)[:160]
+        import threading
+
+        out = {}
+
+        def _run_sync():
+            try:
+                from tasks import sync_lead
+                res = sync_lead.apply(args=[1])
+                out["res"] = str(res.result)[:300]
+            except Exception as e:
+                out["res"] = "error: " + str(e)[:300]
+
+        t = threading.Thread(target=_run_sync)
+        t.start()
+        t.join(60)
+        sync_result = out.get("res", "thread timeout 60s")
     except Exception as e:
         sync_result = "error: " + str(e)[:160]
     row = await p.fetchrow("SELECT id, status, b24_lead_id FROM leads WHERE id = 1")
