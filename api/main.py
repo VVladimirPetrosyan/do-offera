@@ -201,6 +201,31 @@ async def get_lead(lead_id: int, request: Request):
     }
 
 
+@app.get("/debug/worker")
+async def debug_worker():
+    """TEMP diagnostic (remove after lead-conveyor bring-up): broker ping + rescan + lead 1 status."""
+    import redis as redis_py
+    from tasks import rescan_pending
+    url = os.environ.get("REDIS_URL", "")
+    broker = {"set": bool(url)}
+    if url:
+        try:
+            r = redis_py.from_url(url, socket_timeout=10)
+            broker["ping"] = r.ping()
+        except Exception as e:
+            broker["error"] = str(e)[:160]
+    dispatched = ""
+    try:
+        rescan_pending.delay()
+        dispatched = "queued"
+    except Exception as e:
+        dispatched = "error: " + str(e)[:160]
+    p = await pool()
+    row = await p.fetchrow("SELECT id, status, b24_lead_id FROM leads WHERE id = 1")
+    return {"broker": broker, "rescan": dispatched,
+            "lead": dict(row) if row else None}
+
+
 @app.post("/b24/event")
 async def b24_event(request: Request):
     """Bitrix24 outbound webhook receiver: lead stage changes land in lead_events."""
