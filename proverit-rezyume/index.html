@@ -264,6 +264,29 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .cen-card p:not(.cen-price){font-size:14.5px;color:var(--ink-soft);line-height:1.5}
 @media (max-width:900px){ .ceny-grid{grid-template-columns:1fr} }
 
+/* ---------- Заявка на разбор: форма ведёт в конвейер (Б24 + Telegram) ---------- */
+.zayav{background-color:var(--paper);background-image:var(--paper-noise);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:22px 24px;margin-top:20px;max-width:640px}
+.zayav-sub{font-size:14.5px;color:var(--ink-soft);margin-top:6px}
+.zayav-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:700px){ .zayav-row{grid-template-columns:1fr} }
+.zayav label{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-top:14px}
+.zayav input[type=text],.zayav textarea{
+  display:block;width:100%;margin-top:6px;padding:10px 12px;
+  border:1px solid var(--line);border-radius:8px;background:var(--paper-soft);
+  font-size:14.5px;color:var(--ink);
+}
+.zayav input[type=text]:focus,.zayav textarea:focus{border-color:var(--pen);outline:none;background:var(--paper)}
+.zayav textarea{resize:vertical;min-height:72px}
+.zayav-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.zayav-consent{display:flex;gap:9px;align-items:flex-start;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:16px}
+.zayav-consent input{margin-top:2px}
+.zayav-consent a{color:var(--pen)}
+.zayav-status{margin-top:14px;font-size:14px;min-height:1.2em}
+.zayav-status.ok{color:var(--ink);font-weight:600}
+.zayav-status.err{color:#8B3A2E}
+.zayav .btn{margin-top:12px}
+.zayav .btn[disabled]{opacity:.55;cursor:default;transform:none;box-shadow:none}
+
 /* ---------- Подвал и cookie: общий тёмный орех (css/base.css) ---------- */
 .sf-in{max-width:1080px}
 @media (max-width:1023px){
@@ -528,6 +551,33 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
     </div>
   </section>
 
+  <section class="block" aria-labelledby="h-zayavka">
+    <h2 class="h2" id="h-zayavka">Оставьте заявку — отвечу лично</h2>
+    <div class="zayav">
+      <p class="zayav-sub">Имя и контакт — всё, что нужно. Отвечаю в течение суток: уточню задачу и скажу, что именно поправить в вашем резюме.</p>
+      <form id="leadForm" novalidate>
+        <input type="text" id="ldWebsite" name="website" autocomplete="off" tabindex="-1" class="zayav-hp" aria-hidden="true">
+        <div class="zayav-row">
+          <label>Имя
+            <input type="text" id="ldName" maxlength="120" autocomplete="name">
+          </label>
+          <label>Контакт — телефон, Telegram или почта
+            <input type="text" id="ldContact" maxlength="120" autocomplete="off">
+          </label>
+        </div>
+        <label>Что проверить — должность или ссылка на вакансию (не обязательно)
+          <textarea id="ldMsg" maxlength="1000" rows="3"></textarea>
+        </label>
+        <label class="zayav-consent">
+          <input type="checkbox" id="ldConsent">
+          <span>Согласен с <a href="../privacy.html" target="_blank" rel="noopener">обработкой персональных данных</a></span>
+        </label>
+        <p class="zayav-status" id="ldStatus" role="status" aria-live="polite"></p>
+        <button class="btn btn-primary" type="submit" id="ldSend">Отправить заявку</button>
+      </form>
+    </div>
+  </section>
+
   <section class="block" aria-labelledby="h-faq">
     <h2 class="h2" id="h-faq">Вопросы</h2>
     <div class="faq">
@@ -708,6 +758,62 @@ body{font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
     $("#ckInfo").hidden = false;
     if(window.ym) ym(110415141, "reachGoal", "fill_example");
     run();
+  });
+})();
+</script>
+<script>
+"use strict";
+/* Заявка на разбор: POST в /lead облачного API. Уходят только три поля заявки и
+   пометка согласия; honeypot «website» ловит роботов. Ответ сервера — номер заявки. */
+(function(){
+  const $ = s => document.querySelector(s);
+  const LEAD_URL = "https://dooffera-cloud-draft.onrender.com/lead";
+  const form = $("#leadForm"), status = $("#ldStatus"), send = $("#ldSend");
+
+  function setStatus(text, cls){
+    status.textContent = text;
+    status.className = "zayav-status" + (cls ? " " + cls : "");
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const name = $("#ldName").value.trim();
+    const contact = $("#ldContact").value.trim();
+    if(!name){ setStatus("Как к вам обращаться? Впишите имя.", "err"); $("#ldName").focus(); return; }
+    if(!contact){ setStatus("Оставьте телефон, Telegram или почту — иначе ответить будет некуда.", "err"); $("#ldContact").focus(); return; }
+    if(!$("#ldConsent").checked){ setStatus("Без согласия на обработку данных отправить заявку не могу.", "err"); return; }
+    send.disabled = true;
+    setStatus("Отправляю…");
+    try{
+      const res = await fetch(LEAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          contact,
+          message: $("#ldMsg").value.trim(),
+          consent: true,
+          website: $("#ldWebsite").value,
+          source: "proverit-rezyume",
+        }),
+      });
+      if(!res.ok){
+        const map = {
+          429: "Слишком много отправок подряд — попробуйте через минуту.",
+          400: "Сервер не принял заявку: проверьте поля и согласие.",
+          503: "CRM временно не отвечает — попробуйте через пару минут или напишите сразу в Telegram @zzzqb.",
+        };
+        throw new Error(map[res.status] || "Сервер не ответил: попробуйте ещё раз или напишите в Telegram @zzzqb.");
+      }
+      const data = await res.json();
+      setStatus(`Заявка №${data.id} принята — отвечу в течение суток.`, "ok");
+      form.reset();
+      if(window.ym) ym(110415141, "reachGoal", "lead_sent");
+    }catch(err){
+      setStatus(err.message || "Не отправилось: попробуйте ещё раз или напишите в Telegram @zzzqb.", "err");
+    }finally{
+      send.disabled = false;
+    }
   });
 })();
 </script>
