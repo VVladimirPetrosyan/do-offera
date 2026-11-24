@@ -11,6 +11,7 @@ import re
 import time
 
 import asyncpg
+import requests
 from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -140,8 +141,10 @@ async def get_draft(device_code: str, request: Request):
 
 @app.post("/lead")
 async def create_lead(request: Request):
-    """Public lead form endpoint. Validates and stores; the Celery worker
-    does the Bitrix24 + Telegram fan-out (the lead survives any CRM outage)."""
+    """Public lead form endpoint (RF-localization variant): validated and passed
+    straight to Bitrix24 CRM (bitrix24.ru cloud, data stored in Russia). Personal
+    data does not touch the foreign DB or queue — drafts never contain it anyway.
+    If the CRM is unreachable the client gets an honest 503 and can retry."""
     if rate_limited(client_ip(request), limit=5):
         raise HTTPException(status_code=429, detail="too many requests")
     body = await request.body()
@@ -165,21 +168,37 @@ async def create_lead(request: Request):
         raise HTTPException(status_code=400, detail="message too long")
     if data.get("consent") is not True:
         raise HTTPException(status_code=400, detail="consent required")
-    p = await pool()
-    row = await p.fetchrow(
-        "INSERT INTO leads (name, contact, message, source, consent) "
-        "VALUES ($1, $2, $3, $4, TRUE) RETURNING id",
-        name, contact, message, str(data.get("source") or "site")[:40],
-    )
-    lead_id = row["id"]
+    webhook = os.environ.get("B24_WEBHOOK_URL", "")
+    if not webhook:
+        raise HTTPException(status_code=503, detail="crm temporarily unavailable")
     try:
-        from tasks import sync_lead  # lazy: the broker is only needed here
-
-        sync_lead.delay(lead_id)
-    except Exception:
-        # broker hiccup: the lead stays 'new', the worker rescans on start
+        resp = requests.post(
+            webhook.rstrip("/") + "/crm.lead.add",
+            json={"fields": {
+                "NAME": name,
+                "COMMENTS": f"{contact}\n{message}".strip(),
+                "SOURCE_DESCRIPTION": "do-offera.ru",
+                "OPENED": "Y",
+            }},
+            timeout=20,
+        )
+        resp.raise_for_status()
+        b24_id = int(resp.json()["result"])
+    except (requests.RequestException, ValueError, KeyError):
+        raise HTTPException(status_code=503, detail="crm temporarily unavailable")
+    # best-effort operator ping without personal data: details live in the CRM
+    try:
+        token = os.environ.get("TG_BOT_TOKEN", "")
+        chat = os.environ.get("TG_CHAT_ID", "")
+        if token and chat:
+            requests.post(
+                f"https://api.telegram.org/bot{token}/sendMessage",
+                json={"chat_id": chat, "text": f"Новая заявка с сайта — лид №{b24_id} в CRM Б24."},
+                timeout=10,
+            )
+    except requests.RequestException:
         pass
-    return {"ok": True, "id": lead_id}
+    return {"ok": True, "id": b24_id}
 
 
 @app.get("/lead/{lead_id}")
